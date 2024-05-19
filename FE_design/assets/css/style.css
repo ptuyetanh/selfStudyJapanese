@@ -1,0 +1,217 @@
+* {
+    padding:0;
+    margin: 0;
+    font-family: "Itim"
+}
+/* end logIn */
+form.form_logIn button.btn.btn-primary.btn_logIn {
+    font-size: 22px;
+    padding: 6px 25px;
+    border-radius: 34px;
+    background-color: #FB003C;
+    border: none;
+    margin-top: 16px;
+}
+
+form.form_logIn i.fa-solid.fa-eye-slash {
+    position: absolute;
+    top: 18px;
+    right: 21px;
+}
+
+form.form_logIn i.fa-solid.fa-eye {
+    position: absolute;
+    top: 18px;
+    right: 23px;
+}
+
+form.form_logIn input.form-control {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 30px;
+}
+
+form.form_logIn h3 {
+    font-size: 43px;
+    margin-bottom: 32px;
+    color: #FB003C;
+}
+
+form.form_logIn {
+    margin-top: 200px;
+    display: ruby-text;
+}
+
+/* end sign_up */
+i.fa-solid.fa-eye.hidden_eye {
+    opacity: 0;
+    visibility: hidden;
+}
+i.fa-solid.fa-eye-slash.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+form.form_sign-up i.fa-solid.fa-eye-slash {
+    position: absolute;
+    top: 17px;
+    right: 18px;
+    cursor: pointer;
+}
+form.form_sign-up i.fa-solid.fa-eye {
+    position: absolute;
+    top: 16px;
+    right: 19px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mb-4.pass {
+    position: relative;
+}
+
+form.form_sign-up button.btn.btn-primary.btn_sign_up {
+    font-size: 22px;
+    padding: 7px 46px;
+    border-radius: 35px;
+    background-color: #FB003C;
+    border: none;
+    margin-top: 23px;
+}
+
+small#helpId {
+    color: red;
+}
+
+form.form_sign-up input.form-control {
+    padding: 11px 20px;
+    border-radius: 32px;
+    border: none;
+}
+
+form.form_sign-up h3 {
+    font-size: 40px;
+    color: #FB003C;
+    margin-bottom: 22px;
+}
+
+form.form_sign-up {
+    display: ruby-text;
+    margin-top: 156px;
+}
+
+/* end index  */
+
+.vocabulary button.btn.btn-primary,
+.grammar button.btn.btn-primary
+{
+    margin-top: 46px;
+    font-size: 29px;
+    border-radius: 36px;
+    padding: 6px 20px;
+    background-color: #FB003C;
+    border: none;
+}
+
+.vocabulary h3,
+.grammar h3
+{
+    font-size: 45px;
+    text-align: center;
+    color: #FB003C;
+}
+
+.grammar {
+    margin-top: 70px;
+}
+
+.vocabulary {
+    margin-top: 182px;
+}
+
+.content {
+    background-color: #FFF1F1;
+    text-align: center;
+    margin: 0px 23rem;
+    overflow-y: hidden;
+}
+
+html,body,main,.content {
+    height:100%;
+}
+
+/* end menu */
+
+img.img-fluid.rounded-top.icon_logo {
+    margin-left: 14px;
+}
+
+img.img-fluid.rounded-top.icon_gt {
+    margin-top: -10px;
+}
+
+img.img-fluid.rounded-top.icon_bcc {
+    margin-top: 4px;
+}
+
+img.img-fluid.rounded-top.icon_ot {
+    margin-top: 9px;
+}
+
+img.img-fluid.rounded-top.icon-np {
+    margin-top: 7px;
+}
+
+img.img-fluid.rounded-top.icon_tv {
+    margin-top: 8px;
+}
+
+a.btn.btn-primary.sign_in
+{
+    padding: 13px 23px;
+    background-color: #F32456;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-top-right-radius:30px;
+    border-bottom-right-radius:30px;
+    border-left:1px solid #ffffffbd
+}
+
+a.btn.btn-primary.sign_up
+{
+    padding: 13px 20px;
+    background-color: #F32456;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-top-left-radius:30px;
+    border-bottom-left-radius:30px
+}
+
+.btn-group.two_sign {
+    margin-left: 75px;
+}
+
+li.nav-item.active {
+    background-color: #FFF1F1;
+}
+
+li.nav-item {
+    padding: 0px 30px;
+}
+
+ul.navbar-nav {
+    margin-left: 186px;
+}
+
+a.navbar-brands {
+    color: white;
+    font-weight: 700;
+    font-size: 34px;
+    text-decoration: none;
+}
+
+nav.navbar.navbar-expand-md {
+    background-color: #FAB1B1;
+    padding: 0;
+}

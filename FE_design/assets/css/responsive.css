@@ -1,0 +1,161 @@
+@media (max-width: 576px) {
+    * {}
+
+    /* end login  */
+    form.form_logIn {
+        margin-top: 135px;
+    }
+
+    /* end sign-up */
+    .mb-4 {
+        margin-bottom: 13px !important;
+    }
+
+    form.form_sign-up h3 {
+        font-size: 38px;
+    }
+
+    form.form_sign-up {
+        margin-top: 101px;
+    }
+
+    /* end index  */
+    .vocabulary button.btn.btn-primary,
+    .grammar button.btn.btn-primary {
+        font-size: 23px;
+        padding: 6px 21px;
+        margin-top: 28px;
+    }
+
+    .vocabulary h3,
+    .grammar h3 {
+        font-size: 40px;
+    }
+
+    li.nav-item.active {
+        border-radius: 0 50px;
+    }
+
+    .vocabulary {
+        margin-top: 125px;
+    }
+
+    .content {
+        margin: 0;
+    }
+
+    .btn-group.two_sign {
+        margin: 20px 133px;
+    }
+
+    a.navbar-brands {
+        margin-left: -30px;
+    }
+
+    img.img-fluid.rounded-top.icon_logo {
+        margin-left: -5px;
+    }
+
+    li.nav-item {
+        padding: 8px 9px;
+    }
+
+    ul.navbar-nav {
+        position: fixed;
+        bottom: 1px;
+        left: 0;
+        right: 0;
+        display: -webkit-box;
+        margin: 0px;
+        background-color: white;
+        /* border: 1px solid #dc354570; */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+    * {}
+    /* end logIn  */
+    form.form_logIn {
+        margin-top: 136px;
+    }
+    /* end sign-up */
+    form.form_sign-up h3 {
+        font-size: 29px;
+    }
+
+    form.form_sign-up {
+        margin-top: 100px;
+    }
+
+    /* end index  */
+    .grammar {
+        margin-top: 32px;
+    }
+
+    .vocabulary button.btn.btn-primary,
+    .grammar button.btn.btn-primary {
+        margin-top: 12px;
+        font-size: 24px;
+    }
+
+    .vocabulary h3,
+    .grammar h3 {
+        font-size: 32px;
+    }
+
+    .vocabulary {
+        margin-top: 98px;
+    }
+
+    img.img-fluid.rounded-top.icon_gt {
+        margin-top: -5px;
+    }
+
+    img.img-fluid.rounded-top.icon_bcc {
+        margin-top: 4px;
+    }
+
+    img.img-fluid.rounded-top.icon-np {
+        margin-top: 6px;
+    }
+
+    img.img-fluid.rounded-top.icon_ot {
+        margin-top: 10px;
+    }
+
+    .content {
+        margin: 0 10rem;
+    }
+
+    a.btn.btn-primary.sign_in {
+        font-size: 14px;
+        padding: 0px 19px;
+    }
+
+    .btn-group.two_sign {
+        margin-left: 9px;
+    }
+
+    a.btn.btn-primary.sign_up {
+        font-size: 14px;
+        padding: 0px 19px;
+    }
+
+
+    li.nav-item {
+        padding: 0px 8px;
+    }
+
+    ul.navbar-nav {
+        margin-left: 51px;
+    }
+
+    a.navbar-brands {
+        font-size: 26px;
+    }
+
+    img.img-fluid.rounded-top.icon_logo {
+        margin-left: -8px;
+        height: 54px;
+    }
+}
