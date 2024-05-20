@@ -1,9 +1,9 @@
-@media (max-width: 576px) {
+@media (max-width: 767px) {
     * {}
 
     /* end login  */
     form.form_logIn {
-        margin-top: 135px;
+        margin-top: 125px;
     }
 
     /* end sign-up */
@@ -16,10 +16,13 @@
     }
 
     form.form_sign-up {
-        margin-top: 101px;
+        margin-top: 87px;
     }
 
     /* end index  */
+    img.img-fluid.rounded-top.icon_gt {
+        margin-top: -8px;
+    }
     .vocabulary button.btn.btn-primary,
     .grammar button.btn.btn-primary {
         font-size: 23px;
@@ -41,15 +44,15 @@
     }
 
     .content {
-        margin: 0;
+        margin: -125px 0 0 0px;
     }
 
     .btn-group.two_sign {
-        margin: 20px 133px;
+        margin: 16px 24px;
     }
 
     a.navbar-brands {
-        margin-left: -30px;
+        margin-left: -3px;
     }
 
     img.img-fluid.rounded-top.icon_logo {
@@ -57,7 +60,7 @@
     }
 
     li.nav-item {
-        padding: 8px 9px;
+        padding: 0px 13px;
     }
 
     ul.navbar-nav {
@@ -65,26 +68,27 @@
         bottom: 1px;
         left: 0;
         right: 0;
-        display: -webkit-box;
         margin: 0px;
         background-color: white;
-        /* border: 1px solid #dc354570; */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1440px) {
+@media (min-width: 768px) and (max-width: 1200px) {
     * {}
     /* end logIn  */
     form.form_logIn {
-        margin-top: 136px;
+        margin-top: 0px;
     }
     /* end sign-up */
     form.form_sign-up h3 {
-        font-size: 29px;
+        font-size: 28px;
     }
 
     form.form_sign-up {
-        margin-top: 100px;
+        margin-top: 0px;
     }
 
     /* end index  */
@@ -124,34 +128,38 @@
     }
 
     .content {
-        margin: 0 10rem;
+        margin: 0px 11.4rem;
     }
 
     a.btn.btn-primary.sign_in {
-        font-size: 14px;
-        padding: 0px 19px;
+        font-size: 20px;
+        padding: 14px 4px;
     }
 
     .btn-group.two_sign {
-        margin-left: 9px;
+    position: fixed;
+    top: 115px;
+    right: 1px;
     }
 
     a.btn.btn-primary.sign_up {
-        font-size: 14px;
-        padding: 0px 19px;
+        font-size: 20px;
+        padding: 12px 6px;
     }
 
 
     li.nav-item {
-        padding: 0px 8px;
+        padding: 0px 12px;
     }
 
     ul.navbar-nav {
-        margin-left: 51px;
+    margin-left: -45px;
+    display: flex;
+    flex-direction: row;
     }
 
     a.navbar-brands {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     img.img-fluid.rounded-top.icon_logo {

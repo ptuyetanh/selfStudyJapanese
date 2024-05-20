@@ -3,6 +3,40 @@
     margin: 0;
     font-family: "Itim"
 }
+
+.see_vocabulary i.fa-solid.fa-lock {
+    font-size: 19px;
+    margin-left: 107px;
+}
+
+.see_vocabulary p.study_free {
+    margin: 0;
+}
+
+.see_vocabulary h2 {
+    font-size: 73px;
+    font-weight: 800;
+}
+
+.see_vocabulary h3 {
+    font-size: 30px;
+    margin-top: 9px;
+    font-weight: 600;
+}
+.see_vocabulary a.btn.btn-primary:hover{
+    transform: scale(1.1);
+}
+.see_vocabulary a.btn.btn-primary {
+    background-color: #F32456;
+    border: none;
+    padding: 0 25px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.see_vocabulary {
+    padding-top: 141px;
+}
 /* end logIn */
 form.form_logIn button.btn.btn-primary.btn_logIn {
     font-size: 22px;
@@ -38,8 +72,11 @@ form.form_logIn h3 {
 }
 
 form.form_logIn {
-    margin-top: 200px;
-    display: ruby-text;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 200px;
 }
 
 /* end sign_up */
@@ -92,11 +129,14 @@ form.form_sign-up h3 {
     font-size: 40px;
     color: #FB003C;
     margin-bottom: 22px;
+    margin-top: 40px;
 }
 
 form.form_sign-up {
-    display: ruby-text;
-    margin-top: 156px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 107px;
 }
 
 /* end index  */
@@ -125,14 +165,14 @@ form.form_sign-up {
 }
 
 .vocabulary {
-    margin-top: 182px;
+    padding-top: 166px;
 }
 
 .content {
     background-color: #FFF1F1;
     text-align: center;
-    margin: 0px 23rem;
-    overflow-y: hidden;
+    margin: 0px 25.1rem 0 20.9rem;
+    /* overflow-y: hidden; */
 }
 
 html,body,main,.content {
@@ -189,7 +229,7 @@ a.btn.btn-primary.sign_up
 }
 
 .btn-group.two_sign {
-    margin-left: 75px;
+    margin-left: 65px;
 }
 
 li.nav-item.active {
@@ -201,7 +241,7 @@ li.nav-item {
 }
 
 ul.navbar-nav {
-    margin-left: 186px;
+    margin-left: 152px;
 }
 
 a.navbar-brands {
@@ -211,7 +251,7 @@ a.navbar-brands {
     text-decoration: none;
 }
 
-nav.navbar.navbar-expand-md {
+nav.navbar.navbar-expand-xl {
     background-color: #FAB1B1;
     padding: 0;
 }
