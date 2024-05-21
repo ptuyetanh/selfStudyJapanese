@@ -1,9 +1,55 @@
 @media (max-width: 767px) {
     * {}
 
+    /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
+    .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
+    .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
+    .see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top
+    {
+        width: 26px;
+    }
+
+    .see_vocab_lesson button.btn.btn-primary h3,
+    .see_grammar_lesson button.btn.btn-primary h3,
+    .see_communication_lesson button.btn.btn-primary h3
+    {
+        font-size: 17px;
+        right: 6px;
+    }
+
+    .see_vocab_lesson button.btn.btn-primary h2,
+    .see_grammar_lesson button.btn.btn-primary h2,
+    .see_communication_lesson button.btn.btn-primary h2
+    {
+        font-size: 19px;
+    }
+
+    .see_vocab_lesson,
+    .see_grammar_lesson,
+    .see_communication_lesson
+    {
+        padding-top: 239px;
+        background-color: #FFF1F1;
+    }
+
+    /* end see_vocabulary see_grammar*/
+    .see_vocabulary,
+    .see_grammar {
+        padding-top: 253px;
+        background-color: #FFF1F1;
+        padding-bottom: 44px;
+    }
+
+    /* end see_alphabet */
+    .see_alphabet {
+        padding-top: 242px;
+        background-color: #FFF1F1;
+        padding-bottom: 111px;
+    }
+
     /* end login  */
     form.form_logIn {
-        margin-top: 125px;
+        margin-top: 73px;
     }
 
     /* end sign-up */
@@ -12,17 +58,20 @@
     }
 
     form.form_sign-up h3 {
-        font-size: 38px;
+        font-size: 32px;
     }
 
     form.form_sign-up {
         margin-top: 87px;
+        padding-bottom: 100px;
+        background-color: #FFF1F1;
     }
 
     /* end index  */
     img.img-fluid.rounded-top.icon_gt {
         margin-top: -8px;
     }
+
     .vocabulary button.btn.btn-primary,
     .grammar button.btn.btn-primary {
         font-size: 23px;
@@ -33,6 +82,10 @@
     .vocabulary h3,
     .grammar h3 {
         font-size: 40px;
+    }
+
+    .grammar {
+        margin-top: 33px;
     }
 
     li.nav-item.active {
@@ -78,10 +131,41 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
+
+    /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
+    .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
+    .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
+    .see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top
+    {
+        width: 28px;
+    }
+
+    .see_vocab_lesson button.btn.btn-primary h2,
+    .see_grammar_lesson button.btn.btn-primary h2,
+    .see_communication_lesson button.btn.btn-primary h2
+    {
+        font-size: 19px;
+    }
+
+    .see_vocab_lesson button.btn.btn-primary h3,
+    .see_grammar_lesson button.btn.btn-primary h3,
+    .see_communication_lesson button.btn.btn-primary h3
+    {
+        font-size: 18px;
+        top: 13px;
+    }
+
+    /* end see_vocabulary see_grammar */
+    .see_vocabulary,
+    .see_grammar {
+        padding-top: 164px;
+    }
+
     /* end logIn  */
     form.form_logIn {
         margin-top: 0px;
     }
+
     /* end sign-up */
     form.form_sign-up h3 {
         font-size: 28px;
@@ -137,9 +221,9 @@
     }
 
     .btn-group.two_sign {
-    position: fixed;
-    top: 115px;
-    right: 1px;
+        position: fixed;
+        top: 115px;
+        right: 1px;
     }
 
     a.btn.btn-primary.sign_up {
@@ -153,9 +237,9 @@
     }
 
     ul.navbar-nav {
-    margin-left: -45px;
-    display: flex;
-    flex-direction: row;
+        margin-left: -45px;
+        display: flex;
+        flex-direction: row;
     }
 
     a.navbar-brands {

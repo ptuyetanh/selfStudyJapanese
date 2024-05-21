@@ -1,42 +1,135 @@
 * {
-    padding:0;
+    padding: 0;
     margin: 0;
     font-family: "Itim"
 }
 
-.see_vocabulary i.fa-solid.fa-lock {
+/* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
+
+.see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
+.see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
+.see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top
+{
+    width: 34px;
+    position: absolute;
+    right: 20px;
+}
+
+.see_vocab_lesson button.btn.btn-primary h3,
+.see_grammar_lesson button.btn.btn-primary h3,
+.see_communication_lesson button.btn.btn-primary h3
+{
+    position: absolute;
+    right: 23px;
+    margin: 0;
+    font-size: 23px;
+    top: 14px;
+}
+
+.see_vocab_lesson button.btn.btn-primary h2,
+.see_grammar_lesson button.btn.btn-primary h2,
+.see_communication_lesson button.btn.btn-primary h2
+{
+    font-weight: 900;
+    font-size: 27px;
+    margin: 4px 0 0 6px;
+}
+
+.see_vocab_lesson button.btn.btn-primary:hover,
+.see_grammar_lesson button.btn.btn-primary:hover,
+.see_communication_lesson button.btn.btn-primary:hover
+{
+    background-color: #f32456a8;
+}
+
+.see_vocab_lesson button.btn.btn-primary,
+.see_grammar_lesson button.btn.btn-primary,
+.see_communication_lesson button.btn.btn-primary
+{
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: #F32456;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transition: 0.3s;
+}
+
+.see_vocab_lesson .row,
+.see_grammar_lesson .row,
+.see_communication_lesson .row
+{
+    justify-content: center;
+}
+
+.see_vocab_lesson,
+.see_grammar_lesson,
+.see_communication_lesson
+{
+    padding-top: 128px;
+    padding-bottom: 50px;
+}
+
+/* end see_vocabulary see_grammar*/
+.see_vocabulary a.btn.btn-primary:hover,
+.see_grammar a.btn.btn-primary:hover {
+    transform: scale(1.2)
+}
+
+.see_vocabulary a.btn.btn-primary,
+.see_grammar a.btn.btn-primary {
+    font-size: 90px;
+    padding: 0px 17px;
+    border-radius: 23px;
+    margin-bottom: 44px;
+    background-color: #F32456;
+    border: none;
+    transition: 0.4s;
+}
+
+.see_vocabulary,
+.see_grammar {
+    padding-top: 136px;
+}
+
+/* end see_alphabet */
+.see_alphabet i.fa-solid.fa-lock {
     font-size: 19px;
     margin-left: 107px;
 }
 
-.see_vocabulary p.study_free {
+.see_alphabet p.study_free {
     margin: 0;
 }
 
-.see_vocabulary h2 {
+.see_alphabet h2 {
     font-size: 73px;
     font-weight: 800;
+    transition: 0.8s;
 }
 
-.see_vocabulary h3 {
+.see_alphabet h3 {
     font-size: 30px;
     margin-top: 9px;
     font-weight: 600;
 }
-.see_vocabulary a.btn.btn-primary:hover{
-    transform: scale(1.1);
+
+.see_alphabet a.btn.btn-primary:hover h2 {
+    transform: scale(1.5);
 }
-.see_vocabulary a.btn.btn-primary {
+
+.see_alphabet a.btn.btn-primary {
     background-color: #F32456;
     border: none;
     padding: 0 25px;
     border-radius: 30px;
-    transition: 0.3s;
 }
 
-.see_vocabulary {
+.see_alphabet {
     padding-top: 141px;
 }
+
 /* end logIn */
 form.form_logIn button.btn.btn-primary.btn_logIn {
     font-size: 22px;
@@ -63,6 +156,7 @@ form.form_logIn input.form-control {
     padding: 13px 20px;
     border: none;
     border-radius: 30px;
+    font-size: 22px;
 }
 
 form.form_logIn h3 {
@@ -84,16 +178,19 @@ i.fa-solid.fa-eye.hidden_eye {
     opacity: 0;
     visibility: hidden;
 }
+
 i.fa-solid.fa-eye-slash.hidden {
     opacity: 0;
     visibility: hidden;
 }
+
 form.form_sign-up i.fa-solid.fa-eye-slash {
     position: absolute;
     top: 17px;
     right: 18px;
     cursor: pointer;
 }
+
 form.form_sign-up i.fa-solid.fa-eye {
     position: absolute;
     top: 16px;
@@ -123,13 +220,14 @@ form.form_sign-up input.form-control {
     padding: 11px 20px;
     border-radius: 32px;
     border: none;
+    font-size: 22px;
 }
 
 form.form_sign-up h3 {
-    font-size: 40px;
+    font-size: 43px;
     color: #FB003C;
     margin-bottom: 22px;
-    margin-top: 40px;
+    margin-top: 21px;
 }
 
 form.form_sign-up {
@@ -137,13 +235,14 @@ form.form_sign-up {
     flex-direction: row;
     justify-content: center;
     padding-top: 107px;
+    background-color: #FFF1F1;
+    padding-bottom: 20px;
 }
 
 /* end index  */
 
 .vocabulary button.btn.btn-primary,
-.grammar button.btn.btn-primary
-{
+.grammar button.btn.btn-primary {
     margin-top: 46px;
     font-size: 29px;
     border-radius: 36px;
@@ -153,8 +252,7 @@ form.form_sign-up {
 }
 
 .vocabulary h3,
-.grammar h3
-{
+.grammar h3 {
     font-size: 45px;
     text-align: center;
     color: #FB003C;
@@ -175,8 +273,11 @@ form.form_sign-up {
     /* overflow-y: hidden; */
 }
 
-html,body,main,.content {
-    height:100%;
+html,
+body,
+main,
+.content {
+    height: 100%;
 }
 
 /* end menu */
@@ -205,27 +306,25 @@ img.img-fluid.rounded-top.icon_tv {
     margin-top: 8px;
 }
 
-a.btn.btn-primary.sign_in
-{
+a.btn.btn-primary.sign_in {
     padding: 13px 23px;
     background-color: #F32456;
     border: none;
     font-size: 20px;
     font-weight: 600;
-    border-top-right-radius:30px;
-    border-bottom-right-radius:30px;
-    border-left:1px solid #ffffffbd
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-left: 1px solid #ffffffbd
 }
 
-a.btn.btn-primary.sign_up
-{
+a.btn.btn-primary.sign_up {
     padding: 13px 20px;
     background-color: #F32456;
     border: none;
     font-size: 20px;
     font-weight: 600;
-    border-top-left-radius:30px;
-    border-bottom-left-radius:30px
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px
 }
 
 .btn-group.two_sign {
@@ -241,14 +340,7 @@ li.nav-item {
 }
 
 ul.navbar-nav {
-    margin-left: 152px;
-}
-
-a.navbar-brands {
-    color: white;
-    font-weight: 700;
-    font-size: 34px;
-    text-decoration: none;
+    margin-left: 129px;
 }
 
 nav.navbar.navbar-expand-xl {
