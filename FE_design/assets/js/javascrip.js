@@ -4,22 +4,32 @@ document.addEventListener('DOMContentLoaded', function () {
     var log_in = document.querySelector('.sign_in')
     for (var i = 0; i < course.length; i++) {
         course[i].onclick = function () {
+            console.log('ddax click');
             for (var a = 0; a < course.length; a++) {
                 course[a].classList.remove('active');
             }
             this.classList.toggle('active');
         }
-        sign_up.onclick = function(){
-            // console.log("đã click");
-            for (let b = 0; b < course.length; b++) {
-                course[b].classList.remove('active');              
-            }
+    }
+    //show and hidden info
+    var infoUser = document.querySelector('.info_user');
+    var infoDetails = document.querySelector('.info_details');
+    console.log(infoDetails);
+    infoUser.onclick = function() {
+        // console.log("đã click");
+        infoDetails.classList.toggle('hidden_info');
+    }
+    //sign_up log_in
+    sign_up.onclick = function(){
+        // console.log("đã click");
+        for (let b = 0; b < course.length; b++) {
+            course[b].classList.remove('active');              
         }
-        log_in.onclick = function(){
-            // console.log("đã click");
-            for (let c = 0; c < course.length; c++) {
-                course[c].classList.remove('active');              
-            }
+    }
+    log_in.onclick = function(){
+        // console.log("đã click");
+        for (let c = 0; c < course.length; c++) {
+            course[c].classList.remove('active');              
         }
     }
     //pass eye and eye-slash

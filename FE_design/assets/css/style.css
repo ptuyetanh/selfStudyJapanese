@@ -4,6 +4,94 @@
     font-family: "Itim"
 }
 
+.info_details li.list-group-item1,
+.info_details li.list-group-item2
+{
+    padding: 12px 25px;
+    color: white;
+    font-size: 21px;
+    font-weight: 600;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+ul.list-group.list-group-numbered.info_details.hidden_info {
+    opacity: 0;
+    visibility: hidden;
+}
+
+ul.list-group.list-group-numbered.info_details::after{
+    content: "";
+    position:absolute;
+    top: -25px;
+    right: 10px;
+    height: 0px;
+    border: 11px solid transparent;
+    border-bottom-color: white;
+}
+
+ul.list-group.list-group-numbered.info_details {
+    position: absolute;
+    top: 109px;
+    right: 52px;
+    border-radius: inherit;
+    background-color: #FAB1B1;
+    transition: 0.4s;
+}
+
+.info_user i.fa-solid.fa-caret-down {
+    margin-left: 7px;
+    margin-top: 3px;
+}
+
+.info_user h5 {
+    font-weight: 500;
+    color: #F32456;
+    font-size: 17px;
+}
+
+.name_user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.info_user img.img-fluid.user_svg {
+    width: 39px;
+    padding: 7px;
+    border-radius: 23px;
+    margin-left: 58px;
+    margin-bottom: 4px;
+    background-color: #ffffffba;
+}
+
+.info_user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 14px;
+    position: relative;
+    cursor: pointer;
+}
+
+.sign_up_member h5 {
+    font-size: 17px;
+    color: #4A5699;
+}
+
+.sign_up_member img.img-fluid.rounded-top.member_svg {
+    width: 39px;
+    margin-left: 54px;
+    margin-bottom: 4px;
+}
+
+.sign_up_member {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-left: 25px;
+}
+
 /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
 
 .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
@@ -131,7 +219,7 @@
 }
 
 /* end logIn */
-form.form_logIn button.btn.btn-primary.btn_logIn {
+form.form_logIn .btn.btn-primary.btn_logIn {
     font-size: 22px;
     padding: 6px 25px;
     border-radius: 34px;
@@ -171,6 +259,7 @@ form.form_logIn {
     flex-direction: row;
     justify-content: center;
     padding-top: 200px;
+    background-color: #FFF1F1;
 }
 
 /* end sign_up */

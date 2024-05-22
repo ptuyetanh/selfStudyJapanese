@@ -26,7 +26,7 @@
 <body>
     <nav class="navbar navbar-expand-xl fixed-top justify-content-center">
         <div class="container-fluid">
-            <a class="logo" href="./index.html">
+            <a class="logo" href="#">
                 <img src="./assets/image/logo.svg" class="img-fluid rounded-top icon_logo" alt="" />
             </a>
             <ul class="navbar-nav">
@@ -43,13 +43,13 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="./index.html">
+                    <a class="nav-link" href="#">
                         <img src="./assets/image/icon_ôn tập.svg" class="img-fluid rounded-top icon_ot" alt="" />
 
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./seeAlphabet.html">
+                    <a class="nav-link" href="#">
                         <img src="./assets/image/icon_bảng_chữ_cái.svg" class="img-fluid rounded-top icon_bcc" alt="" />
 
                     </a>
@@ -66,53 +66,50 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <div class="btn-group two_sign">
-                    <a name="" id="" class="btn btn-primary sign_up" href="./signUp.html" role="button">Đăng ký</a>
-                    <a name="" id="" class="btn btn-primary sign_in" href="./logIn.html" role="button">Đăng nhập</a>
+                <div class="sign_up_member">
+                    <img
+                        src="./assets/image/member_svgrepo.com.svg"
+                        class="img-fluid rounded-top member_svg"
+                        alt=""
+                    />
+                    <h5>Đăng ký thành viên</h5>
                 </div>
+                <!-- end sign_up_member -->
+                <div class="info_user">
+                    <img
+                        src="./assets/image/user-icon-svgrepo-com.svg"
+                        class="img-fluid user_svg"
+                        alt=""
+                    />
+                    <div class="name_user">
+                        <h5>Phạm Tuyết Anh</h5>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </div>
+                <ul class="list-group list-group-numbered info_details hidden_info">
+                    <li class="list-group-item1">Thông tin cá nhân</li>
+                    <li class="list-group-item2">Đăng xuất</li>
+                </ul>
+                <!-- end info_user -->
             </div>
         </div>
     </nav>
     <!-- end menu -->
     <main>
         <div class="content">
-            <form class="form_logIn">
-                <div class="col-8">
-                    <h3>Đăng nhập vào Yuki</h3>
-                    <div class="mb-4">
-                        <input type="email" class="form-control" name="" id="" aria-describedby="helpId"
-                            placeholder="Email" />
-                        <small id="helpId" class="form-text"></small>
-                    </div>
-                    <div class="mb-4 pass">
-                        <input type="password" class="form-control" name="" id="input_pass" aria-describedby="helpId"
-                            placeholder="Mật khẩu" />
-                        <i class="fa-solid fa-eye"></i>
-                        <i class="fa-solid fa-eye-slash hidden"></i>
-                        <small id="helpId" class="form-text"></small>
-                    </div>
-                    <a
-                        name=""
-                        id=""
-                        class="btn btn-primary btn_logIn"
-                        href="./home.html"
-                        role="button"
-                        >Đăng nhập</a
-                    >
-                    
-                    <!-- <button type="reset" class="btn btn-primary btn_logIn" disabled>
-                       Đăng nhập
-                    </button> -->
-                    <div class="mt-4">
-                        <h5>Nếu bạn chưa có tài khoản thì hãy 
-                            <a href="./signUp.html">Đăng ký</a>
-                        </h5>
-                    </div>
-                </div>
-            </form>
-            <!-- end form  -->
+            <div class="vocabulary">
+                <h3>Hiện tại chưa có từ vựng để <br>ôn tập</h3>
+                <button type="button" class="btn btn-primary">
+                    Từ vựng
+                </button>
+            </div>
+            <div class="grammar">
+                <h3>Hiện tại chưa có ngữ pháp để <br> ôn tập</h3>
+                <button type="button" class="btn btn-primary">
+                    Ngữ pháp
+                </button>
+            </div>
         </div>
-        <!-- end content  -->
     </main>
     <!-- end Main -->
     <footer>
