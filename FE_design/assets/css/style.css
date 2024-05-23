@@ -33,7 +33,7 @@ ul.list-group.list-group-numbered.info_details::after{
 ul.list-group.list-group-numbered.info_details {
     position: absolute;
     top: 109px;
-    right: 52px;
+    right: 70px;
     border-radius: inherit;
     background-color: #FAB1B1;
     transition: 0.4s;
