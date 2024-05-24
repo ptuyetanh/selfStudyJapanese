@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var course = document.getElementsByClassName('nav-item');
     var sign_up = document.querySelector('.sign_up');
+    console.log(sign_up);
     var log_in = document.querySelector('.sign_in')
     //sign_up log_in
     sign_up.onclick = function(){

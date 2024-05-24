@@ -4,7 +4,7 @@ import MenuIndex from './MenuIndex';
 class Review extends Component {
     render() {
         return (
-            <div>
+            <div className='All'>
                 <MenuIndex />
                 <main>
                     <div className="content">

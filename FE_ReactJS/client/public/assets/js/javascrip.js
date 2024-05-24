@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var course = document.getElementsByClassName('nav-item');
+    console.log(course);
     for (var i = 0; i < course.length; i++) {
         course[i].onclick = function () {
             console.log('ddax click');

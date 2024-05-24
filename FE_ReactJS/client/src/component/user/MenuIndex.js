@@ -1,62 +1,63 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class MenuIndex extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-xl fixed-top justify-content-center">
                 <div className="container-fluid">
-                    <a className="logo" href="./index.html">
+                    <Link to='/' className="logo">
                         <img
                             src="./assets/image/logo.svg"
                             className="img-fluid rounded-top icon_logo"
                             alt=""
                         />
-                    </a>
+                    </Link>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="./">
+                            <Link to="/seeVocabulary" className="nav-link">
                                 <img
                                     src="./assets/image/icon_từ_vựng.svg"
                                     className="img-fluid rounded-top icon_tv"
                                     alt=""
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="./">
+                            <Link to='/seeGrammar' className="nav-link">
                                 <img
                                     src="./assets/image/icon_ngữ_pháp.svg"
                                     className="img-fluid rounded-top icon-np"
                                     alt=""
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="./index.html">
+                            <Link to='/' className="nav-link">
                                 <img
                                     src="./assets/image/icon_ôn tập.svg"
                                     className="img-fluid rounded-top icon_ot"
                                     alt=""
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="./">
+                            <Link to="/seeAlphabet" className="nav-link">
                                 <img
                                     src="./assets/image/icon_bảng_chữ_cái.svg"
                                     className="img-fluid rounded-top icon_bcc"
                                     alt=""
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="./">
+                            <Link to='/seeCommunication' className="nav-link">
                                 <img
                                     src="./assets/image/icon_giao_tiếp.svg"
                                     className="img-fluid rounded-top icon_gt"
                                     alt=""
                                 />
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <button
@@ -72,24 +73,22 @@ class MenuIndex extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <div className="btn-group two_sign">
-                            <a
+                            <Link to='/signup'
                                 name=""
                                 id=""
                                 className="btn btn-primary sign_up"
-                                href="./"
                                 role="button"
                             >
                                 Đăng ký
-                            </a>
-                            <a
+                            </Link>
+                            <Link to='/login'
                                 name=""
                                 id=""
                                 className="btn btn-primary sign_in"
-                                href="./"
                                 role="button"
                             >
                                 Đăng nhập
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
