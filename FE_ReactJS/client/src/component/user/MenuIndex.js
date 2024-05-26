@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class MenuIndex extends Component {
+
     render() {
         return (
             <nav className="navbar navbar-expand-xl fixed-top justify-content-center">
@@ -14,51 +15,51 @@ class MenuIndex extends Component {
                         />
                     </Link>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/seeVocabulary" className="nav-link">
+                        
+                            <NavLink to="/seeVocabulary" className="nav-link">
                                 <img
                                     src="./assets/image/icon_từ_vựng.svg"
                                     className="img-fluid rounded-top icon_tv"
                                     alt=""
                                 />
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/seeGrammar' className="nav-link">
+                            </NavLink>
+                        
+                        
+                            <NavLink to='/seeGrammar' className="nav-link">
                                 <img
                                     src="./assets/image/icon_ngữ_pháp.svg"
                                     className="img-fluid rounded-top icon-np"
                                     alt=""
                                 />
-                            </Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link to='/' className="nav-link">
+                            </NavLink>
+                        
+                        
+                            <NavLink to='/' className="nav-link">
                                 <img
                                     src="./assets/image/icon_ôn tập.svg"
                                     className="img-fluid rounded-top icon_ot"
                                     alt=""
                                 />
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/seeAlphabet" className="nav-link">
+                            </NavLink>
+                        
+                        
+                            <NavLink to="/seeAlphabet" className="nav-link">
                                 <img
                                     src="./assets/image/icon_bảng_chữ_cái.svg"
                                     className="img-fluid rounded-top icon_bcc"
                                     alt=""
                                 />
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/seeCommunication' className="nav-link">
+                            </NavLink>
+                        
+                        
+                            <NavLink to='/seeCommunication' className="nav-link">
                                 <img
                                     src="./assets/image/icon_giao_tiếp.svg"
                                     className="img-fluid rounded-top icon_gt"
                                     alt=""
                                 />
-                            </Link>
-                        </li>
+                            </NavLink>
+                        
                     </ul>
                     <button
                         className="navbar-toggler d-xl-none"
@@ -73,22 +74,22 @@ class MenuIndex extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <div className="btn-group two_sign">
-                            <Link to='/signup'
+                            <NavLink to='/signup'
                                 name=""
                                 id=""
                                 className="btn btn-primary sign_up"
                                 role="button"
                             >
                                 Đăng ký
-                            </Link>
-                            <Link to='/login'
+                            </NavLink>
+                            <NavLink to='/login'
                                 name=""
                                 id=""
                                 className="btn btn-primary sign_in"
                                 role="button"
                             >
                                 Đăng nhập
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
                 </div>

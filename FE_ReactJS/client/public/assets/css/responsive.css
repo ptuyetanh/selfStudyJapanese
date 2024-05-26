@@ -147,8 +147,12 @@
         margin-left: -3px;
     }
 
-    img.img-fluid.rounded-top.icon_logo {
-        margin-left: -5px;
+    img.img-fluid.rounded-top.icon_tv,
+    img.img-fluid.rounded-top.icon-np,
+    img.img-fluid.rounded-top.icon_ot,
+    img.img-fluid.rounded-top.icon_bcc
+    {
+        padding: 0 10px;
     }
 
     li.nav-item {
@@ -288,6 +292,13 @@
 
     img.img-fluid.rounded-top.icon_ot {
         margin-top: 10px;
+    }
+
+    img.img-fluid.rounded-top.icon_tv,
+    img.img-fluid.rounded-top.icon-np,
+    img.img-fluid.rounded-top.icon_ot,
+    img.img-fluid.rounded-top.icon_bcc {
+        padding: 0 10px;
     }
 
     .content {
