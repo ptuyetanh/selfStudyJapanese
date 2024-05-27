@@ -15,51 +15,41 @@ class MenuIndex extends Component {
                         />
                     </Link>
                     <ul className="navbar-nav">
-                        
-                            <NavLink to="/seeVocabulary" className="nav-link">
-                                <img
-                                    src="./assets/image/icon_từ_vựng.svg"
-                                    className="img-fluid rounded-top icon_tv"
-                                    alt=""
-                                />
-                            </NavLink>
-                        
-                        
-                            <NavLink to='/seeGrammar' className="nav-link">
-                                <img
-                                    src="./assets/image/icon_ngữ_pháp.svg"
-                                    className="img-fluid rounded-top icon-np"
-                                    alt=""
-                                />
-                            </NavLink>
-                        
-                        
-                            <NavLink to='/' className="nav-link">
-                                <img
-                                    src="./assets/image/icon_ôn tập.svg"
-                                    className="img-fluid rounded-top icon_ot"
-                                    alt=""
-                                />
-                            </NavLink>
-                        
-                        
-                            <NavLink to="/seeAlphabet" className="nav-link">
-                                <img
-                                    src="./assets/image/icon_bảng_chữ_cái.svg"
-                                    className="img-fluid rounded-top icon_bcc"
-                                    alt=""
-                                />
-                            </NavLink>
-                        
-                        
-                            <NavLink to='/seeCommunication' className="nav-link">
-                                <img
-                                    src="./assets/image/icon_giao_tiếp.svg"
-                                    className="img-fluid rounded-top icon_gt"
-                                    alt=""
-                                />
-                            </NavLink>
-                        
+                        <NavLink to="/seeVocabulary" className="nav-link">
+                            <img
+                                src="./assets/image/icon_từ_vựng.svg"
+                                className="img-fluid rounded-top icon_tv"
+                                alt=""
+                            />
+                        </NavLink>
+                        <NavLink to='/seeGrammar' className="nav-link">
+                            <img
+                                src="./assets/image/icon_ngữ_pháp.svg"
+                                className="img-fluid rounded-top icon-np"
+                                alt=""
+                            />
+                        </NavLink>
+                        <NavLink to='/' className="nav-link">
+                            <img
+                                src="./assets/image/icon_ôn tập.svg"
+                                className="img-fluid rounded-top icon_ot"
+                                alt=""
+                            />
+                        </NavLink>
+                        <NavLink to="/seeAlphabet" className="nav-link">
+                            <img
+                                src="./assets/image/icon_bảng_chữ_cái.svg"
+                                className="img-fluid rounded-top icon_bcc"
+                                alt=""
+                            />
+                        </NavLink>
+                        <NavLink to='/seeCommunication' className="nav-link">
+                            <img
+                                src="./assets/image/icon_giao_tiếp.svg"
+                                className="img-fluid rounded-top icon_gt"
+                                alt=""
+                            />
+                        </NavLink>
                     </ul>
                     <button
                         className="navbar-toggler d-xl-none"

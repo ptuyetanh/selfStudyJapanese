@@ -45,10 +45,11 @@
     }
 
     /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
-    .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-    .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-    .see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top {
-        width: 26px;
+    .see_vocab_lesson i.fa-solid.fa-lock,
+    .see_grammar_lesson i.fa-solid.fa-lock,
+    .see_communication_lesson i.fa-solid.fa-lock {
+        font-size: 20px;
+        top: 14px;
     }
 
     .see_vocab_lesson button.btn.btn-primary h3,
@@ -219,10 +220,11 @@
     }
 
     /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
-    .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-    .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-    .see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top {
-        width: 28px;
+    .see_vocab_lesson i.fa-solid.fa-lock,
+    .see_grammar_lesson i.fa-solid.fa-lock,
+    .see_communication_lesson i.fa-solid.fa-lock {
+        font-size: 20px;
+        top: 14px;
     }
 
     .see_vocab_lesson button.btn.btn-primary h2,

@@ -8,11 +8,7 @@ class SeeLesson extends Component {
                     <button type="button" name="" id="" className="btn btn-primary">
                         <h2>2. </h2>
                         <h2>はじめまして</h2>
-                        <img
-                            src="./assets/image/lock-alt_svgrepo.com.svg"
-                            className="img-fluid rounded-top"
-                            alt=""
-                        />
+                        <i className="fa-solid fa-lock" />
                     </button>
                 </div>
             </div>

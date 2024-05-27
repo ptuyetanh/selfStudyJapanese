@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import MenuIndex from './MenuIndex';
 import SeeLesson from './SeeLesson';
 
 class SeeVocabLesson extends Component {
     render() {
         return (
-            <div className='All'>
-                <MenuIndex />
-                <>
                     <main>
                         <div className="content">
                             <div className="see_vocab_lesson container">
@@ -28,10 +24,6 @@ class SeeVocabLesson extends Component {
                             </div>
                         </div>
                     </main>
-                    {/* end Main */}
-                </>
-
-            </div>
         );
     }
 }

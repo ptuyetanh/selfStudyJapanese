@@ -1,7 +1,6 @@
 html,
 body,
-div#root,
-.All
+div#root
 {
     height: 100%;
 }

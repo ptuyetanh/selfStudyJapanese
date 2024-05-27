@@ -94,13 +94,14 @@ ul.list-group.list-group-numbered.info_details {
 
 /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
 
-.see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-.see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-.see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top
+.see_vocab_lesson i.fa-solid.fa-lock,
+.see_grammar_lesson i.fa-solid.fa-lock,
+.see_communication_lesson i.fa-solid.fa-lock
 {
-    width: 34px;
     position: absolute;
-    right: 20px;
+    top: 18px;
+    right: 27px;
+    font-size: 21px;
 }
 
 .see_vocab_lesson button.btn.btn-primary h3,
@@ -157,6 +158,7 @@ ul.list-group.list-group-numbered.info_details {
 {
     padding-top: 128px;
     padding-bottom: 50px;
+    background-color: #FFF1F1;
 }
 
 /* end see_vocabulary see_grammar*/
@@ -179,6 +181,7 @@ ul.list-group.list-group-numbered.info_details {
 .see_vocabulary,
 .see_grammar {
     padding-top: 136px;
+    background-color: #FFF1F1;
 }
 
 /* end see_alphabet */
@@ -216,6 +219,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_alphabet {
     padding-top: 141px;
+    background-color: #FFF1F1;
 }
 
 /* end logIn */
@@ -303,6 +307,14 @@ form.form_sign-up button.btn.btn-primary.btn_sign_up {
 
 small#helpId {
     color: red;
+    display: flex;
+    margin-left: 21px;
+}
+
+label.form-label {
+    display: flex;
+    margin-left: 21px;
+    font-size: 20px;
 }
 
 form.form_sign-up input.form-control {
@@ -348,11 +360,13 @@ form.form_sign-up {
 }
 
 .grammar {
-    margin-top: 70px;
+    padding-top: 70px;
+    background-color: #FFF1F1;
 }
 
 .vocabulary {
     padding-top: 166px;
+    background-color: #FFF1F1;
 }
 
 .content {
