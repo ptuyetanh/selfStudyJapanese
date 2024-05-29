@@ -3,7 +3,34 @@
     margin: 0;
     font-family: "Itim"
 }
+/* end alert */
+.container-0-2-1.top-right-0-2-2 {
+    margin-top: 108px;
+}
 
+.msgContainer-0-2-25 {
+    width: 147px;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+button.close-0-2-24.close {
+    border: none;
+    font-size: 33px;
+    background-color: #f0f8ff00;
+    float: right;
+    margin-top: -6px;
+    margin-left: 15px;
+}
+
+i.fa.fa-check.icon-0-2-26 {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.alert-0-2-18 {padding: 3px 10px 3px 0px;}
+
+/* end menu home */
 .info_details li.list-group-item1,
 .info_details li.list-group-item2
 {

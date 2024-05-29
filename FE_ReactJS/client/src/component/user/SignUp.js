@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { signUpUser } from '../react-redux/actions/signUpAction';
+import Alerts from '../Alerts';
+import { alertOn } from '../react-redux/actions/alertAction';
 
 class SignUp extends Component {
     componentDidMount() {
@@ -126,7 +130,7 @@ class SignUp extends Component {
                 <button
                     type="reset"
                     className="btn btn-primary btn_sign_up"
-
+                    onClick= {() => {this.submitButton()}}
                 >
                     Đăng ký
                 </button>
@@ -143,10 +147,22 @@ class SignUp extends Component {
             )
         }
     }
+    submitButton = () => {
+        var item = {};
+        item.fullname = this.state.fullname;
+        item.email = this.state.email;
+        item.phonenumber = this.state.phonenumber;
+        item.dateofbirth = this.state.dateofbirth;
+        item.password = this.state.password;
+        console.log(item);
+        this.props.signUpUser(item.fullname,item.email,item.phonenumber,item.dateofbirth,item.password);
+        this.props.alertOn()
+    }
     render() {
         return (
             <main>
                 <div className="content">
+                    <Alerts/>
                     <form className="form_sign-up">
                         <div className="col-8">
                             <h3>Đăng kí tài khoản</h3>
@@ -219,5 +235,14 @@ class SignUp extends Component {
         );
     }
 }
+const mapStateToProps = (state, ownProps) => {
+    return {
+        signUp: state.signUp
+    }
+}
+const mapDispatchToProps = {
+    signUpUser,
+    alertOn
+}
 
-export default SignUp;
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
