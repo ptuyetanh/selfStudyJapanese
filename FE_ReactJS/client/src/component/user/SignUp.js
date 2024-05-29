@@ -184,7 +184,7 @@ class SignUp extends Component {
                                 <small id="helpId" className="form-text">{this.state.error_phonenumber}</small>
                             </div>
                             <div className="mb-4">
-                                <label for="" className="form-label">Ngày sinh</label>
+                                <label className="form-label">Ngày sinh</label>
                                 <input
                                     type="date"
                                     className="form-control"
