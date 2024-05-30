@@ -48,6 +48,7 @@ router.post('/', function (req, res, next) {
         } else {
             if (resp.rows.length > 0) {
                 console.log("số điện thoại và email đã tồn tại");
+                return res.status(400).json({ message: 'số điện thoại và email đã tồn tại' });
             }else {
                 var hash_pass = bcrypt.hashSync(password, 10);
                 pool.query("INSERT INTO  users (fullname, email, phonenumber, dateofbirth, password) VALUES ($1,$2,$3,$4,$5)", [fullname, email, phonenumber, dateofbirth, hash_pass], (error, response) => {

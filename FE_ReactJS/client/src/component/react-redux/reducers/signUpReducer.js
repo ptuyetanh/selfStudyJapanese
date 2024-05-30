@@ -6,7 +6,7 @@ const InitialState = {
 const signUpReducer = (state = InitialState, action) => {
     switch (action.type) {
         case SIGN_UP:
-            return {...state,signup: action.signUp}
+            return {...state,signup: action.signUpAction}
         default:
             return state
     }

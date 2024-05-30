@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { signUpUser } from '../react-redux/actions/signUpAction';
-import Alerts from '../Alerts';
-import { alertOn } from '../react-redux/actions/alertAction';
+import AlertSuccess from '../alerts/AlertSuccess';
+import AlertDanger from '../alerts/AlertDanger';
 
 class SignUp extends Component {
     componentDidMount() {
@@ -128,7 +128,7 @@ class SignUp extends Component {
         if (this.state.fullname !== '' && this.state.email !== '' && this.state.phonenumber !== '' && this.state.dateofbirth !== '' && this.state.password !== '' && this.state.error_email === '' && this.state.error_phonenumber === '' && this.state.error_password === '') {
             return (
                 <button
-                    type="reset"
+                    type="button"
                     className="btn btn-primary btn_sign_up"
                     onClick= {() => {this.submitButton()}}
                 >
@@ -154,15 +154,14 @@ class SignUp extends Component {
         item.phonenumber = this.state.phonenumber;
         item.dateofbirth = this.state.dateofbirth;
         item.password = this.state.password;
-        console.log(item);
         this.props.signUpUser(item.fullname,item.email,item.phonenumber,item.dateofbirth,item.password);
-        this.props.alertOn()
     }
     render() {
         return (
             <main>
                 <div className="content">
-                    <Alerts/>
+                    <AlertSuccess alertType='success' alertContent = 'Đăng ký thành công'/>
+                    <AlertDanger alertType='danger' alertContent = 'Email hoặc số điện thoại đã tồn tại'/>
                     <form className="form_sign-up">
                         <div className="col-8">
                             <h3>Đăng kí tài khoản</h3>
@@ -241,8 +240,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 const mapDispatchToProps = {
-    signUpUser,
-    alertOn
+    signUpUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

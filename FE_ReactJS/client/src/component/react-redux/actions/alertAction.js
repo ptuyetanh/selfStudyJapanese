@@ -1,20 +1,28 @@
-export const ALERT_ON = 'ALERT_ON';
-export const ALERT_OFF = 'ALERT_OFF';
-const alertOnSuccess = () => ({
-    type: ALERT_ON,
-    // AlertOn: alertContent
+export const ALERT_SUCCESS_OFF = 'ALERT_SUCCESS_OFF';
+export const ALERT_SUCCESS_ON = 'ALERT_SUCCESS_ON';
+export const ALERT_DANGER_ON = 'ALERT_DANGER_ON';
+export const ALERT_DANGER_OFF = 'ALERT_DANGER_OFF';
+// alert success 
+export const alertSOnSuccess = () => ({
+    type: ALERT_SUCCESS_ON,
 })
-const alertOffSuccess = () => ({
-    type: ALERT_OFF,
-    // AlertOn: alertContent
+export const alertSOffSuccess = () => ({
+    type: ALERT_SUCCESS_OFF
 })
-export const alertOn = () => {
+export const alertSuccessOff = () => {
     return (dispatch) => {
-        dispatch(alertOnSuccess())
+        dispatch(alertSOffSuccess())
     }
 }
-export const alertOff = () => {
+// alert danger  
+export const alertDOnSuccess = () => ({
+    type: ALERT_DANGER_ON,
+})
+export const alertDOffSuccess = () => ({
+    type: ALERT_DANGER_OFF
+})
+export const alertDangerOff = () => {
     return (dispatch) => {
-        dispatch(alertOffSuccess())
+        dispatch(alertDOffSuccess())
     }
 }

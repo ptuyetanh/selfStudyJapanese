@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Alert, AlertContainer } from "react-bs-notifier";
 import { connect } from 'react-redux';
-import { alertOff } from './react-redux/actions/alertAction';
+import { alertSuccessOff } from '../react-redux/actions/alertAction';
 
-class Alerts extends Component {
+
+class AlertSuccess extends Component {
     clickDismiss = () => {
-        this.props.alertOff()
+        this.props.alertSuccessOff()
     }
     render() {
-        console.log(this.props.alerts.alertshow);
-        if (this.props.alerts.alertshow === false) {
+        if (this.props.alerts.alertSuccessShow === false) {
             return null
         }
         return (
             <AlertContainer>
-                <Alert type="success" onDismiss={() => this.clickDismiss()}>Đăng ký thành công</Alert>
+                <Alert type={this.props.alertType} onDismiss={() => this.clickDismiss()} timeout={9000}>{this.props.alertContent}</Alert>
             </AlertContainer>
         );
     }
@@ -25,6 +25,6 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 const mapDispatchToProps = {
-    alertOff
+    alertSuccessOff
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Alerts);
+export default connect(mapStateToProps,mapDispatchToProps)(AlertSuccess);
