@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import MenuIndex from './MenuIndex';
 
 class LogIn extends Component {
     componentDidMount() {
@@ -93,6 +94,7 @@ class LogIn extends Component {
     render() {
         return (
             <main>
+                <MenuIndex/>
                 <div className="content">
                     <form className="form_logIn">
                         <div className="col-8">

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import SeeLesson from './SeeLesson';
+import MenuIndex from './MenuIndex';
 
 class SeeVocabLesson extends Component {
     render() {
         return (
                     <main>
+                        <MenuIndex/>
                         <div className="content">
                             <div className="see_vocab_lesson container">
                                 <div className="row">

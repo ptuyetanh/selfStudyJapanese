@@ -1,17 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const { Pool } = require('pg')
+const pool = require('../config/ConnectDB');
 const bcrypt = require('bcrypt');
 const nodemailer = require("nodemailer");
 
-//kết nối db 
-const pool = new Pool({
-    user: 'postgres',
-    password: 'tuyetanh',
-    host: 'localhost',
-    port: 5432,
-    database: 'selfStudyJapanese',
-})
 //sendmail
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",

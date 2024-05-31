@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { signUpUser } from '../react-redux/actions/signUpAction';
 import AlertSuccess from '../alerts/AlertSuccess';
 import AlertDanger from '../alerts/AlertDanger';
+import MenuIndex from './MenuIndex';
 
 class SignUp extends Component {
     componentDidMount() {
@@ -159,6 +160,7 @@ class SignUp extends Component {
     render() {
         return (
             <main>
+                <MenuIndex/>
                 <div className="content">
                     <AlertSuccess alertType='success' alertContent = 'Đăng ký thành công'/>
                     <AlertDanger alertType='danger' alertContent = 'Email hoặc số điện thoại đã tồn tại'/>

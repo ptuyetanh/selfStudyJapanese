@@ -109,7 +109,7 @@
 
     /* end index  */
     img.img-fluid.rounded-top.icon_gt {
-        margin-top: -8px;
+    padding: 0 11px;
     }
 
     .vocabulary button.btn.btn-primary,
@@ -281,7 +281,7 @@
     }
 
     img.img-fluid.rounded-top.icon_gt {
-        margin-top: -5px;
+    padding: 0 7px;
     }
 
     img.img-fluid.rounded-top.icon_bcc {

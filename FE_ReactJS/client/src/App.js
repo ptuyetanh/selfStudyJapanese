@@ -9,12 +9,10 @@ import SeeVocabLesson from './component/user/SeeVocabLesson';
 import SeeGrammar from './component/user/SeeGrammar';
 import SeeGrammarLesson from './component/user/SeeGrammarLesson';
 import SeeCommunication from './component/user/SeeCommunication';
-import MenuIndex from './component/user/MenuIndex';
 class App extends Component {
   render() {
     return (
       <Router>
-        <MenuIndex/>
         <Routes>
           <Route exact path='/' element={<Review/>}/>
           <Route path='/signup' element={<SignUp/>}/>

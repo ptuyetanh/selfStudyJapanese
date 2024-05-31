@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import SeeLevel from './SeeLevel';
+import MenuIndex from './MenuIndex';
 
 class SeeGrammar extends Component {
     render() {
         return (
             <main>
+                <MenuIndex/>
                 <div className="content">
                     <div className="see_grammar container-fluid">
                         <div className="row">

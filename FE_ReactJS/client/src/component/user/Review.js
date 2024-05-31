@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
+import MenuIndex from './MenuIndex';
 class Review extends Component {
     render() {
         return (
             <main>
+                <MenuIndex/>
                 <div className="content">
                     <div className="vocabulary">
                         <h3>

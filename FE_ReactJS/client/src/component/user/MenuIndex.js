@@ -9,7 +9,7 @@ class MenuIndex extends Component {
                 <div className="container-fluid">
                     <Link to='/' className="logo">
                         <img
-                            src="./assets/image/logo.svg"
+                            src="/assets/image/logo.svg"
                             className="img-fluid rounded-top icon_logo"
                             alt=""
                         />
@@ -17,35 +17,35 @@ class MenuIndex extends Component {
                     <ul className="navbar-nav">
                         <NavLink to="/seeVocabulary" className="nav-link">
                             <img
-                                src="./assets/image/icon_tv.svg"
+                                src="/assets/image/icon_tv.svg"
                                 className="img-fluid rounded-top icon_tv"
                                 alt=""
                             />
                         </NavLink>
                         <NavLink to='/seeGrammar' className="nav-link">
                             <img
-                                src="./assets/image/icon_np.svg"
+                                src="/assets/image/icon_np.svg"
                                 className="img-fluid rounded-top icon-np"
                                 alt=""
                             />
                         </NavLink>
                         <NavLink to='/' className="nav-link">
                             <img
-                                src="./assets/image/icon_ot.svg"
+                                src="/assets/image/icon_ot.svg"
                                 className="img-fluid rounded-top icon_ot"
                                 alt=""
                             />
                         </NavLink>
                         <NavLink to="/seeAlphabet" className="nav-link">
                             <img
-                                src="./assets/image/icon_bcc.svg"
+                                src="/assets/image/icon_bcc.svg"
                                 className="img-fluid rounded-top icon_bcc"
                                 alt=""
                             />
                         </NavLink>
                         <NavLink to='/seeCommunication' className="nav-link">
                             <img
-                                src="./assets/image/icon_gt.svg"
+                                src="/assets/image/icon_gt2.svg"
                                 className="img-fluid rounded-top icon_gt"
                                 alt=""
                             />

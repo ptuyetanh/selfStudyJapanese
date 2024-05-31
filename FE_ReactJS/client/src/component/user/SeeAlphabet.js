@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import MenuIndex from './MenuIndex';
 
 class SeeAlphabet extends Component {
     render() {
         return (
             <main>
+                <MenuIndex/>
                 <div className="content">
                     <div className="see_alphabet container-fluid">
                         <div className="row">
