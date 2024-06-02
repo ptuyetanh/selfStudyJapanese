@@ -1,5 +1,6 @@
+const jwt = require('jsonwebtoken');
 const authenticateToken = (req, res, next) => {
-    const token = req.header('Authorization')?.split(' ')[1];
+    const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: 'Không có token' });
   
     jwt.verify(token, 'secret', (err, user) => {

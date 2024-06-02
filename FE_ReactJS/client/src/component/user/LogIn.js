@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import MenuIndex from './MenuIndex';
+import { connect } from 'react-redux';
+import { logInUser } from '../react-redux/actions/logInAction';
+import { isAuthUser } from '../react-redux/actions/authAction';
+import AlertDanger from '../alerts/AlertDanger';
 
 class LogIn extends Component {
     componentDidMount() {
-        //pass eye and eye-slash
+        this.props.isAuthUser();
+    }
+    
+    icon_eye_click = () => {
         var pass = document.getElementById('input_pass');
         var icon_eye = document.querySelector('.fa-eye');
         var icon_eye_slash = document.querySelector('.fa-eye-slash');
-        icon_eye.onclick = function () {
-            var type_pass_show = pass.getAttribute('type');
+        var type_pass_show = pass.getAttribute('type');
             if (type_pass_show) {
                 pass.setAttribute('type', 'text');
                 icon_eye_slash.classList.remove('hidden');
-                this.classList.toggle('hidden_eye');
+                icon_eye.classList.add('hidden_eye');
             }
-        }
-        icon_eye_slash.onclick = function () {
-            var type_pass_hiddens = pass.getAttribute('type');
+    }
+    icon_eye_slash_click = () => {
+        var pass = document.getElementById('input_pass');
+        var icon_eye = document.querySelector('.fa-eye');
+        var type_pass_hiddens = pass.getAttribute('type');
+        var icon_eye_slash = document.querySelector('.fa-eye-slash');
             if (type_pass_hiddens) {
                 pass.setAttribute('type', 'password')
-                this.classList.toggle('hidden');
+                icon_eye_slash.classList.add('hidden');
                 icon_eye.classList.remove('hidden_eye');
             }
-        }
     }
     constructor(props) {
         super(props);
@@ -78,7 +86,7 @@ class LogIn extends Component {
     showButtonDisableOrNoDisable = () => {
         if (this.state.email !== '' && this.state.password !== '' && this.state.error_email === '' && this.state.error_password === '') {
             return (
-                <button type="reset" className="btn btn-primary btn_logIn">
+                <button type='submit' className="btn btn-primary btn_logIn" onClick={(event) => this.submitButton(event)}>
                     Đăng nhập
                 </button>
             )
@@ -90,12 +98,25 @@ class LogIn extends Component {
             )
         }
     }
-
+    submitButton = (event) => {
+        event.preventDefault();
+        const {email, password} = this.state
+        this.props.logInUser(email, password);
+    }
     render() {
+        const {user,isauth} = this.props.auth;
+        const {isNavigate} = this.props.logIn;
+        console.log(isNavigate);
+        if (isNavigate) {
+            if (isauth && user.role_id === "1") {
+                return <Navigate to="/home" />;
+        }
+        }
         return (
             <main>
                 <MenuIndex/>
                 <div className="content">
+                    <AlertDanger alertType='danger' alertContent = 'Đăng nhập không thành công do email  không tồn tại hoặc sai mật khẩu'/>
                     <form className="form_logIn">
                         <div className="col-8">
                             <h3>Đăng nhập vào Yuki</h3>
@@ -120,8 +141,8 @@ class LogIn extends Component {
                                     placeholder="Mật khẩu"
                                     onChange={(event) => this.isChange(event)}
                                 />
-                                <i className="fa-solid fa-eye" />
-                                <i className="fa-solid fa-eye-slash hidden" />
+                                <i className="fa-solid fa-eye" onClick={() => this.icon_eye_click()}/>
+                                <i className="fa-solid fa-eye-slash hidden" onClick={() => this.icon_eye_slash_click()}/>
                                 <small id="helpId" className="form-text">{this.state.error_password}</small>
                             </div>
                             {this.showButtonDisableOrNoDisable()}
@@ -140,5 +161,14 @@ class LogIn extends Component {
         );
     }
 }
-
-export default LogIn;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        logIn: state.logIn,
+        auth: state.auth
+    }
+}
+const mapDispatchToProps = {
+    logInUser,
+    isAuthUser
+}
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
