@@ -7,31 +7,28 @@ import { isAuthUser } from '../react-redux/actions/authAction';
 import AlertDanger from '../alerts/AlertDanger';
 
 class LogIn extends Component {
-    componentDidMount() {
-        this.props.isAuthUser();
-    }
     
     icon_eye_click = () => {
         var pass = document.getElementById('input_pass');
         var icon_eye = document.querySelector('.fa-eye');
         var icon_eye_slash = document.querySelector('.fa-eye-slash');
         var type_pass_show = pass.getAttribute('type');
-            if (type_pass_show) {
-                pass.setAttribute('type', 'text');
-                icon_eye_slash.classList.remove('hidden');
-                icon_eye.classList.add('hidden_eye');
-            }
+        if (type_pass_show) {
+            pass.setAttribute('type', 'text');
+            icon_eye_slash.classList.remove('hidden');
+            icon_eye.classList.add('hidden_eye');
+        }
     }
     icon_eye_slash_click = () => {
         var pass = document.getElementById('input_pass');
         var icon_eye = document.querySelector('.fa-eye');
         var type_pass_hiddens = pass.getAttribute('type');
         var icon_eye_slash = document.querySelector('.fa-eye-slash');
-            if (type_pass_hiddens) {
-                pass.setAttribute('type', 'password')
-                icon_eye_slash.classList.add('hidden');
-                icon_eye.classList.remove('hidden_eye');
-            }
+        if (type_pass_hiddens) {
+            pass.setAttribute('type', 'password')
+            icon_eye_slash.classList.add('hidden');
+            icon_eye.classList.remove('hidden_eye');
+        }
     }
     constructor(props) {
         super(props);
@@ -39,7 +36,7 @@ class LogIn extends Component {
             email: '',
             password: '',
             error_email: '',
-            error_password: '',
+            error_password: ''
         }
     }
     isChange = (event) => {
@@ -100,23 +97,19 @@ class LogIn extends Component {
     }
     submitButton = (event) => {
         event.preventDefault();
-        const {email, password} = this.state
+        const { email, password } = this.state
         this.props.logInUser(email, password);
     }
     render() {
-        const {user,isauth} = this.props.auth;
-        const {isNavigate} = this.props.logIn;
-        console.log(isNavigate);
-        if (isNavigate) {
-            if (isauth && user.role_id === "1") {
-                return <Navigate to="/home" />;
-        }
+        const { user, isauth } = this.props.auth;
+        if (isauth && user.role_id === "1") {
+            return (<Navigate to="/home" />);
         }
         return (
             <main>
-                <MenuIndex/>
+                <MenuIndex />
                 <div className="content">
-                    <AlertDanger alertType='danger' alertContent = 'Đăng nhập không thành công do email  không tồn tại hoặc sai mật khẩu'/>
+                    <AlertDanger alertType='danger' alertContent='Đăng nhập không thành công do email  không tồn tại hoặc sai mật khẩu' />
                     <form className="form_logIn">
                         <div className="col-8">
                             <h3>Đăng nhập vào Yuki</h3>
@@ -141,14 +134,14 @@ class LogIn extends Component {
                                     placeholder="Mật khẩu"
                                     onChange={(event) => this.isChange(event)}
                                 />
-                                <i className="fa-solid fa-eye" onClick={() => this.icon_eye_click()}/>
-                                <i className="fa-solid fa-eye-slash hidden" onClick={() => this.icon_eye_slash_click()}/>
+                                <i className="fa-solid fa-eye" onClick={() => this.icon_eye_click()} />
+                                <i className="fa-solid fa-eye-slash hidden" onClick={() => this.icon_eye_slash_click()} />
                                 <small id="helpId" className="form-text">{this.state.error_password}</small>
                             </div>
                             {this.showButtonDisableOrNoDisable()}
                             <div className="mt-4">
                                 <h5>
-                                    Nếu bạn chưa có tài khoản thì hãy 
+                                    Nếu bạn chưa có tài khoản thì hãy
                                     <Link to='/signup'>Đăng ký</Link>
                                 </h5>
                             </div>

@@ -16,9 +16,9 @@ router.post('/', function (req, res, next) {
             const user = response.rows[0];
             if (user && bcrypt.compareSync(password, response.rows[0].password)) {
                 console.log("dăng nhập thành công");
-                const token = jwt.sign({ id: user.id, email: user.email, role_id: user.role_id }, 'secret', { expiresIn: '1h' });
+                const token = jwt.sign({ user_id: user.user_id, email: user.email,fullname: user.fullname, role_id: user.role_id }, 'secret', { expiresIn: '1h' });
                 res.cookie('token', token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
-                return res.json({ message: "Đăng nhập thành công", role_id: user.role_id });  //lấy ra token role
+                return res.json({ message: "Đăng nhập thành công", role_id: user.role_id,user_id: user.user_id, fullname: user.fullname,});  //lấy ra token role
                 // res.redirect('/users');
             } else {
                 res.status(400).json({ message: "Email không tồn tại hoặc sai mật khẩu" })

@@ -11,8 +11,15 @@ import SeeGrammarLesson from './component/user/SeeGrammarLesson';
 import SeeCommunication from './component/user/SeeCommunication';
 import Home from './component/user/Home';
 import RoutePrivate from './component/router/RoutePrivate';
+import { connect } from 'react-redux';
+import { isAuthUser } from './component/react-redux/actions/authAction';
 class App extends Component {
+  componentDidMount() {
+    this.props.isAuthUser()
+  }
+  
   render() {
+    console.log(this.props.auth);
     return (
       <Router>
         <Routes>
@@ -33,5 +40,12 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    auth: state.auth
+  }
+}
+const mapDispatchToProps = {
+  isAuthUser
+}
+export default connect(mapStateToProps,mapDispatchToProps)(App)

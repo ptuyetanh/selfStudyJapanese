@@ -6,7 +6,7 @@ class MenuHome extends Component {
         //show and hidden info
         var infoUser = document.querySelector('.info_user');
         var infoDetails = document.querySelector('.info_details');
-        console.log(infoDetails);
+        // console.log(infoDetails);
         infoUser.onclick = function () {
             // console.log("đã click");
             infoDetails.classList.toggle('hidden_info');
@@ -88,13 +88,13 @@ class MenuHome extends Component {
                                 alt=""
                             />
                             <div className="name_user">
-                                <h5>Phạm Tuyết Anh</h5>
+                                <h5>{this.props.fullname}</h5>
                                 <i className="fa-solid fa-caret-down" />
                             </div>
                         </div>
                         <ul className="list-group list-group-numbered info_details hidden_info">
                             <li className="list-group-item1">Thông tin cá nhân</li>
-                            <li className="list-group-item2">Đăng xuất</li>
+                            <li className="list-group-item2" onClick={this.props.logout}>Đăng xuất</li>
                         </ul>
                     </div>
                 </div>

@@ -3,6 +3,25 @@
     margin: 0;
     font-family: "Itim"
 }
+.loading h3 {
+    color:white;
+    font-size: 38px;
+}
+.loading img {
+    width: 224px;
+}
+.loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #f1c0c0;
+    align-items: center;
+
+}
+html,body,.loading {
+    height: 100%;
+}
 /* end alert */
 
 .dismissable-0-2-23.alert-dismissable.danger-0-2-22.alert-danger.alert-0-2-18.alert {
@@ -97,7 +116,6 @@ ul.list-group.list-group-numbered.info_details {
     width: 39px;
     padding: 7px;
     border-radius: 23px;
-    margin-left: 58px;
     margin-bottom: 4px;
     background-color: #ffffffba;
 }
@@ -109,6 +127,7 @@ ul.list-group.list-group-numbered.info_details {
     margin-left: 14px;
     position: relative;
     cursor: pointer;
+    align-items: center;
 }
 
 .sign_up_member h5 {
@@ -118,7 +137,6 @@ ul.list-group.list-group-numbered.info_details {
 
 .sign_up_member img.img-fluid.rounded-top.member_svg {
     width: 39px;
-    margin-left: 54px;
     margin-bottom: 4px;
 }
 
@@ -127,6 +145,7 @@ ul.list-group.list-group-numbered.info_details {
     flex-direction: column;
     justify-content: end;
     margin-left: 25px;
+    align-items: center;
 }
 
 /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
