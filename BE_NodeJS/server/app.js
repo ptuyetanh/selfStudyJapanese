@@ -10,6 +10,7 @@ var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var authRouter = require('./routes/auth');
 var logoutRouter = require('./routes/logout');
+var levelRouter = require('./routes/level');
 
 var app = express();
 const cors = require('cors');
@@ -33,6 +34,7 @@ app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/auth', authRouter);
 app.use('/logout', logoutRouter);
+app.use('/level', levelRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

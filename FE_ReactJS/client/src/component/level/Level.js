@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class SeeLevel extends Component {
+class Level extends Component {
     render() {
         return (
             <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4 col-xl-3">
@@ -18,4 +18,4 @@ class SeeLevel extends Component {
     }
 }
 
-export default SeeLevel;
+export default Level;

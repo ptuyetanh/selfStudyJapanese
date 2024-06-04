@@ -16,7 +16,7 @@ class MenuHome extends Component {
         return (
             <nav className="navbar navbar-expand-xl fixed-top justify-content-center">
                 <div className="container-fluid">
-                    <Link to='/' className="logo">
+                    <Link to='/home' className="logo">
                         <img
                             src="/assets/image/logo.svg"
                             className="img-fluid rounded-top icon_logo"
@@ -38,7 +38,7 @@ class MenuHome extends Component {
                                 alt=""
                             />
                         </NavLink>
-                        <NavLink to='/' className="nav-link">
+                        <NavLink to='/home' className="nav-link">
                             <img
                                 src="/assets/image/icon_ot.svg"
                                 className="img-fluid rounded-top icon_ot"

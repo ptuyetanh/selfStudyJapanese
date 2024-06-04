@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
-import SeeLevel from './SeeLevel';
 import MenuIndex from './MenuIndex';
+import Level from '../level/Level';
+import {connect} from 'react-redux';
+import { levelShow } from '../react-redux/actions/levelAction';
 
 class SeeVocabulary extends Component {
+    componentDidMount() {
+        console.log(this.props.level);
+        if (this.props.level.seeLevel === null) {
+            this.props.levelShow()
+        }
+    }
+    showData = () => {
+        if (this.props.level.seeLevel !== null) {
+            return this.props.level.seeLevel.map((value,key) => {
+                return (
+                    <Level key={key} content={value.name} linkTo="/seeVocabulary/seeVocabLesson"/>
+                )
+            })
+        }
+    }
     render() {
         return (
             <main>
@@ -10,11 +27,7 @@ class SeeVocabulary extends Component {
                 <div className="content">
                     <div className="see_vocabulary container-fluid">
                         <div className="row">
-                            <SeeLevel content="N5" linkTo="/seeVocabulary/seeVocabLesson" />
-                            <SeeLevel content='N4' />
-                            <SeeLevel content='N3' />
-                            <SeeLevel content='N2' />
-                            <SeeLevel content='N1' />
+                            {this.showData()}
                         </div>
                     </div>
                 </div>
@@ -22,5 +35,13 @@ class SeeVocabulary extends Component {
         );
     }
 }
+const mapStateToProps = (state, ownProps) => {
+    return {
+        level: state.level
+    }
+}
+const mapDispatchToProps = {
+    levelShow
+}
 
-export default SeeVocabulary;
+export default connect(mapStateToProps, mapDispatchToProps)(SeeVocabulary)

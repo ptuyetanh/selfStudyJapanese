@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class SeeLesson extends Component {
+class LessonFree extends Component {
     render() {
         return (
             <div className="col-10">
                 <div className="d-grid gap-2 mb-3">
                     <button type="button" name="" id="" className="btn btn-primary">
-                        <h2>2. </h2>
+                        <h2>1.</h2>
                         <h2>はじめまして</h2>
-                        <i className="fa-solid fa-lock" />
+                        <h3>Học thử miễn phí</h3>
                     </button>
                 </div>
             </div>
@@ -16,4 +16,4 @@ class SeeLesson extends Component {
     }
 }
 
-export default SeeLesson;
+export default LessonFree;

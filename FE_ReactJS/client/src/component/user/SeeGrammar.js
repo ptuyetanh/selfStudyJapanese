@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import SeeLevel from './SeeLevel';
 import MenuIndex from './MenuIndex';
+import Level from '../level/Level';
+import { connect } from 'react-redux';
+import { levelShow } from '../react-redux/actions/levelAction';
 
 class SeeGrammar extends Component {
     render() {
@@ -10,11 +12,11 @@ class SeeGrammar extends Component {
                 <div className="content">
                     <div className="see_grammar container-fluid">
                         <div className="row">
-                            <SeeLevel content="N5" linkTo='/seeGrammar/seeGrammarLesson' />
-                            <SeeLevel content='N4' />
-                            <SeeLevel content='N3' />
-                            <SeeLevel content='N2' />
-                            <SeeLevel content='N1' />
+                            <Level content="N5" linkTo='/seeGrammar/seeGrammarLesson' />
+                            <Level content='N4' />
+                            <Level content='N3' />
+                            <Level content='N2' />
+                            <Level content='N1' />
                         </div>
                     </div>
                 </div>
@@ -22,5 +24,12 @@ class SeeGrammar extends Component {
         );
     }
 }
-
-export default SeeGrammar;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        level: state.level
+    }
+}
+const mapDispatchToProps = {
+    levelShow
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SeeGrammar)
