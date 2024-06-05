@@ -5,6 +5,20 @@ import { connect } from 'react-redux';
 import { levelShow } from '../react-redux/actions/levelAction';
 
 class SeeGrammar extends Component {
+    componentDidMount() {
+        if (this.props.level.seeLevel === null) {
+            this.props.levelShow()
+        }
+    }
+    showData = () => {
+        if (this.props.level.seeLevel !== null) {
+            return this.props.level.seeLevel.map((value,key) => {
+                return (
+                    <Level key={`grammar-${key}`} see = '/seeGrammar/' content={value.name} levelID={value.level_id}/>
+                )
+            })
+        }
+    }
     render() {
         return (
             <main>
@@ -12,11 +26,7 @@ class SeeGrammar extends Component {
                 <div className="content">
                     <div className="see_grammar container-fluid">
                         <div className="row">
-                            <Level content="N5" linkTo='/seeGrammar/seeGrammarLesson' />
-                            <Level content='N4' />
-                            <Level content='N3' />
-                            <Level content='N2' />
-                            <Level content='N1' />
+                            {this.showData()}
                         </div>
                     </div>
                 </div>

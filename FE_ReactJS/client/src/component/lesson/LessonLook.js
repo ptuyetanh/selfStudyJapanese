@@ -7,7 +7,7 @@ class LessonLook extends Component {
                 <div className="d-grid gap-2 mb-3">
                     <button type="button" name="" id="" className="btn btn-primary">
                         <h2>2. </h2>
-                        <h2>はじめまして</h2>
+                        <h2>{this.props.lesson}</h2>
                         <i className="fa-solid fa-lock" />
                     </button>
                 </div>

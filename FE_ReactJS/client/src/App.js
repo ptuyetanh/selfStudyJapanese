@@ -28,9 +28,9 @@ class App extends Component {
           <Route path='/login' element={<LogIn />} />
           <Route path='/seeAlphabet' element={<SeeAlphabet />} />
           <Route exact path='/seeVocabulary' element={<SeeVocabulary />} />
-          <Route path='/seeVocabulary/seeVocabLesson' element={<SeeVocabLesson />} />
+          <Route path='/seeVocabulary/:level/:id_level' element={<SeeVocabLesson />} />
           <Route path='/seeGrammar' element={<SeeGrammar />} />
-          <Route path='/seeGrammar/seeGrammarLesson' element={<SeeGrammarLesson />} />
+          <Route path='/seeGrammar/:level/:id_level' element={<SeeGrammarLesson />} />
           <Route path='/seeCommunication' element={<SeeCommunication />} />
           <Route element={<RoutePrivate />}>
             <Route path='/home' element={<Home />} />

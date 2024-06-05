@@ -6,7 +6,6 @@ import { levelShow } from '../react-redux/actions/levelAction';
 
 class SeeVocabulary extends Component {
     componentDidMount() {
-        console.log(this.props.level);
         if (this.props.level.seeLevel === null) {
             this.props.levelShow()
         }
@@ -15,7 +14,7 @@ class SeeVocabulary extends Component {
         if (this.props.level.seeLevel !== null) {
             return this.props.level.seeLevel.map((value,key) => {
                 return (
-                    <Level key={key} content={value.name} linkTo="/seeVocabulary/seeVocabLesson"/>
+                    <Level key={`vocab-${key}`} see = '/seeVocabulary/' content={value.name} levelID={value.level_id}/>
                 )
             })
         }
