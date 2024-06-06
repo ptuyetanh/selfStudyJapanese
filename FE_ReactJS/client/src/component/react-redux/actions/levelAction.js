@@ -12,7 +12,6 @@ export const levelShow = () => {
         try {
             const response = await axios.get('/level');
             dispatch(levelSuccess(response.data));
-            console.log(response.data);
         }catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);
         }

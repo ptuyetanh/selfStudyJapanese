@@ -57,16 +57,16 @@
         top: 14px;
     }
 
-    .see_vocab_lesson button.btn.btn-primary h3,
-    .see_grammar_lesson button.btn.btn-primary h3,
-    .see_communication_lesson button.btn.btn-primary h3 {
+    .see_vocab_lesson .btn.btn-primary h3,
+    .see_grammar_lesson .btn.btn-primary h3,
+    .see_communication_lesson .btn.btn-primary h3 {
         font-size: 17px;
         right: 6px;
     }
 
-    .see_vocab_lesson button.btn.btn-primary h2,
-    .see_grammar_lesson button.btn.btn-primary h2,
-    .see_communication_lesson button.btn.btn-primary h2 {
+    .see_vocab_lesson .btn.btn-primary h2,
+    .see_grammar_lesson .btn.btn-primary h2,
+    .see_communication_lesson .btn.btn-primary h2 {
         font-size: 19px;
     }
 
@@ -237,15 +237,15 @@
         top: 14px;
     }
 
-    .see_vocab_lesson button.btn.btn-primary h2,
-    .see_grammar_lesson button.btn.btn-primary h2,
-    .see_communication_lesson button.btn.btn-primary h2 {
+    .see_vocab_lesson .btn.btn-primary h2,
+    .see_grammar_lesson .btn.btn-primary h2,
+    .see_communication_lesson .btn.btn-primary h2 {
         font-size: 19px;
     }
 
-    .see_vocab_lesson button.btn.btn-primary h3,
-    .see_grammar_lesson button.btn.btn-primary h3,
-    .see_communication_lesson button.btn.btn-primary h3 {
+    .see_vocab_lesson .btn.btn-primary h3,
+    .see_grammar_lesson .btn.btn-primary h3,
+    .see_communication_lesson .btn.btn-primary h3 {
         font-size: 18px;
         top: 13px;
     }

@@ -12,9 +12,9 @@ class SeeGrammar extends Component {
     }
     showData = () => {
         if (this.props.level.seeLevel !== null) {
-            return this.props.level.seeLevel.map((value,key) => {
+            return this.props.level.seeLevel.map((value) => {
                 return (
-                    <Level key={`grammar-${key}`} see = '/seeGrammar/' content={value.name} levelID={value.level_id}/>
+                    <Level key={`grammar-${value.level_id}`} see = '/seeGrammar/' content={value.name} levelID={value.level_id}/>
                 )
             })
         }

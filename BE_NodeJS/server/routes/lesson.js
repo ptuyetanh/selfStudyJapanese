@@ -12,4 +12,34 @@ router.get('/vocab', function (req, res, next) {
         }
     })
 });
+router.get('/grammar', function (req, res, next) {
+    pool.query('select levels.level_id, grammars.lesson_name from grammars,levels where grammars.level_id = levels.level_id GROUP BY levels.level_id, grammars.lesson_name LIMIT 10', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            console.log(response.rows);
+            res.send(response.rows);
+        }
+    })
+});
+router.get('/communication', function (req, res, next) {
+    pool.query('SELECT communication_id,lesson_name FROM communications', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            console.log(response.rows);
+            res.send(response.rows);
+        }
+    })
+});
+router.get('/alphabet', function (req, res, next) {
+    pool.query('select * from alphabetlessons ', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            console.log(response.rows);
+            res.send(response.rows);
+        }
+    })
+});
 module.exports = router;

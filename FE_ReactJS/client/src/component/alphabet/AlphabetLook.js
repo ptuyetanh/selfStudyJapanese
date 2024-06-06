@@ -11,8 +11,8 @@ class AlphabetLook extends Component {
                     className="btn btn-primary mb-3"
                     role="button"
                 >
-                    <h3>{this.props.h3}</h3>
-                    <h2>{this.props.h2}</h2>
+                    <h3>{this.props.lesson}</h3>
+                    <h2>{this.props.example}</h2>
                     <i className="fa-solid fa-lock" />
                 </a>
             </div>

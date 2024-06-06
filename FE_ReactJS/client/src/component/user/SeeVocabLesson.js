@@ -19,7 +19,6 @@ class SeeVocabLesson extends Component {
         const {params} = this.props;
         if(this.props.lesson.vocabLessonData !== null ) {
             const lessonVocabFree = this.props.lesson.vocabLessonData.find(value => value.level_id === params.id_level);
-            console.log(lessonVocabFree);
             if(lessonVocabFree){
                 return <LessonFree lesson={lessonVocabFree.lesson_name}/>
             }
@@ -31,7 +30,7 @@ class SeeVocabLesson extends Component {
             const lessonFree = this.props.lesson.vocabLessonData.findIndex(value => value.level_id === params.id_level)
             const lessonVocabLook =  this.props.lesson.vocabLessonData.filter((value,lessonLook) => value.level_id === params.id_level && lessonLook !== lessonFree);
             return lessonVocabLook.map((value) => {
-                return  <LessonLook lesson = {value.lesson_name}/>
+                return  <LessonLook key={value.level_id} lesson = {value.lesson_name}/>
             })
         }
     }

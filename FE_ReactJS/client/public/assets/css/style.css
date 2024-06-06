@@ -160,9 +160,9 @@ ul.list-group.list-group-numbered.info_details {
     font-size: 21px;
 }
 
-.see_vocab_lesson button.btn.btn-primary h3,
-.see_grammar_lesson button.btn.btn-primary h3,
-.see_communication_lesson button.btn.btn-primary h3
+.see_vocab_lesson .btn.btn-primary h3,
+.see_grammar_lesson .btn.btn-primary h3,
+.see_communication_lesson .btn.btn-primary h3
 {
     position: absolute;
     right: 23px;
@@ -171,25 +171,25 @@ ul.list-group.list-group-numbered.info_details {
     top: 14px;
 }
 
-.see_vocab_lesson button.btn.btn-primary h2,
-.see_grammar_lesson button.btn.btn-primary h2,
-.see_communication_lesson button.btn.btn-primary h2
+.see_vocab_lesson .btn.btn-primary h2,
+.see_grammar_lesson .btn.btn-primary h2,
+.see_communication_lesson .btn.btn-primary h2
 {
     font-weight: 900;
     font-size: 27px;
     margin: 4px 0 0 6px;
 }
 
-.see_vocab_lesson button.btn.btn-primary:hover,
-.see_grammar_lesson button.btn.btn-primary:hover,
-.see_communication_lesson button.btn.btn-primary:hover
+.see_vocab_lesson .btn.btn-primary:hover,
+.see_grammar_lesson .btn.btn-primary:hover,
+.see_communication_lesson .btn.btn-primary:hover
 {
     background-color: #f32456a8;
 }
 
-.see_vocab_lesson button.btn.btn-primary,
-.see_grammar_lesson button.btn.btn-primary,
-.see_communication_lesson button.btn.btn-primary
+.see_vocab_lesson .btn.btn-primary,
+.see_grammar_lesson .btn.btn-primary,
+.see_communication_lesson .btn.btn-primary
 {
     padding: 10px 25px;
     border-radius: 20px;
