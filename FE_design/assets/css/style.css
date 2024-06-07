@@ -4,9 +4,158 @@
     font-family: "Itim"
 }
 
+/* end studyAlphabet */
+.flashcards_alphabet_all i.fa-solid.fa-chevron-left {
+    position: absolute;
+    left: 14px;
+    top: 150px;
+    font-size: 55px;
+    cursor: pointer;
+}
+
+.flashcards_alphabet_all i.fa-solid.fa-chevron-right {
+    position: absolute;
+    font-size: 55px;
+    top: 150px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.flashcards_alphabet_all {
+    position: relative;
+}
+
+.flashcards_alphabet .flashcard.active {
+    opacity: 1;
+}
+
+.flashcards_alphabet .flashcard {
+    background-color: #D9D9D9;
+    padding: 47px 20px;
+    border-radius: 23px;
+    box-shadow: 0 0 8px 0px #00000070;
+    opacity: 0;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.flashcards_alphabet i.fa-solid.fa-chevron-left {
+    font-size: 48px;
+    position: absolute;
+    left: 0px;
+    top: 98px;
+}
+
+.flashcards_alphabet i.fa-solid.fa-chevron-right {
+    font-size: 48px;
+    position: absolute;
+    top: 98px;
+    right: 0px;
+    color: #000000a6;
+}
+
+.flashcards_alphabet p.example {
+    font-size: 22px;
+}
+
+.flashcards_alphabet h1.name {
+    font-size: 115px;
+    font-weight: 600;
+}
+
+.flashcards_alphabet {
+    position: relative;
+}
+
+h2.tittle_alphabet {
+    font-size: 33px;
+    font-weight: lighter;
+    margin-bottom: 18px;
+}
+
+.button_alphabet h3.pronunciation {
+    margin: 0;
+}
+
+a.btn.btn-primary.button_alphabet:hover h2.name{
+    transform: scale(1.4);
+}
+
+.button_alphabet h2.name {
+    margin: 0;
+    font-weight: 600;
+    padding-top: 4px;
+    font-size: 30px;
+    transition: 0.4s;
+}
+
+a.btn.btn-primary.button_alphabet {
+    padding: 3px 24px;
+    margin: 0px 7px 7px 0;
+    background-color: #F32456;
+    border: none;
+}
+
+.studyAlphabet a.btn.btn-primary.arrowBack {
+    color: black;
+    background-color: #f0f8ff00;
+    border: none;
+    font-size: 33px;
+    padding: 0 0 7px 0px;
+    display: flex;
+}
+
+.studyAlphabet {
+    padding: 114px 0 24px 0;
+    background-color: #FFF1F1;
+}
+
+/* end alphbet_lessonContent */
+
+.alphbet_lessonContent a.btn.btn-primary.arrowBack {
+    font-size: 30px;
+    background-color: #00008000;
+    color: black;
+}
+
+.alphbet_lessonContent a.btn.btn-primary h4 {
+    position: absolute;
+    top: 17px;
+    right: 32px;
+    font-size: 21px;
+}
+
+.alphbet_lessonContent a.btn.btn-primary h3 {
+    font-size: 30px;
+    font-weight: 700;
+    padding-left: 13px;
+}
+
+.alphbet_lessonContent a.btn.btn-primary:hover {
+    transform: scale(1.1);
+}
+
+.alphbet_lessonContent a.btn.btn-primary {
+    background-color: #F32456;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+    position: relative;
+    border-radius: 21px;
+    transition: 0.5s;
+}
+
+.alphbet_lessonContent {
+    padding-top: 113px;
+}
+
+/* end home */
 .info_details li.list-group-item1,
-.info_details li.list-group-item2
-{
+.info_details li.list-group-item2 {
     padding: 12px 25px;
     color: white;
     font-size: 21px;
@@ -20,9 +169,9 @@ ul.list-group.list-group-numbered.info_details.hidden_info {
     visibility: hidden;
 }
 
-ul.list-group.list-group-numbered.info_details::after{
+ul.list-group.list-group-numbered.info_details::after {
     content: "";
-    position:absolute;
+    position: absolute;
     top: -25px;
     right: 10px;
     height: 0px;
@@ -96,8 +245,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
 .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
-.see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top
-{
+.see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top {
     width: 34px;
     position: absolute;
     right: 20px;
@@ -105,8 +253,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson button.btn.btn-primary h3,
 .see_grammar_lesson button.btn.btn-primary h3,
-.see_communication_lesson button.btn.btn-primary h3
-{
+.see_communication_lesson button.btn.btn-primary h3 {
     position: absolute;
     right: 23px;
     margin: 0;
@@ -116,8 +263,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson button.btn.btn-primary h2,
 .see_grammar_lesson button.btn.btn-primary h2,
-.see_communication_lesson button.btn.btn-primary h2
-{
+.see_communication_lesson button.btn.btn-primary h2 {
     font-weight: 900;
     font-size: 27px;
     margin: 4px 0 0 6px;
@@ -125,15 +271,13 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson button.btn.btn-primary:hover,
 .see_grammar_lesson button.btn.btn-primary:hover,
-.see_communication_lesson button.btn.btn-primary:hover
-{
+.see_communication_lesson button.btn.btn-primary:hover {
     background-color: #f32456a8;
 }
 
 .see_vocab_lesson button.btn.btn-primary,
 .see_grammar_lesson button.btn.btn-primary,
-.see_communication_lesson button.btn.btn-primary
-{
+.see_communication_lesson button.btn.btn-primary {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #F32456;
@@ -146,15 +290,13 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson .row,
 .see_grammar_lesson .row,
-.see_communication_lesson .row
-{
+.see_communication_lesson .row {
     justify-content: center;
 }
 
 .see_vocab_lesson,
 .see_grammar_lesson,
-.see_communication_lesson
-{
+.see_communication_lesson {
     padding-top: 128px;
     padding-bottom: 50px;
 }
