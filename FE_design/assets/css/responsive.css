@@ -1,6 +1,23 @@
 @media (max-width: 767px) {
     * {}
 
+    /* end vocabLessonContent */
+    .vocabLessonContent {
+        padding: 233px 0 29px 0;
+    }
+
+    /* end studyAlphabet */
+    .studyAlphabet {
+        padding: 216px 0 0px 0;
+        background-color: rgb(255, 241, 241);
+    }
+
+    /* end alphbet_lessonContent */
+
+    .alphbet_lessonContent {
+        padding: 211px 0 0 0;
+    }
+
     /* end home  */
     .name_user i.fa-solid.fa-caret-down {
         margin: 17px 0px 0px 5px;
@@ -12,39 +29,34 @@
     }
 
     .info_user img.img-fluid.user_svg {
-        margin: 7px 9px 8px 0;
+        margin: 7px 9px 8px 0px;
     }
 
     .info_user {
         display: flex;
         flex-direction: row;
-        margin: 0;
+        margin: 0px 0px 4px;
         justify-content: center;
-        margin-bottom: 4px;
     }
 
     .sign_up_member h5 {
-        margin: 0;
-        margin-top: 3px;
+        margin: 3px 0px 0px;
         font-size: 20px;
     }
 
     .sign_up_member img.img-fluid.rounded-top.member_svg {
         width: 30px;
-        margin: 0;
-        margin-right: 8px;
-        margin-bottom: 7px;
+        margin: 0px 8px 7px 0px;
     }
 
     .sign_up_member {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        border-bottom: 1px solid #0000002b;
-        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+        margin: 0px;
     }
 
-    /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
     .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
     .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
     .see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top {
@@ -68,30 +80,26 @@
     .see_grammar_lesson,
     .see_communication_lesson {
         padding-top: 239px;
-        background-color: #FFF1F1;
+        background-color: rgb(255, 241, 241);
     }
 
-    /* end see_vocabulary see_grammar*/
     .see_vocabulary,
     .see_grammar {
         padding-top: 253px;
-        background-color: #FFF1F1;
+        background-color: rgb(255, 241, 241);
         padding-bottom: 44px;
     }
 
-    /* end see_alphabet */
     .see_alphabet {
         padding-top: 242px;
-        background-color: #FFF1F1;
+        background-color: rgb(255, 241, 241);
         padding-bottom: 111px;
     }
 
-    /* end login  */
     form.form_logIn {
         margin-top: 73px;
     }
 
-    /* end sign-up */
     form.form_sign-up .mb-4 {
         margin-bottom: 13px !important;
     }
@@ -103,10 +111,9 @@
     form.form_sign-up {
         margin-top: 87px;
         padding-bottom: 100px;
-        background-color: #FFF1F1;
+        background-color: rgb(255, 241, 241);
     }
 
-    /* end index  */
     img.img-fluid.rounded-top.icon_gt {
         margin-top: -8px;
     }
@@ -128,7 +135,7 @@
     }
 
     li.nav-item.active {
-        border-radius: 0 50px;
+        border-radius: 0px 50px;
     }
 
     .vocabulary {
@@ -136,7 +143,7 @@
     }
 
     .content {
-        margin: -125px 0 0 0px;
+        margin: -125px 0px 0px;
     }
 
     .btn-group.two_sign {
@@ -158,8 +165,8 @@
     ul.navbar-nav {
         position: fixed;
         bottom: 1px;
-        left: 0;
-        right: 0;
+        left: 0px;
+        right: 0px;
         margin: 0px;
         background-color: white;
         display: flex;
@@ -171,7 +178,6 @@
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
 
-    /* end home  */
     .name_user i.fa-solid.fa-caret-down {
         margin: 17px 0px 0px 5px;
     }
@@ -182,39 +188,34 @@
     }
 
     .info_user img.img-fluid.user_svg {
-        margin: 7px 9px 8px 0;
+        margin: 7px 9px 8px 0px;
     }
 
     .info_user {
         display: flex;
         flex-direction: row;
-        margin: 0;
+        margin: 0px 0px 4px;
         justify-content: center;
-        margin-bottom: 4px;
     }
 
     .sign_up_member h5 {
-        margin: 0;
-        margin-top: 3px;
+        margin: 3px 0px 0px;
         font-size: 20px;
     }
 
     .sign_up_member img.img-fluid.rounded-top.member_svg {
         width: 30px;
-        margin: 0;
-        margin-right: 8px;
-        margin-bottom: 7px;
+        margin: 0px 8px 7px 0px;
     }
 
     .sign_up_member {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        border-bottom: 1px solid #0000002b;
-        margin: 18px 0 2px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+        margin: 18px 0px 2px;
     }
 
-    /* end see_vocab_lesson see_grammar_lesson see_communication_lesson*/
     .see_vocab_lesson button.btn.btn-primary img.img-fluid.rounded-top,
     .see_grammar_lesson button.btn.btn-primary img.img-fluid.rounded-top,
     .see_communication_lesson button.btn.btn-primary img.img-fluid.rounded-top {
@@ -234,18 +235,15 @@
         top: 13px;
     }
 
-    /* end see_vocabulary see_grammar */
     .see_vocabulary,
     .see_grammar {
         padding-top: 164px;
     }
 
-    /* end logIn  */
     form.form_logIn {
         margin-top: 0px;
     }
 
-    /* end sign-up */
     form.form_sign-up h3 {
         font-size: 28px;
     }
@@ -254,7 +252,6 @@
         margin-top: 0px;
     }
 
-    /* end index  */
     .grammar {
         margin-top: 32px;
     }
@@ -309,7 +306,6 @@
         font-size: 20px;
         padding: 12px 6px;
     }
-
 
     li.nav-item {
         padding: 0px 12px;

@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (numberFlashcardsNow < numberFlashcards - 1) {
             numberFlashcardsNow++;
         }else{
+            console.log('Học xong');
             numberFlashcardsNow = 0
         }
         var flashcardNext = flashcards[numberFlashcardsNow];

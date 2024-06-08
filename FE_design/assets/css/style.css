@@ -4,6 +4,154 @@
     font-family: "Itim"
 }
 
+.studyVocab a.btn.btn-primary {
+    position: absolute;
+    top: 600px;
+    right: 345px;
+    padding: 3px 25px;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FB003C;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter h3.sino_vietnamese_sound {
+    font-size: 21px;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter h3.pronunciation {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 56px;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter h3.mean {
+    font-size: 35px;
+    margin-bottom: 28px;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter.hiddenCard {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore.showflash {
+    opacity: 1;
+    visibility: visible;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore p.example {
+    font-size: 23px;
+    padding: 10px 0px;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore h2.name {
+    padding: 28px 0px;
+    font-size: 98px;
+}
+
+.sound_flash_cards {
+    font-size: 35px;
+    position: absolute;
+    top: 13px;
+    z-index: 1;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter,
+.studyVocabLesson .flashCards .flashcardBefore {
+    background-color: white;
+    width: 304px;
+    padding: 44px 0px;
+    position: absolute;
+    top: 40px;
+    border-radius: 29px;
+    height: 341px;
+}
+
+.studyVocabLesson .flashCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.studyVocabLesson .howToLearn.active {
+    opacity: 1;
+}
+
+.studyVocabLesson .howToLearn {
+    opacity: 0;
+}
+
+.studyVocabLesson {
+    position: relative;
+}
+
+.studyVocab .progress_vocab .progress,
+.progress-stacked {
+    --bs-progress-bar-bg: #FB003C;
+}
+
+.studyVocab .progress_vocab .progress {
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 11px;
+    height: 24px;
+    border-radius: 21px;
+    background-color: #493b4e1c;
+    margin-right: 15px;
+}
+
+.studyVocab .progress_vocab i.fa-solid.fa-xmark {
+    font-size: 36px;
+}
+
+.studyVocab .progress_vocab {
+    display: flex;
+    flex-direction: row;
+}
+
+.studyVocab {
+    padding: 123px 0 20px 0;
+    position: relative;
+}
+
+/* end vocabLessonContent */
+.vocabLessonContent a.btn.btn-primary.btnVocabCStudy {
+    padding: 8px 17px;
+    font-size: 24px;
+    border-radius: 21px;
+    background-color: #FB003C;
+    border: none;
+}
+
+.vocabLessonContent ul.listVocab li p.mean_vocab {
+    margin-left: 21px;
+}
+
+.vocabLessonContent ul.listVocab li {
+    display: flex;
+    flex-direction: row;
+}
+
+.vocabLessonContent ul.listVocab {
+    list-style: none;
+    font-size: 20px;
+    margin-left: 52px;
+    margin-bottom: 3px;
+}
+
+.vocabLessonContent .h2 {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.vocabLessonContent {
+    padding: 126px 0 20px 0;
+    background-color: #FFF1F1;
+    position: relative;
+}
+
 /* end studyAlphabet */
 .flashcards_alphabet_all i.fa-solid.fa-chevron-left {
     position: absolute;
@@ -80,7 +228,7 @@ h2.tittle_alphabet {
     margin: 0;
 }
 
-a.btn.btn-primary.button_alphabet:hover h2.name{
+a.btn.btn-primary.button_alphabet:hover h2.name {
     transform: scale(1.4);
 }
 
@@ -93,7 +241,7 @@ a.btn.btn-primary.button_alphabet:hover h2.name{
 }
 
 a.btn.btn-primary.button_alphabet {
-    padding: 3px 24px;
+    padding: 3px 26px;
     margin: 0px 7px 7px 0;
     background-color: #F32456;
     border: none;
@@ -126,16 +274,22 @@ a.btn.btn-primary.button_alphabet {
     top: 17px;
     right: 32px;
     font-size: 21px;
+    transition: 0.5s;
+}
+
+.alphbet_lessonContent a.btn.btn-primary:hover h4 {
+    transform: scale(1.2);
 }
 
 .alphbet_lessonContent a.btn.btn-primary h3 {
     font-size: 30px;
     font-weight: 700;
-    padding-left: 13px;
+    padding-left: 15px;
+    transition: 0.5s;
 }
 
-.alphbet_lessonContent a.btn.btn-primary:hover {
-    transform: scale(1.1);
+.alphbet_lessonContent a.btn.btn-primary:hover h3 {
+    transform: scale(1.2);
 }
 
 .alphbet_lessonContent a.btn.btn-primary {
@@ -146,7 +300,6 @@ a.btn.btn-primary.button_alphabet {
     margin-bottom: 12px;
     position: relative;
     border-radius: 21px;
-    transition: 0.5s;
 }
 
 .alphbet_lessonContent {
