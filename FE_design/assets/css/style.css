@@ -4,15 +4,218 @@
     font-family: "Itim"
 }
 
-.studyVocab a.btn.btn-primary {
+.alertSuccess .alert a.btn.btn-primary {
+    margin-right: 55px;
+}
+
+.alertSuccess .alert .contentAlert {
+    margin: 0px 132px 0px 11px;
+}
+
+.alertSuccess .alert {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.alertSuccess {
     position: absolute;
-    top: 600px;
-    right: 345px;
+    top: 355px;
+    background-color: #0d6efd;
+    color: white;
+    font-size: 27px;
+    padding: 0px 55px;
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+}
+
+.viewAndWrite a.btn.btn-primary {
+    font-size: 25px;
+    padding: 5px 22px;
+    border-radius: 20px;
+    background-color: #FB003C;
+    border: none;
+}
+
+.viewAndWrite .writeVocab input.form-control {
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 11px;
+}
+
+.viewAndWrite .writeVocab {
+    width: 500px;
+    margin-bottom: 38px;
+}
+
+.viewAndWrite .viewVocab {
+    font-size: 33px;
+    padding: 3px 185px;
+    box-shadow: 0 0 6px 0px #000000b0;
+    margin-bottom: 157px;
+    margin-top: 15px;
+    border-radius: 22px;
+}
+
+.viewAndWrite h2 {
+    font-size: 41px;
+}
+
+.viewAndWrite {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.optionChoose.optionChooseColor {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+
+.listenAndChoose a.btn.btn-primary {
+    font-size: 25px;
+    padding: 6px 27px;
+    border-radius: 27px;
+    background-color: #FB003C;
+    border: none;
+}
+
+.listenAndChoose .optionChoose:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.listenAndChoose .optionChoose {
+    width: 245px;
+    height: 100px;
+    font-size: 34px;
+    margin: 0 24px 38px 24px;
+    background-color: #f5f5dc00;
+    color: black;
+    border: none;
+    box-shadow: 0 0 10px #00000080;
+    border-radius: 30px;
+}
+
+.listenAndChoose .optionChooseALL {
+    margin-bottom: 10px;
+}
+
+.listenAndChoose .sound_listen {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.listenAndChoose h2 {
+    margin-bottom: 14px;
+    margin-top: 10px;
+}
+
+.listenAndChoose {
+    background-color: #FFF1F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i.fa-solid.fa-hand-pointer {
+    font-size: 29px;
+    position: absolute;
+    top: 373px;
+    z-index: 3;
+    color: #fb003c69;
+}
+
+.flashcardAfter.hiddenAfter {
+    animation: hiddenAfter 0.2s forwards;
+}
+
+@-webkit-keyframes hiddenAfter {
+    from {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: rotateY(90deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.flashcardBefore.showBefore {
+    animation: showBefore 0.5s forwards;
+}
+
+@-webkit-keyframes showBefore {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.flashcardAfter.showAfter {
+    animation: showAfter 0.5s forwards;
+}
+
+@-webkit-keyframes showAfter {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.flashcardBefore.hiddenBefore {
+    animation: hiddenBefore 0.2s forwards;
+}
+
+@-webkit-keyframes hiddenBefore {
+    from {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: rotateY(90deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+i.fa-solid.fa-volume-high.scale {
+    animation: sound_card 1.5s forwards;
+}
+
+@-webkit-keyframes sound_card {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+}
+
+.flashCards a.btn.btn-primary {
     padding: 3px 25px;
     font-size: 25px;
     border: none;
     border-radius: 20px;
     background-color: #FB003C;
+    margin-top: 450px;
 }
 
 .studyVocabLesson .flashCards .flashcardAfter h3.sino_vietnamese_sound {
@@ -30,16 +233,6 @@
     margin-bottom: 28px;
 }
 
-.studyVocabLesson .flashCards .flashcardAfter.hiddenCard {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.studyVocabLesson .flashCards .flashcardBefore.showflash {
-    opacity: 1;
-    visibility: visible;
-}
-
 .studyVocabLesson .flashCards .flashcardBefore p.example {
     font-size: 23px;
     padding: 10px 0px;
@@ -54,7 +247,15 @@
     font-size: 35px;
     position: absolute;
     top: 13px;
+    z-index: 3;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter {
     z-index: 1;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore {
+    z-index: 2;
 }
 
 .studyVocabLesson .flashCards .flashcardAfter,
@@ -80,11 +281,18 @@
 }
 
 .studyVocabLesson .howToLearn {
+    height: 493px;
     opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFF1F1;
 }
 
 .studyVocabLesson {
     position: relative;
+    background-color: #FFF1F1;
 }
 
 .studyVocab .progress_vocab .progress,

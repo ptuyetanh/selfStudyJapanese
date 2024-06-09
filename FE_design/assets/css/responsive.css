@@ -1,6 +1,26 @@
 @media (max-width: 767px) {
     * {}
 
+.listenAndChoose .optionChoose {
+    margin: 0px 20px 20px 0px;
+    height: 69px;
+    width: 182px;
+    font-size: 28px;
+}
+
+.listenAndChoose .sound_listen {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+
+.flashCards a.btn.btn-primary {
+    margin-top: 420px;
+}
+
+.studyVocab {
+    padding: 211px 0 0 0;
+}
+
     /* end vocabLessonContent */
     .vocabLessonContent {
         padding: 233px 0 29px 0;
@@ -177,6 +197,19 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
+
+.listenAndChoose .optionChoose {
+    width: 185px;
+    height: 73px;
+    font-size: 29px;
+    margin: 0px 13px 18px 16px;
+}
+
+.listenAndChoose .sound_listen {
+    margin-bottom: 12px;
+}
+
+/* end home */
 
     .name_user i.fa-solid.fa-caret-down {
         margin: 17px 0px 0px 5px;
