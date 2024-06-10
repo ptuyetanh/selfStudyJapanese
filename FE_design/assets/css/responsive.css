@@ -1,28 +1,37 @@
 @media (max-width: 767px) {
     * {}
 
-.listenAndChoose .optionChoose {
-    margin: 0px 20px 20px 0px;
-    height: 69px;
-    width: 182px;
-    font-size: 28px;
-}
+    /* end studyVocab,studyGrammar */
 
-.listenAndChoose .sound_listen {
-    font-size: 36px;
-    margin-bottom: 24px;
-}
+    .alertSuccess {
+        bottom: 92px;
+    }
 
-.flashCards a.btn.btn-primary {
-    margin-top: 420px;
-}
+    .listenAndChoose .optionChoose,
+    .viewAndChoose .optionChoose {
+        margin: 0px 20px 20px 0px;
+        height: 69px;
+        width: 182px;
+        font-size: 28px;
+    }
 
-.studyVocab {
-    padding: 211px 0 0 0;
-}
+    .listenAndChoose .sound_listen {
+        font-size: 36px;
+        margin-bottom: 24px;
+    }
 
-    /* end vocabLessonContent */
-    .vocabLessonContent {
+    .flashCards a.btn.btn-primary {
+        margin-top: 420px;
+    }
+
+    .studyVocab,
+    .studyGrammar {
+        padding: 211px 0 0 0;
+    }
+
+    /* end vocabLessonContent grammarLessonContent*/
+    .vocabLessonContent,
+    .grammarLessonContent {
         padding: 233px 0 29px 0;
     }
 
@@ -198,18 +207,21 @@
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
 
-.listenAndChoose .optionChoose {
-    width: 185px;
-    height: 73px;
-    font-size: 29px;
-    margin: 0px 13px 18px 16px;
-}
+    /* end studyVocab,studyGrammar */
 
-.listenAndChoose .sound_listen {
-    margin-bottom: 12px;
-}
+    .listenAndChoose .optionChoose,
+    .viewAndChoose .optionChoose {
+        width: 185px;
+        height: 73px;
+        font-size: 29px;
+        margin: 0px 13px 18px 16px;
+    }
 
-/* end home */
+    .listenAndChoose .sound_listen {
+        margin-bottom: 12px;
+    }
+
+    /* end home */
 
     .name_user i.fa-solid.fa-caret-down {
         margin: 17px 0px 0px 5px;

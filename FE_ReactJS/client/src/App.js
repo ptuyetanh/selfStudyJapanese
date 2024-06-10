@@ -13,6 +13,12 @@ import Home from './component/user/Home';
 import RoutePrivate from './component/router/RoutePrivate';
 import { connect } from 'react-redux';
 import { isAuthUser } from './component/react-redux/actions/authAction';
+import SeeAphabetPrivate from './component/user/SeeAphabetPrivate';
+import SeeComunicationPrivate from './component/user/SeeComunicationPrivate';
+import SeeVocabPrivate from './component/user/SeeVocabPrivate';
+import SeeVocabLessonPrivate from './component/user/SeeVocabLessonPrivate';
+import SeeGrammarPrivate from './component/user/SeeGrammarPrivate';
+import SeeGrammarLessonPrivate from './component/user/SeeGrammarLessonPrivate';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -34,6 +40,12 @@ class App extends Component {
           <Route path='/seeCommunication' element={<SeeCommunication />} />
           <Route element={<RoutePrivate />}>
             <Route path='/home' element={<Home />} />
+            <Route path='/seeAlphabetUser' element={<SeeAphabetPrivate />} />
+            <Route path='/seeCommunicationUser' element={<SeeComunicationPrivate />} />
+            <Route path='/seeVocabUser' element={<SeeVocabPrivate />} />
+            <Route path='/seeVocabUser/:level/:id_level' element={<SeeVocabLessonPrivate />} />
+            <Route path='/seeGrammarUser' element={<SeeGrammarPrivate />} />
+            <Route path='/seeGrammarUser/:level/:id_level' element={<SeeGrammarLessonPrivate />} />        
           </Route>
         </Routes>
       </Router>

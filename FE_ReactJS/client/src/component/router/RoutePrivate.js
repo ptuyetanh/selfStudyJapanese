@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 class RoutePrivate extends Component {
     render() {
-        const { isauth, loadingWeb } = this.props.auth;
-        console.log(isauth);
+        const { loadingWeb } = this.props.auth;
         if (loadingWeb) {
             return (
             <div className='loading'>
@@ -15,10 +14,11 @@ class RoutePrivate extends Component {
                     alt=""
                 />
                 <h3> Loading Web</h3>
+                <h3>Nếu loadding không chuyển hướng vui lòng  
+                    <Link to="/login"> Đăng nhập lại</Link>
+                </h3>
             </div>
             )
-        }else if (!isauth) {
-            return <Navigate to="/login" />
         }
         return (
             <Outlet />

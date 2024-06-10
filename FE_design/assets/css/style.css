@@ -1,39 +1,67 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: "Itim"
+    padding: 0px;
+    margin: 0px;
+    font-family: Itim;
 }
 
-.alertSuccess .alert a.btn.btn-primary {
-    margin-right: 55px;
+/* end studyVocab,studyGrammar */
+
+.alertError {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(251, 0, 60);
+    color: white;
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+    opacity: 0;
+    visibility: hidden;
 }
 
-.alertSuccess .alert .contentAlert {
-    margin: 0px 132px 0px 11px;
+.alerts a.btn.btn-primary.continue,
+.alerts a.btn.btn-primary.learnAgain {
+    background-color: white;
+    color: rgb(251, 0, 60);
+    font-weight: 800;
 }
 
-.alertSuccess .alert {
+.alerts.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.alertSuccess p,
+.alertError p {
+    font-size: 22px;
+}
+
+.alertSuccess .alert .contentAlert,
+.alertError .alert .contentAlert {
+    padding: 0 22px 0 0
+}
+
+.alertSuccess .alert,
+.alertError .alert {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .alertSuccess {
-    position: absolute;
-    top: 355px;
-    background-color: #0d6efd;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(13, 110, 253);
     color: white;
-    font-size: 27px;
-    padding: 0px 55px;
     border-top-left-radius: 34px;
     border-top-right-radius: 34px;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .viewAndWrite a.btn.btn-primary {
     font-size: 25px;
     padding: 5px 22px;
     border-radius: 20px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     border: none;
 }
 
@@ -51,7 +79,7 @@
 .viewAndWrite .viewVocab {
     font-size: 33px;
     padding: 3px 185px;
-    box-shadow: 0 0 6px 0px #000000b0;
+    box-shadow: rgba(0, 0, 0, 0.69) 0px 0px 6px 0px;
     margin-bottom: 157px;
     margin-top: 15px;
     border-radius: 22px;
@@ -69,37 +97,56 @@
 }
 
 .optionChoose.optionChooseColor {
-    background-color: #0d6efd !important;
+    background-color: rgb(13, 110, 253) !important;
     color: white !important;
 }
 
-.listenAndChoose a.btn.btn-primary {
+.listenAndChoose a.btn.btn-primary,
+.viewAndChoose a.btn.btn-primary {
     font-size: 25px;
     padding: 6px 27px;
     border-radius: 27px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     border: none;
 }
 
-.listenAndChoose .optionChoose:hover {
-    background-color: #0d6efd;
+.listenAndChoose .optionChoose:hover,
+.viewAndChoose .optionChoose:hover {
+    background-color: rgb(13, 110, 253);
     color: white;
 }
 
-.listenAndChoose .optionChoose {
+.listenAndChoose .optionChoose,
+.viewAndChoose .optionChoose {
     width: 245px;
     height: 100px;
     font-size: 34px;
-    margin: 0 24px 38px 24px;
-    background-color: #f5f5dc00;
+    margin: 0px 24px 38px;
+    background-color: rgba(245, 245, 220, 0);
     color: black;
     border: none;
-    box-shadow: 0 0 10px #00000080;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
     border-radius: 30px;
 }
 
-.listenAndChoose .optionChooseALL {
+.listenAndChoose .optionChooseALL,
+.viewAndChoose .optionChooseALL {
     margin-bottom: 10px;
+}
+
+.viewAndChoose .view_grammar {
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    box-shadow: inset 0 0 8px 0px #0000009e;
+
+    padding: 7px 156px;
+
+    margin-bottom: 36px;
+
+    border-radius: 17px;
 }
 
 .listenAndChoose .sound_listen {
@@ -107,13 +154,15 @@
     margin-bottom: 20px;
 }
 
-.listenAndChoose h2 {
+.listenAndChoose h2,
+.viewAndChoose h2 {
     margin-bottom: 14px;
     margin-top: 10px;
 }
 
-.listenAndChoose {
-    background-color: #FFF1F1;
+.listenAndChoose,
+.viewAndChoose {
+    background-color: rgb(255, 241, 241);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,20 +173,20 @@ i.fa-solid.fa-hand-pointer {
     position: absolute;
     top: 373px;
     z-index: 3;
-    color: #fb003c69;
+    color: rgba(251, 0, 60, 0.41);
 }
 
 .flashcardAfter.hiddenAfter {
-    animation: hiddenAfter 0.2s forwards;
+    animation: 0.2s ease 0s 1 normal forwards running hiddenAfter;
 }
 
 @-webkit-keyframes hiddenAfter {
-    from {
-        transform: rotateY(0);
+    0% {
+        transform: rotateY(0deg);
         opacity: 1;
     }
 
-    to {
+    100% {
         transform: rotateY(90deg);
         opacity: 0;
         visibility: hidden;
@@ -145,50 +194,50 @@ i.fa-solid.fa-hand-pointer {
 }
 
 .flashcardBefore.showBefore {
-    animation: showBefore 0.5s forwards;
+    animation: 0.5s ease 0s 1 normal forwards running showBefore;
 }
 
 @-webkit-keyframes showBefore {
-    from {
+    0% {
         transform: rotateY(90deg);
         opacity: 0;
     }
 
-    to {
-        transform: rotateY(0);
+    100% {
+        transform: rotateY(0deg);
         opacity: 1;
         visibility: visible;
     }
 }
 
 .flashcardAfter.showAfter {
-    animation: showAfter 0.5s forwards;
+    animation: 0.5s ease 0s 1 normal forwards running showAfter;
 }
 
 @-webkit-keyframes showAfter {
-    from {
+    0% {
         transform: rotateY(90deg);
         opacity: 0;
     }
 
-    to {
-        transform: rotateY(0);
+    100% {
+        transform: rotateY(0deg);
         opacity: 1;
         visibility: visible;
     }
 }
 
 .flashcardBefore.hiddenBefore {
-    animation: hiddenBefore 0.2s forwards;
+    animation: 0.2s ease 0s 1 normal forwards running hiddenBefore;
 }
 
 @-webkit-keyframes hiddenBefore {
-    from {
-        transform: rotateY(0);
+    0% {
+        transform: rotateY(0deg);
         opacity: 1;
     }
 
-    to {
+    100% {
         transform: rotateY(90deg);
         opacity: 0;
         visibility: hidden;
@@ -196,15 +245,15 @@ i.fa-solid.fa-hand-pointer {
 }
 
 i.fa-solid.fa-volume-high.scale {
-    animation: sound_card 1.5s forwards;
+    animation: 1.5s ease 0s 1 normal forwards running sound_card;
 }
 
 @-webkit-keyframes sound_card {
-    from {
+    0% {
         transform: scale(1);
     }
 
-    to {
+    100% {
         transform: scale(1.5);
     }
 }
@@ -214,18 +263,34 @@ i.fa-solid.fa-volume-high.scale {
     font-size: 25px;
     border: none;
     border-radius: 20px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     margin-top: 450px;
+}
+
+.studyGrammarLesson .flashCards .flashcardAfter h3.explain {
+    font-size: 20px;
 }
 
 .studyVocabLesson .flashCards .flashcardAfter h3.sino_vietnamese_sound {
     font-size: 21px;
 }
 
+.studyGrammarLesson .flashCards .flashcardAfter h3.mean_example {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #FB003C;
+}
+
 .studyVocabLesson .flashCards .flashcardAfter h3.pronunciation {
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 56px;
+    color: #FB003C
+}
+
+.studyGrammarLesson .flashCards .flashcardAfter h3.mean {
+    font-size: 28px;
+    margin-bottom: 25px;
 }
 
 .studyVocabLesson .flashCards .flashcardAfter h3.mean {
@@ -233,9 +298,15 @@ i.fa-solid.fa-volume-high.scale {
     margin-bottom: 28px;
 }
 
-.studyVocabLesson .flashCards .flashcardBefore p.example {
+.studyVocabLesson .flashCards .flashcardBefore p.example,
+.studyGrammarLesson .flashCards .flashcardBefore p.example {
     font-size: 23px;
     padding: 10px 0px;
+}
+
+.studyGrammarLesson .flashCards .flashcardBefore h2.name {
+    padding: 28px 0px;
+    font-size: 60px;
 }
 
 .studyVocabLesson .flashCards .flashcardBefore h2.name {
@@ -250,16 +321,20 @@ i.fa-solid.fa-volume-high.scale {
     z-index: 3;
 }
 
-.studyVocabLesson .flashCards .flashcardAfter {
+.studyVocabLesson .flashCards .flashcardAfter,
+.studyGrammarLesson .flashCards .flashcardAfter {
     z-index: 1;
 }
 
-.studyVocabLesson .flashCards .flashcardBefore {
+.studyVocabLesson .flashCards .flashcardBefore,
+.studyGrammarLesson .flashCards .flashcardBefore {
     z-index: 2;
 }
 
 .studyVocabLesson .flashCards .flashcardAfter,
-.studyVocabLesson .flashCards .flashcardBefore {
+.studyVocabLesson .flashCards .flashcardBefore,
+.studyGrammarLesson .flashCards .flashcardAfter,
+.studyGrammarLesson .flashCards .flashcardBefore {
     background-color: white;
     width: 304px;
     padding: 44px 0px;
@@ -269,94 +344,112 @@ i.fa-solid.fa-volume-high.scale {
     height: 341px;
 }
 
-.studyVocabLesson .flashCards {
+.studyVocabLesson .flashCards,
+.studyGrammarLesson .flashCards {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
 
-.studyVocabLesson .howToLearn.active {
+.studyVocabLesson .howToLearn.active,
+.studyGrammarLesson .howToLearn.active {
     opacity: 1;
+    visibility: visible;
 }
 
-.studyVocabLesson .howToLearn {
+.studyVocabLesson .howToLearn,
+.studyGrammarLesson .howToLearn {
     height: 493px;
     opacity: 0;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #FFF1F1;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(255, 241, 241);
+    visibility: hidden;
 }
 
-.studyVocabLesson {
+.studyVocabLesson,
+.studyGrammarLesson {
     position: relative;
-    background-color: #FFF1F1;
+    background-color: rgb(255, 241, 241);
 }
 
 .studyVocab .progress_vocab .progress,
-.progress-stacked {
+.progress-stacked,
+.studyGrammar .progress_Grammar .progress {
     --bs-progress-bar-bg: #FB003C;
 }
 
-.studyVocab .progress_vocab .progress {
+.studyVocab .progress_vocab .progress,
+.studyGrammar .progress_Grammar .progress {
     width: 100%;
     margin-top: 5px;
     margin-left: 11px;
     height: 24px;
     border-radius: 21px;
-    background-color: #493b4e1c;
+    background-color: rgba(73, 59, 78, 0.11);
     margin-right: 15px;
 }
 
-.studyVocab .progress_vocab i.fa-solid.fa-xmark {
+.studyVocab .progress_vocab i.fa-solid.fa-xmark,
+.studyGrammar .progress_Grammar i.fa-solid.fa-xmark {
     font-size: 36px;
 }
 
-.studyVocab .progress_vocab {
+.studyVocab .progress_vocab,
+.studyGrammar .progress_Grammar {
     display: flex;
     flex-direction: row;
 }
 
-.studyVocab {
-    padding: 123px 0 20px 0;
+.studyVocab,
+.studyGrammar {
+    padding: 123px 0px 20px;
     position: relative;
 }
 
-/* end vocabLessonContent */
-.vocabLessonContent a.btn.btn-primary.btnVocabCStudy {
+/* end vocabLessonContent, grammarLessonContent*/
+
+.vocabLessonContent a.btn.btn-primary.btnVocabCStudy,
+.grammarLessonContent a.btn.btn-primary.btnGrammarCStudy {
     padding: 8px 17px;
     font-size: 24px;
     border-radius: 21px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     border: none;
 }
 
-.vocabLessonContent ul.listVocab li p.mean_vocab {
+.vocabLessonContent ul.listVocab li p.mean_vocab,
+.grammarLessonContent ul.listgrammar li p.mean_grammar {
     margin-left: 21px;
 }
 
-.vocabLessonContent ul.listVocab li {
+.vocabLessonContent ul.listVocab li,
+.grammarLessonContent ul.listgrammar li {
     display: flex;
     flex-direction: row;
 }
 
-.vocabLessonContent ul.listVocab {
+.vocabLessonContent ul.listVocab,
+.grammarLessonContent ul.listgrammar {
     list-style: none;
     font-size: 20px;
     margin-left: 52px;
     margin-bottom: 3px;
 }
 
-.vocabLessonContent .h2 {
+.vocabLessonContent .h2,
+.grammarLessonContent .h2 {
     font-size: 45px;
     margin-bottom: 18px;
 }
 
-.vocabLessonContent {
-    padding: 126px 0 20px 0;
-    background-color: #FFF1F1;
+.vocabLessonContent,
+.grammarLessonContent {
+    padding: 126px 0px 20px;
+    background-color: rgb(255, 241, 241);
     position: relative;
 }
 
@@ -386,16 +479,16 @@ i.fa-solid.fa-volume-high.scale {
 }
 
 .flashcards_alphabet .flashcard {
-    background-color: #D9D9D9;
+    background-color: rgb(217, 217, 217);
     padding: 47px 20px;
     border-radius: 23px;
-    box-shadow: 0 0 8px 0px #00000070;
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 8px 0px;
     opacity: 0;
     list-style: none;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 .flashcards_alphabet i.fa-solid.fa-chevron-left {
@@ -410,7 +503,7 @@ i.fa-solid.fa-volume-high.scale {
     position: absolute;
     top: 98px;
     right: 0px;
-    color: #000000a6;
+    color: rgba(0, 0, 0, 0.65);
 }
 
 .flashcards_alphabet p.example {
@@ -433,7 +526,7 @@ h2.tittle_alphabet {
 }
 
 .button_alphabet h3.pronunciation {
-    margin: 0;
+    margin: 0px;
 }
 
 a.btn.btn-primary.button_alphabet:hover h2.name {
@@ -441,39 +534,39 @@ a.btn.btn-primary.button_alphabet:hover h2.name {
 }
 
 .button_alphabet h2.name {
-    margin: 0;
+    margin: 0px;
     font-weight: 600;
     padding-top: 4px;
     font-size: 30px;
-    transition: 0.4s;
+    transition: all 0.4s ease 0s;
 }
 
 a.btn.btn-primary.button_alphabet {
     padding: 3px 26px;
-    margin: 0px 7px 7px 0;
-    background-color: #F32456;
+    margin: 0px 7px 7px 0px;
+    background-color: rgb(243, 36, 86);
     border: none;
 }
 
 .studyAlphabet a.btn.btn-primary.arrowBack {
     color: black;
-    background-color: #f0f8ff00;
+    background-color: rgba(240, 248, 255, 0);
     border: none;
     font-size: 33px;
-    padding: 0 0 7px 0px;
+    padding: 0px 0px 7px;
     display: flex;
 }
 
 .studyAlphabet {
-    padding: 114px 0 24px 0;
-    background-color: #FFF1F1;
+    padding: 114px 0px 24px;
+    background-color: rgb(255, 241, 241);
 }
 
 /* end alphbet_lessonContent */
 
 .alphbet_lessonContent a.btn.btn-primary.arrowBack {
     font-size: 30px;
-    background-color: #00008000;
+    background-color: rgba(0, 0, 128, 0);
     color: black;
 }
 
@@ -482,7 +575,7 @@ a.btn.btn-primary.button_alphabet {
     top: 17px;
     right: 32px;
     font-size: 21px;
-    transition: 0.5s;
+    transition: all 0.5s ease 0s;
 }
 
 .alphbet_lessonContent a.btn.btn-primary:hover h4 {
@@ -493,7 +586,7 @@ a.btn.btn-primary.button_alphabet {
     font-size: 30px;
     font-weight: 700;
     padding-left: 15px;
-    transition: 0.5s;
+    transition: all 0.5s ease 0s;
 }
 
 .alphbet_lessonContent a.btn.btn-primary:hover h3 {
@@ -501,7 +594,7 @@ a.btn.btn-primary.button_alphabet {
 }
 
 .alphbet_lessonContent a.btn.btn-primary {
-    background-color: #F32456;
+    background-color: rgb(243, 36, 86);
     border: none;
     display: flex;
     flex-direction: row;
@@ -515,6 +608,7 @@ a.btn.btn-primary.button_alphabet {
 }
 
 /* end home */
+
 .info_details li.list-group-item1,
 .info_details li.list-group-item2 {
     padding: 12px 25px;
@@ -536,8 +630,10 @@ ul.list-group.list-group-numbered.info_details::after {
     top: -25px;
     right: 10px;
     height: 0px;
-    border: 11px solid transparent;
-    border-bottom-color: white;
+    border-width: 11px;
+    border-style: solid;
+    border-color: transparent transparent white;
+    border-image: initial;
 }
 
 ul.list-group.list-group-numbered.info_details {
@@ -545,8 +641,8 @@ ul.list-group.list-group-numbered.info_details {
     top: 109px;
     right: 70px;
     border-radius: inherit;
-    background-color: #FAB1B1;
-    transition: 0.4s;
+    background-color: rgb(250, 177, 177);
+    transition: all 0.4s ease 0s;
 }
 
 .info_user i.fa-solid.fa-caret-down {
@@ -556,7 +652,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .info_user h5 {
     font-weight: 500;
-    color: #F32456;
+    color: rgb(243, 36, 86);
     font-size: 17px;
 }
 
@@ -572,7 +668,7 @@ ul.list-group.list-group-numbered.info_details {
     border-radius: 23px;
     margin-left: 58px;
     margin-bottom: 4px;
-    background-color: #ffffffba;
+    background-color: rgba(255, 255, 255, 0.73);
 }
 
 .info_user {
@@ -586,7 +682,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .sign_up_member h5 {
     font-size: 17px;
-    color: #4A5699;
+    color: rgb(74, 86, 153);
 }
 
 .sign_up_member img.img-fluid.rounded-top.member_svg {
@@ -617,7 +713,7 @@ ul.list-group.list-group-numbered.info_details {
 .see_communication_lesson button.btn.btn-primary h3 {
     position: absolute;
     right: 23px;
-    margin: 0;
+    margin: 0px;
     font-size: 23px;
     top: 14px;
 }
@@ -627,13 +723,13 @@ ul.list-group.list-group-numbered.info_details {
 .see_communication_lesson button.btn.btn-primary h2 {
     font-weight: 900;
     font-size: 27px;
-    margin: 4px 0 0 6px;
+    margin: 4px 0px 0px 6px;
 }
 
 .see_vocab_lesson button.btn.btn-primary:hover,
 .see_grammar_lesson button.btn.btn-primary:hover,
 .see_communication_lesson button.btn.btn-primary:hover {
-    background-color: #f32456a8;
+    background-color: rgba(243, 36, 86, 0.66);
 }
 
 .see_vocab_lesson button.btn.btn-primary,
@@ -641,12 +737,12 @@ ul.list-group.list-group-numbered.info_details {
 .see_communication_lesson button.btn.btn-primary {
     padding: 10px 25px;
     border-radius: 20px;
-    background-color: #F32456;
+    background-color: rgb(243, 36, 86);
     border: none;
     display: flex;
     flex-direction: row;
     position: relative;
-    transition: 0.3s;
+    transition: all 0.3s ease 0s;
 }
 
 .see_vocab_lesson .row,
@@ -665,7 +761,7 @@ ul.list-group.list-group-numbered.info_details {
 /* end see_vocabulary see_grammar*/
 .see_vocabulary a.btn.btn-primary:hover,
 .see_grammar a.btn.btn-primary:hover {
-    transform: scale(1.2)
+    transform: scale(1.2);
 }
 
 .see_vocabulary a.btn.btn-primary,
@@ -674,9 +770,9 @@ ul.list-group.list-group-numbered.info_details {
     padding: 0px 17px;
     border-radius: 23px;
     margin-bottom: 44px;
-    background-color: #F32456;
+    background-color: rgb(243, 36, 86);
     border: none;
-    transition: 0.4s;
+    transition: all 0.4s ease 0s;
 }
 
 .see_vocabulary,
@@ -691,13 +787,13 @@ ul.list-group.list-group-numbered.info_details {
 }
 
 .see_alphabet p.study_free {
-    margin: 0;
+    margin: 0px;
 }
 
 .see_alphabet h2 {
     font-size: 73px;
     font-weight: 800;
-    transition: 0.8s;
+    transition: all 0.8s ease 0s;
 }
 
 .see_alphabet h3 {
@@ -711,9 +807,9 @@ ul.list-group.list-group-numbered.info_details {
 }
 
 .see_alphabet a.btn.btn-primary {
-    background-color: #F32456;
+    background-color: rgb(243, 36, 86);
     border: none;
-    padding: 0 25px;
+    padding: 0px 25px;
     border-radius: 30px;
 }
 
@@ -726,7 +822,7 @@ form.form_logIn .btn.btn-primary.btn_logIn {
     font-size: 22px;
     padding: 6px 25px;
     border-radius: 34px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     border: none;
     margin-top: 16px;
 }
@@ -753,7 +849,7 @@ form.form_logIn input.form-control {
 form.form_logIn h3 {
     font-size: 43px;
     margin-bottom: 32px;
-    color: #FB003C;
+    color: rgb(251, 0, 60);
 }
 
 form.form_logIn {
@@ -762,7 +858,7 @@ form.form_logIn {
     flex-direction: row;
     justify-content: center;
     padding-top: 200px;
-    background-color: #FFF1F1;
+    background-color: rgb(255, 241, 241);
 }
 
 /* end sign_up */
@@ -799,7 +895,7 @@ form.form_sign-up button.btn.btn-primary.btn_sign_up {
     font-size: 22px;
     padding: 7px 46px;
     border-radius: 35px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     border: none;
     margin-top: 23px;
 }
@@ -817,7 +913,7 @@ form.form_sign-up input.form-control {
 
 form.form_sign-up h3 {
     font-size: 43px;
-    color: #FB003C;
+    color: rgb(251, 0, 60);
     margin-bottom: 22px;
     margin-top: 21px;
 }
@@ -827,7 +923,7 @@ form.form_sign-up {
     flex-direction: row;
     justify-content: center;
     padding-top: 107px;
-    background-color: #FFF1F1;
+    background-color: rgb(255, 241, 241);
     padding-bottom: 20px;
 }
 
@@ -839,7 +935,7 @@ form.form_sign-up {
     font-size: 29px;
     border-radius: 36px;
     padding: 6px 20px;
-    background-color: #FB003C;
+    background-color: rgb(251, 0, 60);
     border: none;
 }
 
@@ -847,7 +943,7 @@ form.form_sign-up {
 .grammar h3 {
     font-size: 45px;
     text-align: center;
-    color: #FB003C;
+    color: rgb(251, 0, 60);
 }
 
 .grammar {
@@ -859,10 +955,9 @@ form.form_sign-up {
 }
 
 .content {
-    background-color: #FFF1F1;
+    background-color: rgb(255, 241, 241);
     text-align: center;
-    margin: 0px 25.1rem 0 20.9rem;
-    /* overflow-y: hidden; */
+    margin: 0px 25.1rem 0px 20.9rem;
 }
 
 html,
@@ -900,23 +995,26 @@ img.img-fluid.rounded-top.icon_tv {
 
 a.btn.btn-primary.sign_in {
     padding: 13px 23px;
-    background-color: #F32456;
-    border: none;
+    background-color: rgb(243, 36, 86);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-image: initial;
     font-size: 20px;
     font-weight: 600;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    border-left: 1px solid #ffffffbd
+    border-left: 1px solid rgba(255, 255, 255, 0.74);
 }
 
 a.btn.btn-primary.sign_up {
     padding: 13px 20px;
-    background-color: #F32456;
+    background-color: rgb(243, 36, 86);
     border: none;
     font-size: 20px;
     font-weight: 600;
     border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px
+    border-bottom-left-radius: 30px;
 }
 
 .btn-group.two_sign {
@@ -924,7 +1022,7 @@ a.btn.btn-primary.sign_up {
 }
 
 li.nav-item.active {
-    background-color: #FFF1F1;
+    background-color: rgb(255, 241, 241);
 }
 
 li.nav-item {
@@ -936,6 +1034,6 @@ ul.navbar-nav {
 }
 
 nav.navbar.navbar-expand-xl {
-    background-color: #FAB1B1;
-    padding: 0;
+    background-color: rgb(250, 177, 177);
+    padding: 0px;
 }

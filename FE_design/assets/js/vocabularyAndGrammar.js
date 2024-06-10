@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',function(){
         this.classList.add('hiddenAfter');
     } 
     //// listenAndChoose
-    var optionChoose = document.querySelectorAll('.listenAndChoose .optionChoose')
+    var optionChoose = document.querySelectorAll('.optionChoose')
     console.log(optionChoose);
     for (var i = 0; i < optionChoose.length; i++) {
          optionChoose[i].onclick = function() {
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded',function(){
                 
             }
             this.classList.add('optionChooseColor')
-         }
-        
+         } 
     }
 })

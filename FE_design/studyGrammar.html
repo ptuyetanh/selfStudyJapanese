@@ -90,8 +90,8 @@
     <main>
         <div class="content">
             <div class="container">
-                <div class="studyVocab">
-                    <div class="progress_vocab">
+                <div class="studyGrammar">
+                    <div class="progress_Grammar">
                         <i class="fa-solid fa-xmark"></i>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25"
@@ -99,8 +99,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end progress_vocab -->
-                    <div class="studyVocabLesson">
+                    <!-- end progress_grammar -->
+                    <div class="studyGrammarLesson">
                         <div class="howToLearn active">
                             <div class="flashCards">
                                 <div class="sound_flash_cards">
@@ -110,13 +110,13 @@
                                     <i class="fa-solid fa-volume-high"></i>
                                 </div>
                                 <div class="flashcardBefore">
-                                    <h2 class="name">学生</h2>
-                                    <p class="example">私は学生です</p>
+                                    <h2 class="name">います</h2>
+                                    <p class="example">私は猫が二います</p>
                                 </div>
                                 <div class="flashcardAfter">
-                                    <h3 class="mean">Ý nghĩa: Học sinh</h3>
-                                    <h3 class="pronunciation">がくせい</h3>
-                                    <h3 class="sino_vietnamese_sound">Âm hán việt: HỌC SINH</h3>
+                                    <h3 class="mean">Ý nghĩa: có...(sở hữu)</h3>
+                                    <h3 class="mean_example">VD: Tôi có 2 con mèo</h3>
+                                    <h3 class="explain">Được sử dụng như 1 động từ để diễn tả sự hiện hữu sự ở lại hay sự tồn tại của 1 người</h3>
                                 </div>
                                 <i class="fa-solid fa-hand-pointer"></i>
                                 <a name="" id="" class="btn btn-primary continue" href="#" role="button">Tiếp tục</a>
@@ -124,26 +124,23 @@
                         </div>
                         <!--end howToLearn -->
                         <div class="howToLearn">
-                            <div class="listenAndChoose">
-                                <h2>Hãy nghe và chọn đáp án</h2>
-                                <div class="sound_listen">
-                                    <audio class="audios">
-                                        <source src="./assets/学生.mp3" type="audio/mpeg">
-                                    </audio>
-                                    <i class="fa-solid fa-volume-high"></i>
+                            <div class="viewAndChoose">
+                                <h2>Hãy xem và chọn đáp án</h2>
+                                <div class="view_grammar">
+                                    có...(sở hữu)
                                 </div>
                                 <div class="optionChooseALL">
                                     <button type="button" class="btn btn-primary optionChoose">
-                                        学生
+                                        います
                                     </button>
                                     <button type="button" class="btn btn-primary optionChoose">
-                                        学生
+                                        あります
                                     </button>
                                     <button type="button" class="btn btn-primary optionChoose">
-                                        学生
+                                        始めます
                                     </button>
                                     <button type="button" class="btn btn-primary optionChoose">
-                                        学生
+                                        vてみます
                                     </button>
                                 </div>
                                 <a name="" id="" class="btn btn-primary check" href="#" role="button">kiểm tra</a>
@@ -151,8 +148,8 @@
                                     <h2>Đáp án đúng</h2>
                                     <div class="alert">
                                         <div class="contentAlert">
-                                            <p>学生(がくせい) : Học sinh</p>
-                                            <p>私は学生です :Tôi là học sinh</p>
+                                            <p>います : có...(sở hữu)</p>
+                                            <p>私は猫が二います :Tôi có 2 con mèo</p>
                                         </div>
                                         <a name="" id="" class="btn btn-primary continue" href="#" role="button">Tiếp
                                             tục</a>
@@ -163,8 +160,8 @@
                                     <h2>Đáp án sai</h2>
                                     <div class="alert">
                                         <div class="contentAlert">
-                                            <p>学生(がくせい) : Học sinh</p>
-                                            <p>私は学生です :Tôi là học sinh</p>
+                                            <p>います : có...(sở hữu)</p>
+                                            <p>私は猫が二います :Tôi có 2 con mèo</p>
                                         </div>
                                         <a name="" id="" class="btn btn-primary learnAgain" href="#" role="button">Học
                                             lại</a>
@@ -174,23 +171,33 @@
                             </div>
                         </div>
                         <!--end howToLearn -->
-                        <div class="howToLearn">
-                            <div class="viewAndWrite">
-                                <h2>Xem và viết đáp án</h2>
-                                <div class="viewVocab">
-                                    Học sinh
+                        <div class="howToLearn ">
+                            <div class="viewAndChoose">
+                                <h2>Hãy xem và chọn đáp án</h2>
+                                <div class="view_grammar">
+                                    います
                                 </div>
-                                <div class="writeVocab">
-                                    <input type="text" class="form-control" name="" id=""
-                                        placeholder="Nhập tên hoặc cách đọc" />
+                                <div class="optionChooseALL">
+                                    <button type="button" class="btn btn-primary optionChoose">
+                                        có...(sở hữu)
+                                    </button>
+                                    <button type="button" class="btn btn-primary optionChoose">
+                                        ở đâu
+                                    </button>
+                                    <button type="button" class="btn btn-primary optionChoose">
+                                        Đúng không
+                                    </button>
+                                    <button type="button" class="btn btn-primary optionChoose">
+                                        Chỉ hướng
+                                    </button>
                                 </div>
                                 <a name="" id="" class="btn btn-primary check" href="#" role="button">kiểm tra</a>
                                 <div class="alerts alertSuccess"> <!--Thêm active -->
                                     <h2>Đáp án đúng</h2>
                                     <div class="alert">
                                         <div class="contentAlert">
-                                            <p>学生(がくせい) : Học sinh</p>
-                                            <p>私は学生です :Tôi là học sinh</p>
+                                            <p>います : có...(sở hữu)</p>
+                                            <p>私は猫が二います :Tôi có 2 con mèo</p>
                                         </div>
                                         <a name="" id="" class="btn btn-primary continue" href="#" role="button">Tiếp
                                             tục</a>
@@ -201,8 +208,8 @@
                                     <h2>Đáp án sai</h2>
                                     <div class="alert">
                                         <div class="contentAlert">
-                                            <p>学生(がくせい) : Học sinh</p>
-                                            <p>私は学生です :Tôi là học sinh</p>
+                                            <p>います : có...(sở hữu)</p>
+                                            <p>私は猫が二います :Tôi có 2 con mèo</p>
                                         </div>
                                         <a name="" id="" class="btn btn-primary learnAgain" href="#" role="button">Học
                                             lại</a>
@@ -213,7 +220,7 @@
                         </div>
                         <!--end howToLearn -->
                     </div>
-                    <!-- end studyVocabLesson -->
+                    <!-- end studyGrammarLesson -->
                 </div>
             </div>
         </div>

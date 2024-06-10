@@ -24,14 +24,14 @@ class MenuHome extends Component {
                         />
                     </Link>
                     <ul className="navbar-nav">
-                        <NavLink to="/Vocabulary" className="nav-link">
+                        <NavLink to="/seeVocabUser" className="nav-link">
                             <img
                                 src="/assets/image/icon_tv.svg"
                                 className="img-fluid rounded-top icon_tv"
                                 alt=""
                             />
                         </NavLink>
-                        <NavLink to='/Grammar' className="nav-link">
+                        <NavLink to='/seeGrammarUser' className="nav-link">
                             <img
                                 src="/assets/image/icon_np.svg"
                                 className="img-fluid rounded-top icon-np"
@@ -45,14 +45,14 @@ class MenuHome extends Component {
                                 alt=""
                             />
                         </NavLink>
-                        <NavLink to="/Alphabet" className="nav-link">
+                        <NavLink to="/seeAlphabetUser" className="nav-link">
                             <img
                                 src="/assets/image/icon_bcc.svg"
                                 className="img-fluid rounded-top icon_bcc"
                                 alt=""
                             />
                         </NavLink>
-                        <NavLink to='/Communication' className="nav-link">
+                        <NavLink to='/seeCommunicationUser' className="nav-link">
                             <img
                                 src="/assets/image/icon_gt2.svg"
                                 className="img-fluid rounded-top icon_gt"
@@ -74,7 +74,7 @@ class MenuHome extends Component {
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
                         <div className="sign_up_member">
                             <img
-                                src="./assets/image/member_svgrepo.com.svg"
+                                src="/assets/image/member_svgrepo.com.svg"
                                 className="img-fluid rounded-top member_svg"
                                 alt=""
                             />
@@ -83,7 +83,7 @@ class MenuHome extends Component {
                         {/* end sign_up_member */}
                         <div className="info_user" onClick={() => this.infoUser_Click()}>
                             <img
-                                src="./assets/image/user-icon-svgrepo-com.svg"
+                                src="/assets/image/user-icon-svgrepo-com.svg"
                                 className="img-fluid user_svg"
                                 alt=""
                             />
