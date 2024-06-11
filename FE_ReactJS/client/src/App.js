@@ -19,6 +19,8 @@ import SeeVocabPrivate from './component/user/SeeVocabPrivate';
 import SeeVocabLessonPrivate from './component/user/SeeVocabLessonPrivate';
 import SeeGrammarPrivate from './component/user/SeeGrammarPrivate';
 import SeeGrammarLessonPrivate from './component/user/SeeGrammarLessonPrivate';
+import AlphabetLessonContent from './component/user/AlphabetLessonContent';
+import StudyAlphabetUser from './component/user/StudyAlphabetUser';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -45,7 +47,9 @@ class App extends Component {
             <Route path='/seeVocabUser' element={<SeeVocabPrivate />} />
             <Route path='/seeVocabUser/:level/:id_level' element={<SeeVocabLessonPrivate />} />
             <Route path='/seeGrammarUser' element={<SeeGrammarPrivate />} />
-            <Route path='/seeGrammarUser/:level/:id_level' element={<SeeGrammarLessonPrivate />} />        
+            <Route path='/seeGrammarUser/:level/:id_level' element={<SeeGrammarLessonPrivate />} />
+            <Route path='/seeAlphabetUser/:Lesson/:id_lesson' element={<AlphabetLessonContent />} />        
+            <Route path='/studyAlphabetUser/:Lesson/:id_lesson/:content/' element={<StudyAlphabetUser />} />        
           </Route>
         </Routes>
       </Router>

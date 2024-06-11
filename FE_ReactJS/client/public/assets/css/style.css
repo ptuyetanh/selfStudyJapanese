@@ -3,14 +3,672 @@
     margin: 0;
     font-family: "Itim"
 }
-.loading h3 {
-    color:white;
-    font-size: 38px;
+
+/* end studyVocab,studyGrammar */
+
+.alertError {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(251, 0, 60);
+    color: white;
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+    opacity: 0;
+    visibility: hidden;
 }
+
+.alerts a.btn.btn-primary.continue,
+.alerts a.btn.btn-primary.learnAgain {
+    background-color: white;
+    color: rgb(251, 0, 60);
+    font-weight: 800;
+}
+
+.alerts.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.alertSuccess p,
+.alertError p {
+    font-size: 22px;
+}
+
+.alertSuccess .alert .contentAlert,
+.alertError .alert .contentAlert {
+    padding: 0 22px 0 0
+}
+
+.alertSuccess .alert,
+.alertError .alert {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.alertSuccess {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(13, 110, 253);
+    color: white;
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.viewAndWrite a.btn.btn-primary {
+    font-size: 25px;
+    padding: 5px 22px;
+    border-radius: 20px;
+    background-color: rgb(251, 0, 60);
+    border: none;
+}
+
+.viewAndWrite .writeVocab input.form-control {
+    font-size: 24px;
+    padding: 8px 12px;
+    border-radius: 11px;
+}
+
+.viewAndWrite .writeVocab {
+    width: 500px;
+    margin-bottom: 38px;
+}
+
+.viewAndWrite .viewVocab {
+    font-size: 33px;
+    padding: 3px 185px;
+    box-shadow: rgba(0, 0, 0, 0.69) 0px 0px 6px 0px;
+    margin-bottom: 157px;
+    margin-top: 15px;
+    border-radius: 22px;
+}
+
+.viewAndWrite h2 {
+    font-size: 41px;
+}
+
+.viewAndWrite {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.optionChoose.optionChooseColor {
+    background-color: rgb(13, 110, 253) !important;
+    color: white !important;
+}
+
+.listenAndChoose a.btn.btn-primary,
+.viewAndChoose a.btn.btn-primary {
+    font-size: 25px;
+    padding: 6px 27px;
+    border-radius: 27px;
+    background-color: rgb(251, 0, 60);
+    border: none;
+}
+
+.listenAndChoose .optionChoose:hover,
+.viewAndChoose .optionChoose:hover {
+    background-color: rgb(13, 110, 253);
+    color: white;
+}
+
+.listenAndChoose .optionChoose,
+.viewAndChoose .optionChoose {
+    width: 245px;
+    height: 100px;
+    font-size: 34px;
+    margin: 0px 24px 38px;
+    background-color: rgba(245, 245, 220, 0);
+    color: black;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+    border-radius: 30px;
+}
+
+.listenAndChoose .optionChooseALL,
+.viewAndChoose .optionChooseALL {
+    margin-bottom: 10px;
+}
+
+.viewAndChoose .view_grammar {
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    box-shadow: inset 0 0 8px 0px #0000009e;
+
+    padding: 7px 156px;
+
+    margin-bottom: 36px;
+
+    border-radius: 17px;
+}
+
+.listenAndChoose .sound_listen {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.listenAndChoose h2,
+.viewAndChoose h2 {
+    margin-bottom: 14px;
+    margin-top: 10px;
+}
+
+.listenAndChoose,
+.viewAndChoose {
+    background-color: rgb(255, 241, 241);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i.fa-solid.fa-hand-pointer {
+    font-size: 29px;
+    position: absolute;
+    top: 373px;
+    z-index: 3;
+    color: rgba(251, 0, 60, 0.41);
+}
+
+.flashcardAfter.hiddenAfter {
+    animation: 0.2s ease 0s 1 normal forwards running hiddenAfter;
+}
+
+@-webkit-keyframes hiddenAfter {
+    0% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateY(90deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.flashcardBefore.showBefore {
+    animation: 0.5s ease 0s 1 normal forwards running showBefore;
+}
+
+@-webkit-keyframes showBefore {
+    0% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.flashcardAfter.showAfter {
+    animation: 0.5s ease 0s 1 normal forwards running showAfter;
+}
+
+@-webkit-keyframes showAfter {
+    0% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.flashcardBefore.hiddenBefore {
+    animation: 0.2s ease 0s 1 normal forwards running hiddenBefore;
+}
+
+@-webkit-keyframes hiddenBefore {
+    0% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateY(90deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+i.fa-solid.fa-volume-high.scale {
+    animation: 1.5s ease 0s 1 normal forwards running sound_card;
+}
+
+@-webkit-keyframes sound_card {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+.flashCards a.btn.btn-primary {
+    padding: 3px 25px;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(251, 0, 60);
+    margin-top: 450px;
+}
+
+.studyGrammarLesson .flashCards .flashcardAfter h3.explain {
+    font-size: 20px;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter h3.sino_vietnamese_sound {
+    font-size: 21px;
+}
+
+.studyGrammarLesson .flashCards .flashcardAfter h3.mean_example {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #FB003C;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter h3.pronunciation {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 56px;
+    color: #FB003C
+}
+
+.studyGrammarLesson .flashCards .flashcardAfter h3.mean {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter h3.mean {
+    font-size: 35px;
+    margin-bottom: 28px;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore p.example,
+.studyGrammarLesson .flashCards .flashcardBefore p.example {
+    font-size: 23px;
+    padding: 10px 0px;
+}
+
+.studyGrammarLesson .flashCards .flashcardBefore h2.name {
+    padding: 28px 0px;
+    font-size: 60px;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore h2.name {
+    padding: 28px 0px;
+    font-size: 98px;
+}
+
+.sound_flash_cards {
+    font-size: 35px;
+    position: absolute;
+    top: 13px;
+    z-index: 3;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter,
+.studyGrammarLesson .flashCards .flashcardAfter {
+    z-index: 1;
+}
+
+.studyVocabLesson .flashCards .flashcardBefore,
+.studyGrammarLesson .flashCards .flashcardBefore {
+    z-index: 2;
+}
+
+.studyVocabLesson .flashCards .flashcardAfter,
+.studyVocabLesson .flashCards .flashcardBefore,
+.studyGrammarLesson .flashCards .flashcardAfter,
+.studyGrammarLesson .flashCards .flashcardBefore {
+    background-color: white;
+    width: 304px;
+    padding: 44px 0px;
+    position: absolute;
+    top: 40px;
+    border-radius: 29px;
+    height: 341px;
+}
+
+.studyVocabLesson .flashCards,
+.studyGrammarLesson .flashCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.studyVocabLesson .howToLearn.active,
+.studyGrammarLesson .howToLearn.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.studyVocabLesson .howToLearn,
+.studyGrammarLesson .howToLearn {
+    height: 493px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(255, 241, 241);
+    visibility: hidden;
+}
+
+.studyVocabLesson,
+.studyGrammarLesson {
+    position: relative;
+    background-color: rgb(255, 241, 241);
+}
+
+.studyVocab .progress_vocab .progress,
+.progress-stacked,
+.studyGrammar .progress_Grammar .progress {
+    --bs-progress-bar-bg: #FB003C;
+}
+
+.studyVocab .progress_vocab .progress,
+.studyGrammar .progress_Grammar .progress {
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 11px;
+    height: 24px;
+    border-radius: 21px;
+    background-color: rgba(73, 59, 78, 0.11);
+    margin-right: 15px;
+}
+
+.studyVocab .progress_vocab i.fa-solid.fa-xmark,
+.studyGrammar .progress_Grammar i.fa-solid.fa-xmark {
+    font-size: 36px;
+}
+
+.studyVocab .progress_vocab,
+.studyGrammar .progress_Grammar {
+    display: flex;
+    flex-direction: row;
+}
+
+.studyVocab,
+.studyGrammar {
+    padding: 123px 0px 20px;
+    position: relative;
+}
+
+/* end vocabLessonContent, grammarLessonContent*/
+
+.vocabLessonContent a.btn.btn-primary.btnVocabCStudy,
+.grammarLessonContent a.btn.btn-primary.btnGrammarCStudy {
+    padding: 8px 17px;
+    font-size: 24px;
+    border-radius: 21px;
+    background-color: rgb(251, 0, 60);
+    border: none;
+}
+
+.vocabLessonContent ul.listVocab li p.mean_vocab,
+.grammarLessonContent ul.listgrammar li p.mean_grammar {
+    margin-left: 21px;
+}
+
+.vocabLessonContent ul.listVocab li,
+.grammarLessonContent ul.listgrammar li {
+    display: flex;
+    flex-direction: row;
+}
+
+.vocabLessonContent ul.listVocab,
+.grammarLessonContent ul.listgrammar {
+    list-style: none;
+    font-size: 20px;
+    margin-left: 52px;
+    margin-bottom: 3px;
+}
+
+.vocabLessonContent .h2,
+.grammarLessonContent .h2 {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.vocabLessonContent,
+.grammarLessonContent {
+    padding: 126px 0px 20px;
+    background-color: rgb(255, 241, 241);
+    position: relative;
+}
+
+/* end studyAlphabet */
+.flashcards_alphabet_all i.fa-solid.fa-chevron-left {
+    position: absolute;
+    left: 14px;
+    top: 150px;
+    font-size: 55px;
+    cursor: pointer;
+}
+
+.flashcards_alphabet_all i.fa-solid.fa-chevron-right {
+    position: absolute;
+    font-size: 55px;
+    top: 150px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.flashcards_alphabet_all {
+    position: relative;
+}
+
+.flashcards_alphabet .flashcard.active {
+    opacity: 1;
+}
+
+.flashcards_alphabet .flashcard {
+    background-color: rgb(217, 217, 217);
+    padding: 47px 20px;
+    border-radius: 23px;
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 0px 8px 0px;
+    opacity: 0;
+    list-style: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.flashcards_alphabet i.fa-solid.fa-chevron-left {
+    font-size: 48px;
+    position: absolute;
+    left: 0px;
+    top: 98px;
+}
+
+.flashcards_alphabet i.fa-solid.fa-chevron-right {
+    font-size: 48px;
+    position: absolute;
+    top: 98px;
+    right: 0px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.flashcards_alphabet p.example {
+    font-size: 22px;
+}
+
+.flashcards_alphabet h1.name {
+    font-size: 115px;
+    font-weight: 600;
+}
+
+.flashcards_alphabet {
+    position: relative;
+}
+
+h2.tittle_alphabet {
+    font-size: 33px;
+    font-weight: lighter;
+    margin-bottom: 18px;
+}
+
+.button_alphabet h3.pronunciation {
+    margin: 0px;
+}
+
+a.btn.btn-primary.button_alphabet:hover h2.name {
+    transform: scale(1.4);
+}
+
+.button_alphabet h2.name {
+    margin: 0px;
+    font-weight: 600;
+    padding-top: 4px;
+    font-size: 30px;
+    transition: all 0.4s ease 0s;
+}
+
+a.btn.btn-primary.button_alphabet {
+    padding: 3px 26px;
+    margin: 0px 7px 7px 0px;
+    background-color: rgb(243, 36, 86);
+    border: none;
+}
+
+.studyAlphabet a.btn.btn-primary.arrowBack {
+    color: black;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+    font-size: 33px;
+    padding: 0px 0px 7px;
+    display: flex;
+}
+
+.studyAlphabet {
+    padding: 114px 0px 24px;
+    background-color: rgb(255, 241, 241);
+}
+
+/* end alphbet_lessonContent */
+
+.alphbet_lessonContent a.btn.btn-primary.arrowBack {
+    font-size: 30px;
+    background-color: rgba(0, 0, 128, 0);
+    color: black;
+}
+
+.alphbet_lessonContent a.btn.btn-primary h4 {
+    position: absolute;
+    top: 17px;
+    right: 32px;
+    font-size: 21px;
+    transition: all 0.5s ease 0s;
+}
+
+.alphbet_lessonContent a.btn.btn-primary:hover h4 {
+    transform: scale(1.2);
+}
+
+.alphbet_lessonContent a.btn.btn-primary h3 {
+    font-size: 30px;
+    font-weight: 700;
+    padding-left: 15px;
+    transition: all 0.5s ease 0s;
+}
+
+.alphbet_lessonContent a.btn.btn-primary:hover h3 {
+    transform: scale(1.2);
+}
+
+.alphbet_lessonContent a.btn.btn-primary {
+    background-color: rgb(243, 36, 86);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12px;
+    position: relative;
+    border-radius: 21px;
+}
+
+.alphbet_lessonContent {
+    padding-top: 113px;
+}
+
+/* end loading */
+
+.loading h4 {
+    color: white;
+    font-size: 38px;
+    animation: loadingH4 9s forwards;
+}
+
+@-webkit-keyframes loadingH4 {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50px);
+    }
+}
+
+.loading h3 {
+    color: white;
+    font-size: 38px;
+    animation: loadingH3 7s forwards;
+}
+
+@-webkit-keyframes loadingH3 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .loading img {
     width: 224px;
+    animation: loadingImg 7s forwards;
 }
-.loading{
+
+@-webkit-keyframes loadingImg {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.loading {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,9 +677,13 @@
     align-items: center;
 
 }
-html,body,.loading {
+
+html,
+body,
+.loading {
     height: 100%;
 }
+
 /* end alert */
 
 .dismissable-0-2-23.alert-dismissable.danger-0-2-22.alert-danger.alert-0-2-18.alert {
@@ -57,12 +719,13 @@ i.fa.fa-check.icon-0-2-26 {
     visibility: hidden;
 }
 
-.alert-0-2-18 {padding: 3px 10px 3px 0px;}
+.alert-0-2-18 {
+    padding: 3px 10px 3px 0px;
+}
 
 /* end menu home */
 .info_details li.list-group-item1,
-.info_details li.list-group-item2
-{
+.info_details li.list-group-item2 {
     padding: 12px 25px;
     color: white;
     font-size: 21px;
@@ -76,9 +739,9 @@ ul.list-group.list-group-numbered.info_details.hidden_info {
     visibility: hidden;
 }
 
-ul.list-group.list-group-numbered.info_details::after{
+ul.list-group.list-group-numbered.info_details::after {
     content: "";
-    position:absolute;
+    position: absolute;
     top: -25px;
     right: 10px;
     height: 0px;
@@ -152,8 +815,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson i.fa-solid.fa-lock,
 .see_grammar_lesson i.fa-solid.fa-lock,
-.see_communication_lesson i.fa-solid.fa-lock
-{
+.see_communication_lesson i.fa-solid.fa-lock {
     position: absolute;
     top: 18px;
     right: 27px;
@@ -162,8 +824,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson .btn.btn-primary h3,
 .see_grammar_lesson .btn.btn-primary h3,
-.see_communication_lesson .btn.btn-primary h3
-{
+.see_communication_lesson .btn.btn-primary h3 {
     position: absolute;
     right: 23px;
     margin: 0;
@@ -173,8 +834,7 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson .btn.btn-primary h2,
 .see_grammar_lesson .btn.btn-primary h2,
-.see_communication_lesson .btn.btn-primary h2
-{
+.see_communication_lesson .btn.btn-primary h2 {
     font-weight: 900;
     font-size: 27px;
     margin: 4px 0 0 6px;
@@ -182,15 +842,13 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson .btn.btn-primary:hover,
 .see_grammar_lesson .btn.btn-primary:hover,
-.see_communication_lesson .btn.btn-primary:hover
-{
+.see_communication_lesson .btn.btn-primary:hover {
     background-color: #f32456a8;
 }
 
 .see_vocab_lesson .btn.btn-primary,
 .see_grammar_lesson .btn.btn-primary,
-.see_communication_lesson .btn.btn-primary
-{
+.see_communication_lesson .btn.btn-primary {
     padding: 10px 25px;
     border-radius: 20px;
     background-color: #F32456;
@@ -203,15 +861,13 @@ ul.list-group.list-group-numbered.info_details {
 
 .see_vocab_lesson .row,
 .see_grammar_lesson .row,
-.see_communication_lesson .row
-{
+.see_communication_lesson .row {
     justify-content: center;
 }
 
 .see_vocab_lesson,
 .see_grammar_lesson,
-.see_communication_lesson
-{
+.see_communication_lesson {
     padding-top: 128px;
     padding-bottom: 50px;
     background-color: #FFF1F1;

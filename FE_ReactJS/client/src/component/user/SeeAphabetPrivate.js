@@ -22,7 +22,7 @@ class SeeAphabetPrivate extends Component {
     alphabetFree = () => {
         if (this.props.lesson.alphabetLessonData !== null) {
             const alphabetLessonFree = this.props.lesson.alphabetLessonData[0]
-            return <AlphabetFree lesson={alphabetLessonFree.name} />
+            return <AlphabetFree link = {'/seeAlphabetUser/'+ alphabetLessonFree.name + '/' + alphabetLessonFree.lesson_id} lesson={alphabetLessonFree.name}/>
         }
     }
     alphabetLook = () => {

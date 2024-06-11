@@ -5,7 +5,7 @@ class AlphabetFree extends Component {
     render() {
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <Link to='/login'
+                <Link to= {this.props.link}
                     name=""
                     id=""
                     className="btn btn-primary mb-3"

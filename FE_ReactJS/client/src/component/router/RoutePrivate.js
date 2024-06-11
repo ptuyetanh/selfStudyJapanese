@@ -14,9 +14,10 @@ class RoutePrivate extends Component {
                     alt=""
                 />
                 <h3> Loading Web</h3>
-                <h3>Nếu loadding không chuyển hướng vui lòng  
-                    <Link to="/login"> Đăng nhập lại</Link>
-                </h3>
+                <h4 className='loadError'>Vui lòng click 
+                    <Link to="/login"> Đăng nhập </Link>
+                    để tham gia học
+                </h4>
             </div>
             )
         }
