@@ -541,7 +541,7 @@ a.btn.btn-primary.button_alphabet:hover h2.name {
     transition: all 0.4s ease 0s;
 }
 
-a.btn.btn-primary.button_alphabet {
+.btn.btn-primary.button_alphabet {
     padding: 3px 26px;
     margin: 0px 7px 7px 0px;
     background-color: rgb(243, 36, 86);

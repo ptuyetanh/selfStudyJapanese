@@ -7,6 +7,7 @@ import authReducer from "./reducers/authReducer";
 import logOutReducer from "./reducers/logoutReducer";
 import levelReducer from "./reducers/levelReducer";
 import lessonReducer from "./reducers/lessonReducer";
+import studyReducer from "./reducers/studyReducer";
 
 const allReducer = combineReducers({
     signUp: signUpReducer,
@@ -15,7 +16,8 @@ const allReducer = combineReducers({
     auth:authReducer,
     logOut:logOutReducer,
     level:levelReducer,
-    lesson:lessonReducer
+    lesson:lessonReducer,
+    study:studyReducer,
  })
 var store = createStore(allReducer,applyMiddleware(thunk));
 export default store;

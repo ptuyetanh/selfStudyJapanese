@@ -7,7 +7,6 @@ router.get('/vocab', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })
@@ -17,7 +16,6 @@ router.get('/grammar', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })
@@ -27,7 +25,6 @@ router.get('/communication', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })
@@ -37,7 +34,6 @@ router.get('/alphabet', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })
@@ -47,7 +43,6 @@ router.get('/alphabet/lessonContent', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })

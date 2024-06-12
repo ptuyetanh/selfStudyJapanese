@@ -7,7 +7,6 @@ router.get('/', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })
@@ -17,7 +16,6 @@ router.get('/lesson', function (req, res, next) {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            console.log(response.rows);
             res.send(response.rows);
         }
     })
