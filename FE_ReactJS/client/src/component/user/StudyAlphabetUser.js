@@ -26,6 +26,50 @@ class StudyAlphabetUser extends Component {
         window.location.href = '/login'
     }
 
+    clickRightIcon = () => {
+        var clickRight = document.querySelector('i.fa-solid.fa-chevron-right');
+        var flashcards = document.querySelectorAll('.flashcards_alphabet .flashcard');
+        var numberFlashcardsNow = 0;
+        var numberFlashcards = flashcards.length;
+        if (clickRight) {
+            clickRight.onclick = function () {
+                var flashcardNow = flashcards[numberFlashcardsNow];
+                if (numberFlashcardsNow < numberFlashcards - 1) {
+                    numberFlashcardsNow++;
+                } else {
+                    numberFlashcardsNow = 0;
+                    // alert('Học thành công');
+                }
+                var flashcardNext = flashcards[numberFlashcardsNow];
+                flashcardNow.classList.remove('active');
+                flashcardNext.classList.add('active');
+            }
+        }
+    }
+
+    clickLeftIcon = () => {
+        var clickLeft = document.querySelector('.icon i.fa-solid.fa-chevron-left');
+        var flashcards = document.querySelectorAll('.flashcards_alphabet .flashcard');
+        var numberFlashcardsNow = 0;
+        var numberFlashcards = flashcards.length;
+        if(clickLeft){
+            clickLeft.onclick = function () {
+                var flashcardNow = flashcards[numberFlashcardsNow];
+                if (numberFlashcardsNow > 0) {
+                    numberFlashcardsNow--;
+                } else {
+                    numberFlashcardsNow = numberFlashcards - 1
+                }
+                var flashcardNext = flashcards[numberFlashcardsNow];
+                flashcardNow.classList.remove('active');
+                flashcardNext.classList.add('active');
+            }
+        }
+    }
+    loadFlashcardA = () => {
+        window.location.reload()
+    }
+
     buttonAlphabetShow = () => {
         const { params } = this.props
         if (this.props.study.alphabetButtonData !== null) {
@@ -97,8 +141,9 @@ class StudyAlphabetUser extends Component {
                                                 {this.AFlashcard()}
                                             </ul>
                                             <div className="icon">
-                                                <i className="fa-solid fa-chevron-right" />
-                                                <i className="fa-solid fa-chevron-left" />
+                                                <i className="fa-solid fa-chevron-right" onClick={this.clickRightIcon()} />
+                                                <i className="fa-solid fa-chevron-left" onClick={this.clickLeftIcon()}/>
+                                                <i className="fa-solid fa-rotate-right" onClick={() => this.loadFlashcardA()}></i>
                                             </div>
                                             {/* end flashcard */}
                                         </div>
@@ -124,6 +169,6 @@ const mapDispatchToProps = {
     isAuthUser,
     logOutUser,
     alphabetButtonShow,
-    alphabetFlashcardShow
+    alphabetFlashcardShow,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(StudyAlphabetUser));

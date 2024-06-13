@@ -21,7 +21,7 @@ router.get('/grammar', function (req, res, next) {
     })
 });
 router.get('/communication', function (req, res, next) {
-    pool.query('SELECT communication_id,lesson_name FROM communications', (error, response) => {
+    pool.query('SELECT communication_id,lesson_name FROM communications ORDER BY communication_id ASC ', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

@@ -21,5 +21,15 @@ router.get('/alphabetFlashcard', function(req, res, next) {
         }
     })
 });
+// comunication
+router.get('/communication', function(req, res, next) {
+    pool.query('select * from communications ORDER BY communication_id ASC', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
 
 module.exports = router;

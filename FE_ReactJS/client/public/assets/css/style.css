@@ -454,6 +454,16 @@ i.fa-solid.fa-volume-high.scale {
 }
 
 /* end studyAlphabet */
+
+.flashcards_alphabet_all .fa-solid.fa-rotate-right {
+    position: absolute;
+    left: 121px;
+    top: 319px;
+    font-size: 25px;
+    cursor: pointer;
+    color: rgb(251 0 60 / 41%);
+}
+
 .flashcards_alphabet_all i.fa-solid.fa-chevron-left {
     position: absolute;
     left: 14px;
@@ -476,6 +486,7 @@ i.fa-solid.fa-volume-high.scale {
 
 .flashcards_alphabet .flashcard.active {
     opacity: 1;
+    visibility: visible;
 }
 
 .flashcards_alphabet .flashcard {
@@ -489,6 +500,7 @@ i.fa-solid.fa-volume-high.scale {
     top: 0px;
     left: 0px;
     right: 0px;
+    visibility: hidden;
 }
 
 .flashcards_alphabet i.fa-solid.fa-chevron-left {

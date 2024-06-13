@@ -1,8 +1,9 @@
-import { ALPHABET_FLASHCARD, AlPHABET_BUTTON } from "../actions/studyAction"
+import { ALPHABET_FLASHCARD, AlPHABET_BUTTON, COMMUNICATION } from "../actions/studyAction"
 
 const InitialState = {
     alphabetButtonData: null,
-    alphabetFlashcardData: null
+    alphabetFlashcardData: null,
+    communicationData: null
 }
 const studyReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -10,6 +11,8 @@ const studyReducer = (state = InitialState, action) => {
             return { ...state, alphabetButtonData: action.alphabetButtonAction }
         case ALPHABET_FLASHCARD:
             return { ...state, alphabetFlashcardData: action.alphabetFlashcardAction }
+        case COMMUNICATION:
+            return { ...state, communicationData: action.communicationAction }
         default:
             return state
     }
