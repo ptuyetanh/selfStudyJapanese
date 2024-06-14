@@ -22,7 +22,8 @@ class SeeComunicationPrivate extends Component {
     lessonFree = () => {
         if (this.props.lesson.communicationLessonData !== null) {
             const lessonComFree = this.props.lesson.communicationLessonData[0];
-            return <LessonFree lesson={lessonComFree.lesson_name} />
+            console.log(lessonComFree);
+            return <LessonFree linkto = {'/seeCommunicationUser/'+ lessonComFree.lesson_name + '/'+ lessonComFree.communication_id +'/study'} lesson={lessonComFree.lesson_name} />
         }
     }
     lessonLook = () => {

@@ -28,7 +28,7 @@ class AlphabetLessonContent extends Component {
             console.log(this.props.lesson.aLessonContentData);
             const aLessonContent = this.props.lesson.aLessonContentData.filter(value => value.lesson_id === params.id_lesson);
             return aLessonContent.map(value => {
-                return <ALessonContent key={value.lesson_id + value.type} linkTo = {'/studyAlphabetUser/'+ params.Lesson +'/'+ params.id_lesson + '/' + value.type} nameContent= {value.type}/>
+                return <ALessonContent key={value.lesson_id + value.type} linkTo = {'/seeAlphabetUser/'+ params.Lesson +'/'+ params.id_lesson + '/' + value.type +'/study'} nameContent= {value.type}/>
             })
         }
     }

@@ -141,7 +141,7 @@ class StudyAlphabetUser extends Component {
                                                 {this.AFlashcard()}
                                             </ul>
                                             <div className="icon">
-                                                <i className="fa-solid fa-chevron-right" onClick={this.clickRightIcon()} />
+                                                <i className="fa-solid fa-chevron-right" onClick={ this.clickRightIcon()} />
                                                 <i className="fa-solid fa-chevron-left" onClick={this.clickLeftIcon()}/>
                                                 <i className="fa-solid fa-rotate-right" onClick={() => this.loadFlashcardA()}></i>
                                             </div>

@@ -4,6 +4,47 @@
     font-family: "Itim"
 }
 
+/* end communicationStudy */
+
+.closeCommunication{
+    margin-top: 118px;
+    background-color: #cdffff00;
+    color: black;
+    border: navajowhite;
+}
+
+.communicationStudy .sc-bZQynM.iOCYje.rsc-ts-bubble {
+    font-size: 18px;
+}
+
+.communicationStudy .sc-bZQynM.hQsUiY.rsc-ts-bubble {
+    background-color: #f32456d4;
+    font-size: 17px;
+}
+
+.communicationStudy .sc-gZMcBi.fBGGBn.rsc-content {
+    padding-top: 15px;
+    padding-bottom: 18px;
+}
+
+.communicationStudy h2.sc-VigVT.lifvqk.rsc-header-title {
+    font-size: 25px;
+}
+
+.communicationStudy .sc-gqjmRU.glfuN.rsc-header {
+    background-color: #f32456d4;
+}
+
+.communicationStudy .sc-iwsKbI.dPdbIW.rsc-container {
+    width: 418px;
+}
+
+.communicationStudy {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /* end studyVocab,studyGrammar */
 
 .alertError {
@@ -541,7 +582,7 @@ h2.tittle_alphabet {
     margin: 0px;
 }
 
-a.btn.btn-primary.button_alphabet:hover h2.name {
+.btn.btn-primary.button_alphabet:hover h2.name {
     transform: scale(1.4);
 }
 

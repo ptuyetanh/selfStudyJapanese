@@ -1,5 +1,13 @@
 @media (max-width: 767px) {
     * {}
+
+    /* end communicationStudy */
+    .closeCommunication {
+        margin-top: 182px;
+        font-size: 15px;
+        padding: 0;
+    }
+
     /* end studyVocab,studyGrammar */
 
     .alertSuccess {
@@ -45,6 +53,7 @@
     .alphbet_lessonContent {
         padding: 211px 0 0 0;
     }
+
     /* end home  */
     ul.list-group.list-group-numbered.info_details {
         top: 185px;
@@ -158,7 +167,7 @@
 
     /* end index  */
     img.img-fluid.rounded-top.icon_gt {
-    padding: 0 11px;
+        padding: 0 11px;
     }
 
     .vocabulary button.btn.btn-primary,
@@ -200,8 +209,7 @@
     img.img-fluid.rounded-top.icon_tv,
     img.img-fluid.rounded-top.icon-np,
     img.img-fluid.rounded-top.icon_ot,
-    img.img-fluid.rounded-top.icon_bcc
-    {
+    img.img-fluid.rounded-top.icon_bcc {
         padding: 0 10px;
     }
 
@@ -224,6 +232,7 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
+
     /* end studyVocab,studyGrammar */
 
     .listenAndChoose .optionChoose,
@@ -237,12 +246,13 @@
     .listenAndChoose .sound_listen {
         margin-bottom: 12px;
     }
+
     /* end home  */
     ul.list-group.list-group-numbered.info_details {
         top: 225px;
         right: 276px;
     }
-    
+
     .name_user i.fa-solid.fa-caret-down {
         margin: 17px 0px 0px 5px;
     }
@@ -347,7 +357,7 @@
     }
 
     img.img-fluid.rounded-top.icon_gt {
-    padding: 0 7px;
+        padding: 0 7px;
     }
 
     img.img-fluid.rounded-top.icon_bcc {
