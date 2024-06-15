@@ -24,10 +24,11 @@ class SeeVocabLessonPrivate extends Component {
 
     showLessonFree = () => {
         const {params} = this.props;
+        console.log(params);
         if(this.props.lesson.vocabLessonData !== null ) {
             const lessonVocabFree = this.props.lesson.vocabLessonData.find(value => value.level_id === params.id_level);
             if(lessonVocabFree){
-                return <LessonFree lesson={lessonVocabFree.lesson_name}/>
+                return <LessonFree linkto = {'/seeVocabUser/'+ params.level +'/'+params.id_level + '/' + lessonVocabFree.lesson_name} lesson={lessonVocabFree.lesson_name}/>
             }
         }
     }

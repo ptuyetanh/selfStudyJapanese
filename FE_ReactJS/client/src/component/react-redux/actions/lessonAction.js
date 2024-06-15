@@ -5,6 +5,7 @@ export const GRAMMAR_LESSON = 'GRAMMAR_LESSON';
 export const COMMUNICATION_LESSON = 'COMMUNICATION_LESSON';
 export const ALPHABET_LESSON = 'ALPHABET_LESSON';
 export const ALPHABET_LESSON_CONTENT = 'ALPHABET_LESSON_CONTENT';
+export const VOCAB_LESSON_CONTENT = 'VOCAB_LESSON_CONTENT';
 const vocabLessonSuccess = (data) => ({
     type:VOCAB_LESSON,
     vocabLessonAction:data
@@ -24,6 +25,10 @@ const alphabetLessonSuccess = (data) => ({
 const aLessonContentSuccess = (data) => ({
     type:ALPHABET_LESSON_CONTENT,
     aLessonContentAction:data
+})
+const vLessonContentSuccess = (data) => ({
+    type:VOCAB_LESSON_CONTENT,
+    vLessonContentAction:data
 })
 export const vocabLessonShow = () => {
     return async (dispatch) => {
@@ -70,6 +75,16 @@ export const aLessonContentShow = () => {
         try {
             const response = await axios.get('/lesson/alphabet/lessonContent');
             dispatch(aLessonContentSuccess(response.data));
+        } catch (error) {
+            console.error("lấy dữ liệu lỗi");
+        }
+    }
+}
+export const vLessonContentShow = () => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get('/lesson/vocab/lessonContent');
+            dispatch(vLessonContentSuccess(response.data));
         } catch (error) {
             console.error("lấy dữ liệu lỗi");
         }

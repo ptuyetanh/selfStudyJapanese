@@ -31,5 +31,15 @@ router.get('/communication', function(req, res, next) {
         }
     })
 });
+//vocabulary
+router.get('/vocabulary', function(req, res, next) {
+    pool.query('SELECT * FROM vocabularies ORDER BY vocab_id ASC', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
 
 module.exports = router;

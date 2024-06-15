@@ -1,4 +1,4 @@
-import { ALPHABET_LESSON, ALPHABET_LESSON_CONTENT, COMMUNICATION_LESSON, GRAMMAR_LESSON, VOCAB_LESSON } from "../actions/lessonAction"
+import { ALPHABET_LESSON, ALPHABET_LESSON_CONTENT, COMMUNICATION_LESSON, GRAMMAR_LESSON, VOCAB_LESSON, VOCAB_LESSON_CONTENT } from "../actions/lessonAction"
 
 const InitialState = {
     vocabLessonData: null,
@@ -6,6 +6,7 @@ const InitialState = {
     communicationLessonData: null,
     alphabetLessonData: null,
     aLessonContentData: null,
+    vLessonContentData: null
 }
 const lessonReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -19,6 +20,8 @@ const lessonReducer = (state = InitialState, action) => {
             return { ...state, alphabetLessonData: action.alphabetLessonAction }
         case ALPHABET_LESSON_CONTENT:
             return { ...state, aLessonContentData: action.aLessonContentAction }
+        case VOCAB_LESSON_CONTENT:
+            return { ...state, vLessonContentData: action.vLessonContentAction }
         default:
             return state
     }

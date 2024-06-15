@@ -26,9 +26,10 @@ class StudyAlphabetUser extends Component {
         window.location.href = '/login'
     }
 
-    clickRightIcon = () => {
+    componentDidUpdate() {
         var clickRight = document.querySelector('i.fa-solid.fa-chevron-right');
-        var flashcards = document.querySelectorAll('.flashcards_alphabet .flashcard');
+        const flashcards = document.querySelectorAll('.flashcards_alphabet .flashcard');
+        console.log(flashcards);
         var numberFlashcardsNow = 0;
         var numberFlashcards = flashcards.length;
         if (clickRight) {
@@ -37,6 +38,7 @@ class StudyAlphabetUser extends Component {
                 if (numberFlashcardsNow < numberFlashcards - 1) {
                     numberFlashcardsNow++;
                 } else {
+                    alert('Hoc thanh cong')
                     numberFlashcardsNow = 0;
                     // alert('Học thành công');
                 }
@@ -45,13 +47,7 @@ class StudyAlphabetUser extends Component {
                 flashcardNext.classList.add('active');
             }
         }
-    }
-
-    clickLeftIcon = () => {
         var clickLeft = document.querySelector('.icon i.fa-solid.fa-chevron-left');
-        var flashcards = document.querySelectorAll('.flashcards_alphabet .flashcard');
-        var numberFlashcardsNow = 0;
-        var numberFlashcards = flashcards.length;
         if(clickLeft){
             clickLeft.onclick = function () {
                 var flashcardNow = flashcards[numberFlashcardsNow];
@@ -66,6 +62,7 @@ class StudyAlphabetUser extends Component {
             }
         }
     }
+
     loadFlashcardA = () => {
         window.location.reload()
     }
@@ -141,8 +138,8 @@ class StudyAlphabetUser extends Component {
                                                 {this.AFlashcard()}
                                             </ul>
                                             <div className="icon">
-                                                <i className="fa-solid fa-chevron-right" onClick={ this.clickRightIcon()} />
-                                                <i className="fa-solid fa-chevron-left" onClick={this.clickLeftIcon()}/>
+                                                <i className="fa-solid fa-chevron-right"/>
+                                                <i className="fa-solid fa-chevron-left" />
                                                 <i className="fa-solid fa-rotate-right" onClick={() => this.loadFlashcardA()}></i>
                                             </div>
                                             {/* end flashcard */}
