@@ -98,7 +98,7 @@
     visibility: hidden;
 }
 
-.viewAndWrite a.btn.btn-primary {
+.viewAndWrite .btn.btn-primary.check {
     font-size: 25px;
     padding: 5px 22px;
     border-radius: 20px;
@@ -142,8 +142,8 @@
     color: white !important;
 }
 
-.listenAndChoose a.btn.btn-primary,
-.viewAndChoose a.btn.btn-primary {
+.listenAndChoose .btn.btn-primary.check,
+.viewAndChoose .btn.btn-primary.check {
     font-size: 25px;
     padding: 6px 27px;
     border-radius: 27px;
@@ -299,7 +299,7 @@ i.fa-solid.fa-volume-high.scale {
     }
 }
 
-.flashCards a.btn.btn-primary {
+.flashCards .btn.btn-primary {
     padding: 3px 25px;
     font-size: 25px;
     border: none;
@@ -393,22 +393,22 @@ i.fa-solid.fa-volume-high.scale {
     position: relative;
 }
 
-.studyVocabLesson .howToLearn.active,
+/* .studyVocabLesson .howToLearn.active,
 .studyGrammarLesson .howToLearn.active {
     opacity: 1;
     visibility: visible;
-}
+} */
 
 .studyVocabLesson .howToLearn,
 .studyGrammarLesson .howToLearn {
     height: 493px;
-    opacity: 0;
+    /* opacity: 0; */
     position: absolute;
     top: 0px;
     left: 0px;
     right: 0px;
     background-color: rgb(255, 241, 241);
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .studyVocabLesson,

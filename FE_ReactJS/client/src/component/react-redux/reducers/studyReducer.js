@@ -1,9 +1,10 @@
-import { ALPHABET_FLASHCARD, AlPHABET_BUTTON, COMMUNICATION } from "../actions/studyAction"
+import { ALPHABET_FLASHCARD, AlPHABET_BUTTON, COMMUNICATION, VOCABULARY } from "../actions/studyAction"
 
 const InitialState = {
     alphabetButtonData: null,
     alphabetFlashcardData: null,
-    communicationData: null
+    communicationData: null,
+    vocabularyData: null
 }
 const studyReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -13,6 +14,8 @@ const studyReducer = (state = InitialState, action) => {
             return { ...state, alphabetFlashcardData: action.alphabetFlashcardAction }
         case COMMUNICATION:
             return { ...state, communicationData: action.communicationAction }
+        case VOCABULARY:
+            return { ...state, vocabularyData: action.vocabularyAction}
         default:
             return state
     }

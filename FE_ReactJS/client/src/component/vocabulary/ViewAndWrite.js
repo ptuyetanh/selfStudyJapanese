@@ -15,9 +15,9 @@ class ViewAndWrite extends Component {
                         placeholder="Nhập tên hoặc cách đọc"
                     />
                 </div>
-                <a name="" id="" className="btn btn-primary check" href="#" role="button">
+                <button name="" id="" className="btn btn-primary check">
                     kiểm tra
-                </a>
+                </button>
             </div>
         );
     }

@@ -34,6 +34,8 @@ class VocabLessonContent extends Component {
     }
 
     render() {
+        const {params} = this.props;
+        console.log(params);
         const {user} = this.props.auth;
         const {isNavigateLogOut} = this.props.logOut;
         if (isNavigateLogOut) {
@@ -50,7 +52,7 @@ class VocabLessonContent extends Component {
                                 {this.lessonContentVocab()}
                             </ul>
                         </div>
-                        <Link
+                        <Link to = {'/seeVocabUser/' + params.level + '/' + params.id_level +'/'+ params.lesson_name +'/study'}
                             name=""
                             id=""
                             className="btn btn-primary btnVocabCStudy"
