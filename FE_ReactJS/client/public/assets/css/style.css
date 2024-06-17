@@ -47,6 +47,39 @@
 
 /* end studyVocab,studyGrammar */
 
+.studySuccess a.btn.btn-primary.btnVocabCStudy {
+    padding: 10px 20px;
+    font-size: 23px;
+    border: none;
+    border-radius: 25px;
+    background-color: #fb003c;
+}
+
+.studySuccess p.name_vocab {
+    padding-right: 31px;
+}
+
+.studySuccess li {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+.studySuccess ul.listVocab {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.studySuccess h1.h2 {
+    font-size: 50px;
+    color: #0d6efd;
+}
+
+.studySuccess {
+    padding-top: 14px;
+}
+
 .alertError {
     position: fixed;
     bottom: 0;
@@ -54,21 +87,18 @@
     color: white;
     border-top-left-radius: 34px;
     border-top-right-radius: 34px;
-    opacity: 0;
-    visibility: hidden;
 }
 
-.alerts a.btn.btn-primary.continue,
-.alerts a.btn.btn-primary.learnAgain {
+.alerts .btn.btn-primary.continue,
+.alerts .btn.btn-primary.learnAgain {
     background-color: white;
     color: rgb(251, 0, 60);
     font-weight: 800;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
-.alerts.active {
-    opacity: 1;
-    visibility: visible;
-}
 
 .alertSuccess p,
 .alertError p {
@@ -94,8 +124,6 @@
     color: white;
     border-top-left-radius: 34px;
     border-top-right-radius: 34px;
-    opacity: 0;
-    visibility: hidden;
 }
 
 .viewAndWrite .btn.btn-primary.check {
@@ -314,6 +342,7 @@ i.fa-solid.fa-volume-high.scale {
 
 .studyVocabLesson .flashCards .flashcardAfter h3.sino_vietnamese_sound {
     font-size: 21px;
+    cursor: pointer;
 }
 
 .studyGrammarLesson .flashCards .flashcardAfter h3.mean_example {
@@ -326,7 +355,8 @@ i.fa-solid.fa-volume-high.scale {
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 56px;
-    color: #FB003C
+    color: #FB003C;
+    cursor: pointer;
 }
 
 .studyGrammarLesson .flashCards .flashcardAfter h3.mean {
@@ -337,12 +367,14 @@ i.fa-solid.fa-volume-high.scale {
 .studyVocabLesson .flashCards .flashcardAfter h3.mean {
     font-size: 35px;
     margin-bottom: 28px;
+    cursor: pointer;
 }
 
 .studyVocabLesson .flashCards .flashcardBefore p.example,
 .studyGrammarLesson .flashCards .flashcardBefore p.example {
     font-size: 23px;
     padding: 10px 0px;
+    cursor: pointer;
 }
 
 .studyGrammarLesson .flashCards .flashcardBefore h2.name {
@@ -353,6 +385,7 @@ i.fa-solid.fa-volume-high.scale {
 .studyVocabLesson .flashCards .flashcardBefore h2.name {
     padding: 28px 0px;
     font-size: 98px;
+    cursor: pointer;
 }
 
 .sound_flash_cards {

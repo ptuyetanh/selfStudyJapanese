@@ -7,18 +7,17 @@ class AlertErrorStudy extends Component {
                 <h2>Đáp án sai</h2>
                 <div className="alert">
                     <div className="contentAlert">
-                        <p>学生(がくせい) : Học sinh</p>
-                        <p>私は学生です :Tôi là học sinh</p>
+                        <p>{this.props.name+ '('+this.props.pronunciation +') : '+ this.props.mean}</p>
+                        <p>{this.props.example + ':' + this.props.example_mean}</p>
                     </div>
-                    <a
+                    <button
                         name=""
                         id=""
                         className="btn btn-primary learnAgain"
-                        href="#"
-                        role="button"
+                        onClick={this.props.howToLearnBack}
                     >
                         Học lại
-                    </a>
+                    </button>
                 </div>
             </div>
         );

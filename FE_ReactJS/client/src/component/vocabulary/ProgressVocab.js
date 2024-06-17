@@ -13,7 +13,7 @@ class ProgressVocab extends Component {
                         className="progress-bar"
                         role="progressbar"
                         style={{ width: this.props.score + '%' }}
-                        aria-valuenow={25}
+                        aria-valuenow={5.56}
                         aria-valuemin={0}
                         aria-valuemax={100}
                     ></div>

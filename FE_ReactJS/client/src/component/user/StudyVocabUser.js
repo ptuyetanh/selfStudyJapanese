@@ -10,6 +10,7 @@ import Flashcard from '../vocabulary/Flashcard';
 import { vocabularyShow } from '../react-redux/actions/studyAction';
 import ListenAndChoose from '../vocabulary/ListenAndChoose';
 import ViewAndWrite from '../vocabulary/ViewAndWrite';
+import StudySuccess from '../vocabulary/StudySuccess';
 
 class StudyVocabUser extends Component {
 
@@ -41,27 +42,39 @@ class StudyVocabUser extends Component {
             return {
                 numberHowtolearnNow: numberHowtolearnReset,
                 numberVocabStudyNow: numberVocabStudyNext,
-                score : prevState.score + 3.4
+                score : prevState.score + 5.56
             };
         });
     }
-
+    howToLearnBackChoose = () => {
+        this.setState((prevState) => ({
+            numberHowtolearnNow: 0,
+            score: prevState.score - 5.56
+        }));
+    }
+    howToLearnBackWrite = () => {
+        this.setState((prevState) => ({
+            numberHowtolearnNow: 0,
+            score: prevState.score - 11.1
+        }));
+    }
     howToLearn = () => {
         const {params} = this.props;
         if (this.props.study.vocabularyData !== null) {
             const vocabStudy = this.props.study.vocabularyData.filter(value => value.lesson_name === params.lesson_name);
+            console.log(vocabStudy);
             const {numberHowtolearnNow ,numberVocabStudyNow} = this.state;
             if (numberVocabStudyNow >= vocabStudy.length) {
-                return <h1>học thành công</h1>
+                return (<StudySuccess vocabStudy = {vocabStudy}/>)
             }
             const studyVocabNow = vocabStudy[numberVocabStudyNow];
             switch (numberHowtolearnNow) {
                 case 0:
                     return <Flashcard sound ={studyVocabNow.sound} name = {studyVocabNow.name} example = {studyVocabNow.example} mean = {studyVocabNow.mean} pronunciation = {studyVocabNow.pronunciation} sino_vietnamese_sound = {studyVocabNow.sino_vietnamese_sound} howToLearnNext = {this.howToLearnNext}/>
                 case 1:
-                    return <ListenAndChoose sound ={studyVocabNow.sound} name = {studyVocabNow.name} vocab_id = {studyVocabNow.vocab_id}/>
+                    return <ListenAndChoose sound ={studyVocabNow.sound} name = {studyVocabNow.name} example = {studyVocabNow.example} mean = {studyVocabNow.mean} example_mean = {studyVocabNow.example_mean} pronunciation = {studyVocabNow.pronunciation} sino_vietnamese_sound = {studyVocabNow.sino_vietnamese_sound} howToLearnNext = {this.howToLearnNext} vocab_id = {studyVocabNow.vocab_id} howToLearnBackChoose = {this.howToLearnBackChoose}/>
                 case 2:
-                    return <ViewAndWrite />
+                    return <ViewAndWrite name = {studyVocabNow.name} mean = {studyVocabNow.mean} pronunciation = {studyVocabNow.pronunciation} example = {studyVocabNow.example} example_mean = {studyVocabNow.example_mean} howToLearnNext = {this.howToLearnNext} howToLearnBackWrite = {this.howToLearnBackWrite}/>
                 default:
                     break;
             }
