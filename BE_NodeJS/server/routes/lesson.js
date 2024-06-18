@@ -3,7 +3,7 @@ var router = express.Router();
 const pool = require('../config/ConnectDB');
 
 router.get('/vocab', function (req, res, next) {
-    pool.query('SELECT levels.level_id, vocabularies.lesson_name FROM levels,vocabularies where levels.level_id = vocabularies.level_id GROUP BY levels.level_id, vocabularies.lesson_name LIMIT 10;', (error, response) => {
+    pool.query('SELECT levels.level_id, vocabularies.lesson_name FROM levels,vocabularies where levels.level_id = vocabularies.level_id GROUP BY levels.level_id, vocabularies.lesson_name ORDER BY vocabularies.lesson_name ASC', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
@@ -12,7 +12,7 @@ router.get('/vocab', function (req, res, next) {
     })
 });
 router.get('/grammar', function (req, res, next) {
-    pool.query('select levels.level_id, grammars.lesson_name from grammars,levels where grammars.level_id = levels.level_id GROUP BY levels.level_id, grammars.lesson_name LIMIT 10', (error, response) => {
+    pool.query('select levels.level_id, grammars.lesson_name from grammars,levels where grammars.level_id = levels.level_id GROUP BY levels.level_id, grammars.lesson_name ORDER BY grammars.lesson_name ASC', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
@@ -49,6 +49,15 @@ router.get('/alphabet/lessonContent', function (req, res, next) {
 });
 router.get('/vocab/lessonContent', function (req, res, next) {
     pool.query('SELECT * FROM vocabularies ORDER BY vocab_id ASC', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
+router.get('/grammar/lessonContent', function (req, res, next) {
+    pool.query('SELECT * FROM grammars ORDER BY grammar_id ASC', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

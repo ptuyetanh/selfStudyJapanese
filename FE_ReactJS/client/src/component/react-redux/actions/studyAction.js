@@ -3,7 +3,8 @@ import axios from "axios";
 export const AlPHABET_BUTTON = "AlPHABET_BUTTON";
 export const ALPHABET_FLASHCARD = "AlPHABET_FLASHCARD";
 export const COMMUNICATION = "COMMUNICATION";
-export const VOCABULARY = 'VOCABULARY'
+export const VOCABULARY = 'VOCABULARY';
+export const GRAMMAR = 'GRAMMAR'
 const alphabetButtonSuccess = (data) => ({
     type:AlPHABET_BUTTON,
     alphabetButtonAction:data
@@ -19,6 +20,10 @@ const communicationSuccess = (data) => ({
 const vocabularySuccess = (data) => ({
     type:VOCABULARY,
     vocabularyAction:data
+})
+const grammarSuccess = (data) => ({
+    type:GRAMMAR,
+    grammarAction:data
 })
 export const alphabetButtonShow = () => {
     return async (dispatch) => {
@@ -57,6 +62,16 @@ export const vocabularyShow = () => {
         try {
             const response = await axios.get('/study/vocabulary');
             dispatch(vocabularySuccess(response.data));   
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+export const grammarShow = () => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get('/study/grammar');
+            dispatch(grammarSuccess(response.data));   
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);
         }

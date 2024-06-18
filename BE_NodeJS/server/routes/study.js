@@ -41,5 +41,15 @@ router.get('/vocabulary', function(req, res, next) {
         }
     })
 });
+//grammar
+router.get('/grammar', function(req, res, next) {
+    pool.query('SELECT * FROM grammars ORDER BY grammar_id ASC', (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
 
 module.exports = router;

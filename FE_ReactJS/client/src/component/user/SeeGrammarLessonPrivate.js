@@ -27,7 +27,7 @@ class SeeGrammarLessonPrivate extends Component {
         if(this.props.lesson.grammarLessonData !== null ) {
             const lessonGrammarFree = this.props.lesson.grammarLessonData.find(value => value.level_id === params.id_level);
             if(lessonGrammarFree){
-                return <LessonFree lesson={lessonGrammarFree.lesson_name}/>
+                return <LessonFree linkto = {'/seeGrammarUser/' + params.level +'/'+ params.id_level +'/'+ lessonGrammarFree.lesson_name} lesson={lessonGrammarFree.lesson_name}/>
             }
         }
     }

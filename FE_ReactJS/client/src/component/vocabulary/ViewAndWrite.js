@@ -19,7 +19,8 @@ class ViewAndWrite extends Component {
         });
     }
 
-    clickCheck = () => {
+    clickCheck = (event) => {
+        event.preventDefault();
         if (this.state.answer === this.props.name || this.state.answer === this.props.pronunciation) {
             this.setState({
                 showAlertStudy: 'success'
@@ -46,7 +47,7 @@ class ViewAndWrite extends Component {
                         onChange={(event) => this.isChange(event)}
                     />
                 </div>
-                <button name="" id="" className="btn btn-primary check" onClick={this.clickCheck}>
+                <button name="" id="" className="btn btn-primary check" onClick={(event) => this.clickCheck(event)}>
                     kiểm tra
                 </button>
                 {this.state.showAlertStudy === 'success' && <AlertSuccessStudy name = {this.props.name} pronunciation = {this.props.pronunciation} mean = {this.props.mean} example = {this.props.example} example_mean = {this.props.example_mean} howtolearnNext = {this.props.howToLearnNext}/>}
