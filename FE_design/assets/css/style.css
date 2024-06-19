@@ -4,6 +4,67 @@
     font-family: Itim;
 }
 
+form.form_signup_member button.btn.btn-primary.btn_sign_up {
+    font-size: 24px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 28px;
+    background-color: rgb(251, 0, 60);
+}
+
+.paymentGuide h2.guide {
+    color: rgb(251, 0, 60);
+}
+
+.paymentGuide h3.guide {
+    color: black;
+    font-size: 22px;
+    list-style: none;
+}
+
+.paymentGuide button.btn.btn-primary {
+    background-color: #f0f8ff00;
+    color: black;
+    border: navajowhite;
+    font-size: 26px;
+}
+
+.paymentGuide {
+    margin-bottom: 11px;
+}
+
+form.form_signup_member select.form-select.form-select-lg {
+    font-size: 24px;
+    border-radius: 30px;
+}
+
+form.form_signup_member label.form-label {
+    display: flex;
+    padding-left: 18px;
+    font-size: 20px;
+}
+
+form.form_signup_member input.form-control {
+    font-size: 23px;
+    padding: 9px 20px;
+    border-radius: 35px;
+}
+
+form.form_signup_member h3 {
+    font-size: 46px;
+    padding: 15px 0 18px 0;
+    color: rgb(251, 0, 60);
+}
+
+form.form_signup_member {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 107px;
+    background-color: rgb(255, 241, 241);
+    padding-bottom: 20px;
+}
+
 /* end studyVocab,studyGrammar */
 
 .alertError {

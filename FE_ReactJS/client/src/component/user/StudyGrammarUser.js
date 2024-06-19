@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { isAuthUser } from '../react-redux/actions/authAction';
 import { logOutUser } from '../react-redux/actions/logOutAction';
 import ProgressGrammar from '../grammar/ProgressGrammar';
-import ViewAndChoose from '../grammar/ViewAndChoose';
+import ViewAndChooseName from '../grammar/ViewAndChooseName';
+import ViewAndChooseMean from '../grammar/ViewAndChooseMean';
 import { Navigate } from 'react-router-dom';
 import Flashcard from '../grammar/Flashcard';
 import { grammarShow } from '../react-redux/actions/studyAction';
 import withRouter from '../router/withRouter';
+import StudySuccessG from '../grammar/StudySuccessG';
 
 class StudyGrammarUser extends Component {
 
@@ -44,6 +46,19 @@ class StudyGrammarUser extends Component {
             }
         });
     }
+    howToLearnBackChooseName = () => {
+        this.setState((prevState) => ({
+            numberHowtolearnNow: 0,
+            score: prevState.score - 5.56
+        }));
+    }
+
+    howToLearnBackChooseMean = () => {
+        this.setState((prevState) => ({
+            numberHowtolearnNow: 0,
+            score: prevState.score - 11.1
+        }));
+    }
 
     howToLearn = () => {
         const {params} = this.props
@@ -53,7 +68,7 @@ class StudyGrammarUser extends Component {
             const {numberHowtolearnNow, numberGrammarStudyNow} = this.state;
             if (numberGrammarStudyNow >= grammarStudy.length) {
                 return (
-                    <h2>Học thành công</h2>
+                    <StudySuccessG grammarStudy= {grammarStudy}/>
                 )
             }
             const studyGrammarNow = grammarStudy[numberGrammarStudyNow];
@@ -62,9 +77,9 @@ class StudyGrammarUser extends Component {
                     return <Flashcard sound = {studyGrammarNow.sound} name = {studyGrammarNow.name} example = {studyGrammarNow.example} mean = {studyGrammarNow.mean}
                     mean_example = {studyGrammarNow.mean_example} explain = {studyGrammarNow.explain} howToLearnNext = {this.howToLearnNext}/>
                 case 1:
-                    return <ViewAndChoose/>
+                    return <ViewAndChooseName mean = {studyGrammarNow.mean} name = {studyGrammarNow.name} example = {studyGrammarNow.example} mean_example = {studyGrammarNow.mean_example} grammar_id = {studyGrammarNow.grammar_id} howToLearnNext = {this.howToLearnNext} howToLearnBackChooseName = {this.howToLearnBackChooseName}/>
                 case 2:
-                    return <ViewAndChoose/>
+                    return <ViewAndChooseMean mean = {studyGrammarNow.mean} name = {studyGrammarNow.name} example = {studyGrammarNow.example} mean_example = {studyGrammarNow.mean_example} grammar_id = {studyGrammarNow.grammar_id} howToLearnNext = {this.howToLearnNext} howToLearnBackChooseMean = {this.howToLearnBackChooseMean}/>
             
                 default:
                     break;

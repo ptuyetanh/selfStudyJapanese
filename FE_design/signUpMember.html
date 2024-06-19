@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Self-study Japanese</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css"
+        integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css"
+        integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-xl fixed-top justify-content-center">
+        <div class="container-fluid">
+            <a class="logo" href="#">
+                <img src="./assets/image/logo.svg" class="img-fluid rounded-top icon_logo" alt="" />
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="./assets/image/icon_từ_vựng.svg" class="img-fluid rounded-top icon_tv" alt="" />
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="./assets/image/icon_ngữ_pháp.svg" class="img-fluid rounded-top icon-np" alt="" />
+
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <img src="./assets/image/icon_ôn tập.svg" class="img-fluid rounded-top icon_ot" alt="" />
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="alphabetLessonContent.html">
+                        <img src="./assets/image/icon_bảng_chữ_cái.svg" class="img-fluid rounded-top icon_bcc" alt="" />
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <img src="./assets/image/icon_giao_tiếp.svg" class="img-fluid rounded-top icon_gt" alt="" />
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <div class="sign_up_member">
+                    <img src="./assets/image/member_svgrepo.com.svg" class="img-fluid rounded-top member_svg" alt="" />
+                    <h5>Đăng ký thành viên</h5>
+                </div>
+                <!-- end sign_up_member -->
+                <div class="info_user">
+                    <img src="./assets/image/user-icon-svgrepo-com.svg" class="img-fluid user_svg" alt="" />
+                    <div class="name_user">
+                        <h5>Phạm Tuyết Anh</h5>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </div>
+                <ul class="list-group list-group-numbered info_details hidden_info">
+                    <li class="list-group-item1">Thông tin cá nhân</li>
+                    <li class="list-group-item2">Đăng xuất</li>
+                </ul>
+                <!-- end info_user -->
+            </div>
+        </div>
+    </nav>
+    <!-- end menu -->
+    <main>
+        <div class="content">
+            <form class="form_signup_member">
+                <div class="col-8">
+                    <h3>Đăng kí tài khoản</h3>
+                    <div class="mb-4">
+                        <input value="Phạm Tuyết Anh" type="text" name="" id="" class="form-control"
+                            placeholder="Họ và tên" aria-describedby="helpId" disabled />
+                        <small id="helpId" class="form-text"></small>
+                    </div>
+                    <div class="mb-3">
+                        <input value="phamtuyetanh2@gamil.com" type="email" class="form-control" name="" id=""
+                            aria-describedby="helpId" placeholder="Email" disabled />
+                        <small id="helpId" class="form-text"></small>
+                    </div>
+                    <div class="mb-4">
+                        <input value="011" type="text" name="" id="" class="form-control" placeholder="Số điện thoại"
+                            style="display: none;" readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Thời gian đăng ký</label>
+                        <select class="form-select form-select-lg" name="" id="">
+                            <option selected>Select one</option>
+                            <option value="">3 tháng</option>
+                            <option value="">6 tháng</option>
+                            <option value="">1 năm</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nhập ảnh thanh toán</label>
+                        <input type="file" class="form-control" name="" id="" placeholder=""
+                            aria-describedby="fileHelpId" />
+                        <div id="fileHelpId" class="form-text"></div>
+                    </div>
+                    <!-- Payment Guide -->
+                    <div class="paymentGuide">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            <i class="fa-solid fa-book-open"></i>
+                            Bản hướng dẫn thanh toán
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Hướng dẫn thanh toán</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3 class="guide">B1: Thanh toán với 3 lựa chọn
+                                            <li>3 tháng: 100.000đ</li>
+                                            <li>6 tháng: 300.000đ</li>
+                                            <li>1 năm: 500.000đ</li>
+                                        </h3>
+                                        <h3 class="guide">B2: Vui lòng quét mã QR hoăc nhập thông tin tài khoản để thanh
+                                            toán qua tài khoản ngân hàng</h3>
+                                        <img src="./assets/image/qr.jpg" class="img-fluid rounded-top" alt="" />
+                                        <h3 class="guide">B3: Sau khi thanh toán thành công chụp lại ảnh thanh toán rồi
+                                            nhập ảnh vào mục thanh toán thành viên</h3>
+                                        <h3 class="guide">Lưu ý: khi đăng ký chỉ được gửi 1 lần, gửi lần 2 sẽ không chấp
+                                            nhận mãu đăng ký</h3 class="guide">
+                                        <h3 class="guide">Vui lòng liên hệ mail nếu muốn gửi lại form</h3>
+                                        <h2 class="guide">Email: yukiainnstudy@gmail.com</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="reset" class="btn btn-primary btn_sign_up" disabled>
+                        Đăng ký thành viên
+                    </button>
+                </div>
+            </form>
+            <!-- end form  -->
+        </div>
+    </main>
+    <!-- end Main -->
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/javascrip.js"></script>
+    <script src="./assets/js/user.js"></script>
+    <script src="./assets/js/sign_up_in.js"></script>
+</body>
+
+</html>

@@ -47,7 +47,9 @@
 
 /* end studyVocab,studyGrammar */
 
-.studySuccess a.btn.btn-primary.btnVocabCStudy {
+.studySuccess a.btn.btn-primary.btnVocabCStudy,
+.studySuccessG a.btn.btn-primary.btnGrammarStudy
+{
     padding: 10px 20px;
     font-size: 23px;
     border: none;
@@ -55,28 +57,37 @@
     background-color: #fb003c;
 }
 
-.studySuccess p.name_vocab {
+.studySuccess p.name_vocab,
+.studySuccessG p.name
+{
     padding-right: 31px;
 }
 
-.studySuccess li {
+.studySuccess li,
+.studySuccessG li {
     display: flex;
     flex-direction: row;
     font-size: 20px;
 }
 
-.studySuccess ul.listVocab {
+.studySuccess ul.listVocab,
+.studySuccessG ul.list
+{
     display: flex;
     flex-direction: column;
     align-items: start;
 }
 
-.studySuccess h1.h2 {
+.studySuccess h1.h2,
+.studySuccessG h1.h2
+{
     font-size: 50px;
     color: #0d6efd;
 }
 
-.studySuccess {
+.studySuccess,
+.studySuccessG
+{
     padding-top: 14px;
 }
 
@@ -189,7 +200,7 @@
 .viewAndChoose .optionChoose {
     width: 245px;
     height: 100px;
-    font-size: 34px;
+    font-size: 23px;
     margin: 0px 24px 38px;
     background-color: rgba(245, 245, 220, 0);
     color: black;
@@ -240,7 +251,7 @@
 i.fa-solid.fa-hand-pointer {
     font-size: 29px;
     position: absolute;
-    top: 373px;
+    top: 413px;
     z-index: 3;
     color: rgba(251, 0, 60, 0.41);
 }
@@ -379,14 +390,14 @@ i.fa-solid.fa-volume-high.scale {
 .studyVocabLesson .flashCards .flashcardBefore p.example,
 .studyGrammarLesson .flashCards .flashcardBefore p.example {
     font-size: 23px;
-    padding: 10px 0px;
+    padding: 10px 28px;
     cursor: pointer;
     user-select: none;
 }
 
 .studyGrammarLesson .flashCards .flashcardBefore h2.name {
-    padding: 28px 0px;
-    font-size: 60px;
+    padding: 28px 0;
+    font-size: 58px;
     user-select: none;
 }
 
@@ -419,12 +430,12 @@ i.fa-solid.fa-volume-high.scale {
 .studyGrammarLesson .flashCards .flashcardAfter,
 .studyGrammarLesson .flashCards .flashcardBefore {
     background-color: white;
-    width: 304px;
+    width: 330px;
     padding: 44px 0px;
     position: absolute;
     top: 40px;
     border-radius: 29px;
-    height: 341px;
+    height: 385px;
 }
 
 .studyVocabLesson .flashCards,
