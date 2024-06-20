@@ -72,14 +72,14 @@ class MenuHome extends Component {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavId">
-                        <div className="sign_up_member">
+                        <Link to = '/signUpMember' className="sign_up_member">
                             <img
                                 src="/assets/image/member_svgrepo.com.svg"
                                 className="img-fluid rounded-top member_svg"
                                 alt=""
                             />
                             <h5>Đăng ký thành viên</h5>
-                        </div>
+                        </Link>
                         {/* end sign_up_member */}
                         <div className="info_user" onClick={() => this.infoUser_Click()}>
                             <img

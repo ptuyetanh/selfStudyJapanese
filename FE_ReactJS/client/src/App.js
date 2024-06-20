@@ -26,6 +26,7 @@ import VocabLessonContent from './component/user/VocabLessonContent';
 import StudyVocabUser from './component/user/StudyVocabUser';
 import GrammarLessonContent from './component/user/GrammarLessonContent';
 import StudyGrammarUser from './component/user/StudyGrammarUser';
+import SignUpMember from './component/user/SignUpMember';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -60,6 +61,7 @@ class App extends Component {
             <Route path='/seeVocabUser/:level/:id_level/:lesson_name/study' element={<StudyVocabUser />} /> 
             <Route path='/seeGrammarUser/:level/:id_level/:lesson_name' element={<GrammarLessonContent />} />       
             <Route path='/seeGrammarUser/:level/:id_level/:lesson_name/study' element={<StudyGrammarUser />} />       
+            <Route path='/signUpMember' element={<SignUpMember />} />       
           </Route>
         </Routes>
       </Router>
