@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { isAuthUser } from '../react-redux/actions/authAction';
 import { logOutUser } from '../react-redux/actions/logOutAction';
 import { Navigate } from 'react-router-dom';
+import { signUpMemberUser } from '../react-redux/actions/signUpMemberAction';
+import AlertSuccess from '../alerts/AlertSuccess';
+import AlertDanger from '../alerts/AlertDanger';
 
 class SignUpMember extends Component {
 
@@ -23,7 +26,7 @@ class SignUpMember extends Component {
             timestudy: '3 tháng',
             paymentphoto: '',
             user_id: user.user_id,
-            error_paymentphoto: ''
+            error_paymentphoto: '',
         }
     }
 
@@ -38,9 +41,10 @@ class SignUpMember extends Component {
     isChangeFile = (event) => {
         const name = event.target.name;
         const filename = event.target.files[0].name;
+        const file = event.target.files[0];
         // console.log(filename);
         this.setState({
-            paymentphoto: filename,
+            paymentphoto: file
         });
         //kiểm tra file
         if (name === 'paymentphoto') {
@@ -60,7 +64,7 @@ class SignUpMember extends Component {
     showButtonDisableOrNoDisable = () => {
         if (this.state.paymentphoto !== '' && this.state.error_paymentphoto === '') {
             return (
-                <button type="button" className="btn btn-primary btn_sign_up" onClick={() => this.clickSignupMember()}>
+                <button type="button" className="btn btn-primary btn_sign_up" onClick={this.clickSignupMember}>
                     Đăng ký thành viên
                 </button>
             )
@@ -74,8 +78,14 @@ class SignUpMember extends Component {
     }
 
     clickSignupMember = () => {
-        var {timestudy,paymentphoto,user_id} = this.state;
-        console.log(timestudy + paymentphoto + user_id);
+        const { timestudy, paymentphoto, user_id } = this.state;
+        console.log(this.state);
+        const formData = new FormData();
+        formData.append('timestudy', timestudy);
+        formData.append('paymentphoto', paymentphoto);
+        formData.append('user_id', user_id);
+        console.log(formData);
+        this.props.signUpMemberUser(formData);
     }
 
     render() {
@@ -88,6 +98,8 @@ class SignUpMember extends Component {
             <main>
                 <MenuHome fullname={user.fullname} logout={this.logOutButton} />
                 <div className="content">
+                    <AlertSuccess alertType = "success" alertContent = "Đăng ký thành công và dữ liệu đã được lưu lại và vui lòng chờ nhân viên xử lý"/>
+                    <AlertDanger alertType = "danger" alertContent = "Người dùng đã gửi đăng ký thành viên, Vui lòng chờ nhân viên xử lý"/>
                     <form className="form_signup_member">
                         <div className="col-8">
                             <h3>Đăng kí tài khoản</h3>
@@ -233,6 +245,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = {
     isAuthUser,
-    logOutUser
+    logOutUser,
+    signUpMemberUser
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpMember);

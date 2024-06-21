@@ -1,6 +1,39 @@
 @media (max-width: 767px) {
     * {}
 
+    /* end homeMember */
+    a.managelearned h3 {
+        font-size: 30px;
+    }
+
+    a.managelearned img.img-fluid.rounded-top {
+        margin-right: 11px;
+        width: 50px;
+    }
+
+    a.managelearned {
+        display: flex;
+        flex-direction: row;
+        top: 75px;
+        left: 26px;
+        margin-left: 25px;
+    }
+
+    ul.list-group.list-group-numbered.info_details.infoDetailM {
+        top: 144px;
+        right: 148px;
+    }
+
+    .info_user.infoMember {
+        margin: 0;
+    }
+
+    /* end form_signup_member */
+
+    form.form_signup_member {
+        padding-top: 172px;
+    }
+
     /* end communicationStudy */
     .closeCommunication {
         margin-top: 182px;
@@ -61,12 +94,12 @@
     }
 
     .name_user i.fa-solid.fa-caret-down {
-        margin: 17px 0px 0px 5px;
+        margin: 7px 0px 0px 5px;
     }
 
     .name_user h5 {
-        margin: 14px 4px 0px 0px;
-        font-size: 20px;
+        margin: -3px 7px 0px 2px;
+        font-size: 26px;
     }
 
     .info_user img.img-fluid.user_svg {
@@ -232,6 +265,40 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
+
+    /* end homeMenu  */
+    a.managelearned img.img-fluid.rounded-top {
+        width: 63px;
+        margin-right: 12px;
+    }
+
+    a.managelearned {
+        display: flex;
+        flex-direction: row;
+        top: 26px;
+        left: 214px;
+    }
+
+    ul.list-group.list-group-numbered.info_details.infoDetailM {
+        top: 168px;
+        right: 386px;
+    }
+
+    ul.list-group.list-group-numbered.info_details.infoDetailM.hidden_info {
+        top: 160px;
+    }
+
+    .info_user.infoMember i.fa-solid.fa-caret-down {
+        margin-top: 9px;
+    }
+
+    .info_user.infoMember h5 {
+        margin-top: 4px;
+    }
+
+    .info_user.infoMember {
+        margin-left: 14px;
+    }
 
     /* end studyVocab,studyGrammar */
 

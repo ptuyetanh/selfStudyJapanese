@@ -8,6 +8,7 @@ import logOutReducer from "./reducers/logoutReducer";
 import levelReducer from "./reducers/levelReducer";
 import lessonReducer from "./reducers/lessonReducer";
 import studyReducer from "./reducers/studyReducer";
+import signUpMemberReducer from "./reducers/signUpMemberReducer";
 
 const allReducer = combineReducers({
     signUp: signUpReducer,
@@ -18,6 +19,7 @@ const allReducer = combineReducers({
     level:levelReducer,
     lesson:lessonReducer,
     study:studyReducer,
+    signUpMember:signUpMemberReducer,
  })
 var store = createStore(allReducer,applyMiddleware(thunk));
 export default store;

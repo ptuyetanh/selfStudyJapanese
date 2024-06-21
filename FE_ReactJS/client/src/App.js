@@ -27,13 +27,19 @@ import StudyVocabUser from './component/user/StudyVocabUser';
 import GrammarLessonContent from './component/user/GrammarLessonContent';
 import StudyGrammarUser from './component/user/StudyGrammarUser';
 import SignUpMember from './component/user/SignUpMember';
+import HomeMember from './component/member/HomeMember';
+import SeeAlphabetMember from './component/member/SeeAlphabetMember';
+import AlphabetLessonContentM from './component/member/AlphabetLessonContentM';
+import StudyAlphabetMember from './component/member/StudyAlphabetMember';
+import SeeCommunicationMember from './component/member/SeeCommunicationMember';
+import StudyCommunicationMember from './component/member/StudyCommunicationMember';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
   }
   
   render() {
-    console.log(this.props.auth);
+    // console.log(this.props.auth);
     return (
       <Router>
         <Routes>
@@ -47,6 +53,7 @@ class App extends Component {
           <Route path='/seeGrammar/:level/:id_level' element={<SeeGrammarLesson />} />
           <Route path='/seeCommunication' element={<SeeCommunication />} />
           <Route element={<RoutePrivate />}>
+            {/* user */}
             <Route path='/home' element={<Home />} />
             <Route path='/seeAlphabetUser' element={<SeeAphabetPrivate />} />
             <Route path='/seeCommunicationUser' element={<SeeComunicationPrivate />} />
@@ -61,7 +68,14 @@ class App extends Component {
             <Route path='/seeVocabUser/:level/:id_level/:lesson_name/study' element={<StudyVocabUser />} /> 
             <Route path='/seeGrammarUser/:level/:id_level/:lesson_name' element={<GrammarLessonContent />} />       
             <Route path='/seeGrammarUser/:level/:id_level/:lesson_name/study' element={<StudyGrammarUser />} />       
-            <Route path='/signUpMember' element={<SignUpMember />} />       
+            <Route path='/signUpMember' element={<SignUpMember />} />
+            {/* member */}
+            <Route path='/homeMember' element={<HomeMember />} />
+            <Route path='/seeAlphabetMember' element={<SeeAlphabetMember />} />
+            <Route path='/seeAlphabetMember/:lesson/:id_lesson' element={<AlphabetLessonContentM />} />
+            <Route path='/seeAlphabetMember/:lesson/:id_lesson/:content/study' element={<StudyAlphabetMember />} />
+            <Route path='/seeCommunicationMember' element={<SeeCommunicationMember />} />
+            <Route path='/seeCommunicationMember/:lesson/:id_lesson/study' element={<StudyCommunicationMember />} />
           </Route>
         </Routes>
       </Router>

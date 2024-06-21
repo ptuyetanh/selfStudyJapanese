@@ -104,6 +104,8 @@ class LogIn extends Component {
         const { user, isauth } = this.props.auth;
         if (isauth && user.role_id === "1") {
             return (<Navigate to="/home" />);
+        }else if (isauth && user.role_id === "2") {
+            return (<Navigate to="/homeMember"/>)
         }
         return (
             <main>

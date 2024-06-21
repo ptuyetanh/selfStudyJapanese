@@ -26,11 +26,12 @@ router.post('/', upload.single('paymentphoto'), function (req, res, next) {
       console.log("Lỗi" + error);
     } else {
       if (response.rows.length > 0) {
-        console.log("Đã tồn tại đơn đăng ký thành viên");
+        // res.send("Đã tồn tại đơn đăng ký thành viên");
+        return res.status(400).json({ message: 'Đã tồn tại đơn đăng ký thành viên' });
       } else {
-        pool.query("insert into signupmembers(timesignup, timestudy, paymentphoto, user_id) values($1,$2,$3,$4) RETURNING *", [timesignup, timestudy, paymentphoto, user_id], (error, response) => {
+        pool.query("insert into signupmembers(timesignup, timestudy, paymentphoto, user_id) values($1,$2,$3,$4)", [timesignup, timestudy, paymentphoto, user_id], (error, response) => {
           if (error) {
-            console.log(error);
+            res.send(error);
           } else {
             res.send(user_id + timestudy + paymentphoto + timesignup);
           }
