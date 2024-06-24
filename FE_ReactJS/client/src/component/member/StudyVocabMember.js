@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuHome from './MenuHome';
+import MenuMember from './MenuMember';
 import { connect } from 'react-redux';
 import withRouter from '../router/withRouter';
 import { isAuthUser } from '../react-redux/actions/authAction';
@@ -12,7 +12,7 @@ import ListenAndChoose from '../vocabulary/ListenAndChoose';
 import ViewAndWrite from '../vocabulary/ViewAndWrite';
 import StudySuccess from '../vocabulary/StudySuccess';
 
-class StudyVocabUser extends Component {
+class StudyVocabMember extends Component {
 
     componentDidMount() {
         this.props.isAuthUser();
@@ -58,14 +58,14 @@ class StudyVocabUser extends Component {
             score: prevState.score - 11.1
         }));
     }
-    howToLearn = () => {
+    howToLearn = (user_id) => {
         const {params} = this.props;
         if (this.props.study.vocabularyData !== null) {
             const vocabStudy = this.props.study.vocabularyData.filter(value => value.lesson_name === params.lesson_name);
             console.log(vocabStudy);
             const {numberHowtolearnNow ,numberVocabStudyNow} = this.state;
             if (numberVocabStudyNow >= vocabStudy.length) {
-                return (<StudySuccess linkto = {'/seeVocabUser/' + params.level +'/'+ params.id_level} vocabStudy = {vocabStudy}/>)
+                return (<StudySuccess vocabStudy = {vocabStudy} user_id = {user_id} linkto = '/homeMember'/>)
             }
             const studyVocabNow = vocabStudy[numberVocabStudyNow];
             switch (numberHowtolearnNow) {
@@ -80,10 +80,8 @@ class StudyVocabUser extends Component {
             }
         }
     }
-
     render() {
         const {params} = this.props;
-        console.log(params);
         const { user } = this.props.auth;
         const { isNavigateLogOut } = this.props.logOut;
         if (isNavigateLogOut) {
@@ -91,15 +89,15 @@ class StudyVocabUser extends Component {
         }
         return (
             <main>
-                <MenuHome fullname={user.fullname} logout={this.logOutButton} />
+                <MenuMember fullname={user.fullname} logout={this.logOutButton} />
                 <div className="content">
                     <div className="container">
                         <div className="studyVocab">
-                            <ProgressVocab linkto = {'/seeVocabUser/' + params.level +'/' + params.id_level} score = {this.state.score}/>
+                            <ProgressVocab linkto = {'/seeVocabMember/' + params.level +'/' + params.id_level} score = {this.state.score}/>
                             {/* end progress_vocab */}
                             <div className="studyVocabLesson">
                                 <div className="howToLearn">
-                                    {this.howToLearn()}
+                                    {this.howToLearn(user.user_id)}
                                 </div>
                                 {/*end howToLearn */}
                             </div>
@@ -123,4 +121,4 @@ const mapDispatchToProps = {
     logOutUser,
     vocabularyShow
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(StudyVocabUser));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(StudyVocabMember));

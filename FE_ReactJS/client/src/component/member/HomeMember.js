@@ -27,7 +27,7 @@ class HomeMember extends Component {
                 <Link className="managelearned">
                         <img
                             src="/assets/image/managerStudy.svg"
-                            class="img-fluid rounded-top"
+                            className="img-fluid rounded-top"
                             alt=""
                         />
                         <h3>Quản lý từ đã học</h3>

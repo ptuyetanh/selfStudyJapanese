@@ -33,6 +33,10 @@ import AlphabetLessonContentM from './component/member/AlphabetLessonContentM';
 import StudyAlphabetMember from './component/member/StudyAlphabetMember';
 import SeeCommunicationMember from './component/member/SeeCommunicationMember';
 import StudyCommunicationMember from './component/member/StudyCommunicationMember';
+import SeeVocabMember from './component/member/SeeVocabMember';
+import SeeVocabLessonM from './component/member/SeeVocabLessonM';
+import VocabLessonContentM from './component/member/VocabLessonContentM';
+import StudyVocabMember from './component/member/StudyVocabMember';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -76,6 +80,10 @@ class App extends Component {
             <Route path='/seeAlphabetMember/:lesson/:id_lesson/:content/study' element={<StudyAlphabetMember />} />
             <Route path='/seeCommunicationMember' element={<SeeCommunicationMember />} />
             <Route path='/seeCommunicationMember/:lesson/:id_lesson/study' element={<StudyCommunicationMember />} />
+            <Route path='/seeVocabMember' element={<SeeVocabMember />} />
+            <Route path='/seeVocabMember/:level/:id_level' element={<SeeVocabLessonM />} />
+            <Route path='/seeVocabMember/:level/:id_level/:lesson_name' element={<VocabLessonContentM />} />
+            <Route path='/seeVocabMember/:level/:id_level/:lesson_name/study' element={<StudyVocabMember />} />
           </Route>
         </Routes>
       </Router>

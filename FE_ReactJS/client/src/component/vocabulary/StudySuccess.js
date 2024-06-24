@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import withRouter from '../router/withRouter';
 
 class StudySuccess extends Component {
+    
+    clickSaveVocab = () => {
+        console.log('ddax click');
+    }
     render() {
-        const {params} = this.props
         return (
             <div className='studySuccess'>
                 <h1 className="h2">HỌC THÀNH CÔNG</h1>
@@ -18,11 +21,12 @@ class StudySuccess extends Component {
                         )}
                     </ul>
                 </div>
-                <Link to = {'/seeVocabUser/' + params.level +'/'+ params.id_level}
+                <Link to = {this.props.linkto}
                     name=""
                     id=""
                     className="btn btn-primary btnVocabCStudy"
                     role="button"
+                    onClick={() => this.clickSaveVocab()}
                 >
                     Tiếp tục
                 </Link>

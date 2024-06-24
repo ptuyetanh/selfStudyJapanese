@@ -80,7 +80,7 @@ class MenuMember extends Component {
                                 alt=""
                             />
                             <div className="name_user">
-                            <i class="fa-solid fa-crown"></i>
+                            <i className="fa-solid fa-crown"></i>
                                 <h5>{this.props.fullname}</h5>
                                 <i className="fa-solid fa-caret-down" />
                             </div>
