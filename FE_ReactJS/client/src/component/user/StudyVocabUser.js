@@ -58,14 +58,14 @@ class StudyVocabUser extends Component {
             score: prevState.score - 11.1
         }));
     }
-    howToLearn = () => {
+    howToLearn = (user_id) => {
         const {params} = this.props;
         if (this.props.study.vocabularyData !== null) {
             const vocabStudy = this.props.study.vocabularyData.filter(value => value.lesson_name === params.lesson_name);
             console.log(vocabStudy);
             const {numberHowtolearnNow ,numberVocabStudyNow} = this.state;
             if (numberVocabStudyNow >= vocabStudy.length) {
-                return (<StudySuccess linkto = {'/seeVocabUser/' + params.level +'/'+ params.id_level} vocabStudy = {vocabStudy}/>)
+                return (<StudySuccess linkto = {'/seeVocabUser/' + params.level +'/'+ params.id_level} vocabStudy = {vocabStudy} user_id = {user_id}/>)
             }
             const studyVocabNow = vocabStudy[numberVocabStudyNow];
             switch (numberHowtolearnNow) {
@@ -99,7 +99,7 @@ class StudyVocabUser extends Component {
                             {/* end progress_vocab */}
                             <div className="studyVocabLesson">
                                 <div className="howToLearn">
-                                    {this.howToLearn()}
+                                    {this.howToLearn(user.user_id)}
                                 </div>
                                 {/*end howToLearn */}
                             </div>

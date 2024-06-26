@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MenuHome from './MenuHome';
+import MenuMember from './MenuMember';
 import { connect } from 'react-redux';
 import { isAuthUser } from '../react-redux/actions/authAction';
 import { logOutUser } from '../react-redux/actions/logOutAction';
@@ -12,8 +12,7 @@ import { grammarShow } from '../react-redux/actions/studyAction';
 import withRouter from '../router/withRouter';
 import StudySuccessG from '../grammar/StudySuccessG';
 
-class StudyGrammarUser extends Component {
-
+class StudyGrammarMember extends Component {
     componentDidMount() {
         this.props.isAuthUser();
         if (this.props.study.grammarData === null) {
@@ -68,7 +67,7 @@ class StudyGrammarUser extends Component {
             const {numberHowtolearnNow, numberGrammarStudyNow} = this.state;
             if (numberGrammarStudyNow >= grammarStudy.length) {
                 return (
-                    <StudySuccessG grammarStudy= {grammarStudy} user_id={user_id} linkto = {'/seeGrammarMember/' + params.level +'/'+ params.id_level}/>
+                    <StudySuccessG grammarStudy= {grammarStudy} user_id = {user_id} linkto = {'/homeMember/'}/>
                 )
             }
             const studyGrammarNow = grammarStudy[numberGrammarStudyNow];
@@ -86,7 +85,6 @@ class StudyGrammarUser extends Component {
             } 
         }
     }
-
     render() {
         const {params} = this.props
         const { user } = this.props.auth;
@@ -96,11 +94,11 @@ class StudyGrammarUser extends Component {
         }
         return (
             <main>
-                <MenuHome fullname={user.fullname} logout={this.logOutButton} />
+                <MenuMember fullname={user.fullname} logout={this.logOutButton} />
                 <div className="content">
                     <div className="container">
                         <div className="studyGrammar">
-                            <ProgressGrammar linkto = {'/seeGrammarUser/' + params.level + '/' + params.id_level} score = {this.state.score}/>
+                            <ProgressGrammar linkto = {'/seeGrammarMember/' + params.level + '/' + params.id_level} score = {this.state.score}/>
                             {/* end progress_grammar */}
                             <div className="studyGrammarLesson">
                                 <div className="howToLearn">
@@ -128,4 +126,4 @@ const mapDispatchToProps = {
     logOutUser,
     grammarShow
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(StudyGrammarUser));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(StudyGrammarMember));

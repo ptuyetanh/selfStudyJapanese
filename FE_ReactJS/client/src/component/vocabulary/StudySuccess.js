@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withRouter from '../router/withRouter';
+import { connect } from 'react-redux';
+import { saveVocabShow } from '../react-redux/actions/studyAction';
 
 class StudySuccess extends Component {
     
     clickSaveVocab = () => {
-        console.log('ddax click');
+        this.props.saveVocabShow(this.props.vocabStudy,this.props.user_id)
     }
     render() {
         return (
@@ -34,5 +36,12 @@ class StudySuccess extends Component {
         );
     }
 }
-
-export default withRouter(StudySuccess);
+const mapStateToProps = (state, ownProps) => {
+    return {
+        study: state.study
+    }
+}
+const mapDispatchToProps = {
+    saveVocabShow
+}
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(StudySuccess));
