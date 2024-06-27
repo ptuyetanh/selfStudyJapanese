@@ -1,6 +1,26 @@
 @media (max-width: 767px) {
     * {}
 
+    /* end review  */
+    .reviewVocab .countVocab h3,
+    .reviewGrammar .countGrammar h3 {
+        font-size: 24px;
+    }
+
+    .reviewVocab .random h2,
+    .reviewGrammar .random h2 {
+        font-size: 24px;
+    }
+
+    .reviewVocab .random h3,
+    .reviewGrammar .random h3 {
+        font-size: 22px;
+    }
+
+    .vocabulary.vocabReview {
+        padding-top: 119px;
+    }
+
     /* end studyVocab,studyGrammar */
 
     .alertSuccess {
@@ -206,6 +226,16 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
+
+    /* end review  */
+    .grammar.grammarReview {
+        margin-top: 42px;
+    }
+
+    .vocabulary.vocabReview {
+        padding-top: 171px;
+        margin-top: 0;
+    }
 
     /* end studyVocab,studyGrammar */
 
