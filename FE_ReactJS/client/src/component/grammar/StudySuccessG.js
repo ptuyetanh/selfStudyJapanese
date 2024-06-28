@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { saveGrammarShow } from '../react-redux/actions/studyAction';
 
 class StudySuccessG extends Component {
     saveGrammar = () => {
-        this.props.saveGrammarShow(this.props.grammarStudy,this.props.user_id)
+        this.props.saveGrammarShow(this.props.grammarStudy,this.props.user_id);
+        return <Navigate to = "/homeMember" />
     }
     render() {
         return (

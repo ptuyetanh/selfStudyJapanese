@@ -1,6 +1,36 @@
 @media (max-width: 767px) {
     * {}
 
+.managerLearnedWords {
+    padding-top: 204px;
+}
+
+    /* end review  */
+
+    .grammar.grammarReview {
+        padding-top: 33px;
+    }
+
+    .reviewVocab .countVocab h3,
+    .reviewGrammar .countGrammar h3 {
+        font-size: 24px;
+    }
+
+    .reviewVocab .random h2,
+    .reviewGrammar .random h2 {
+        font-size: 24px;
+    }
+
+    .reviewVocab .random h3,
+    .reviewGrammar .random h3 {
+        font-size: 22px;
+    }
+
+    .vocabulary.vocabReview {
+        padding-top: 254px;
+        margin: 0;
+    }
+
     /* end homeMember */
     a.managelearned h3 {
         font-size: 30px;
@@ -14,9 +44,9 @@
     a.managelearned {
         display: flex;
         flex-direction: row;
-        top: 75px;
-        left: 26px;
-        margin-left: 25px;
+        top: 185px;
+        left: 52px;
+        justify-content: center;
     }
 
     ul.list-group.list-group-numbered.info_details.infoDetailM {
@@ -216,7 +246,6 @@
     }
 
     .grammar {
-        margin-top: 33px;
     }
 
     li.nav-item.active {
@@ -266,6 +295,17 @@
 @media (min-width: 768px) and (max-width: 1200px) {
     * {}
 
+    /* end review  */
+    .grammar.grammarReview {
+        margin-top: 0;
+    }
+
+    .vocabulary.vocabReview {
+        padding-top: 195px;
+        margin-top: 0;
+    }
+
+
     /* end homeMenu  */
     a.managelearned img.img-fluid.rounded-top {
         width: 63px;
@@ -275,8 +315,9 @@
     a.managelearned {
         display: flex;
         flex-direction: row;
-        top: 26px;
-        left: 214px;
+        top: 124px;
+        left: 90px;
+        justify-content: center;
     }
 
     ul.list-group.list-group-numbered.info_details.infoDetailM {

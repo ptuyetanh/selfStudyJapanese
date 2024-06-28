@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import withRouter from '../router/withRouter';
 import { connect } from 'react-redux';
 import { saveVocabShow } from '../react-redux/actions/studyAction';
@@ -7,7 +7,8 @@ import { saveVocabShow } from '../react-redux/actions/studyAction';
 class StudySuccess extends Component {
     
     clickSaveVocab = () => {
-        this.props.saveVocabShow(this.props.vocabStudy,this.props.user_id)
+        this.props.saveVocabShow(this.props.vocabStudy,this.props.user_id);
+        return <Navigate to = "/homeMember" />
     }
     render() {
         return (
@@ -24,11 +25,8 @@ class StudySuccess extends Component {
                     </ul>
                 </div>
                 <Link to = {this.props.linkto}
-                    name=""
-                    id=""
                     className="btn btn-primary btnVocabCStudy"
-                    role="button"
-                    onClick={() => this.clickSaveVocab()}
+                    onClick={this.clickSaveVocab()}
                 >
                     Tiếp tục
                 </Link>

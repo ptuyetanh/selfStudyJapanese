@@ -41,6 +41,7 @@ import SeeGrammarMember from './component/member/SeeGrammarMember';
 import SeeGrammarLessonMember from './component/member/SeeGrammarLessonMember';
 import GrammarLessonContentM from './component/member/GrammarLessonContentM';
 import StudyGrammarMember from './component/member/StudyGrammarMember';
+import ManagerLearnedWords from './component/member/ManagerLearnedWords';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -92,6 +93,7 @@ class App extends Component {
             <Route path='/seeGrammarMember/:level/:id_level' element={<SeeGrammarLessonMember />} />
             <Route path='/seeGrammarMember/:level/:id_level/:lesson_name' element={<GrammarLessonContentM />} />
             <Route path='/seeGrammarMember/:level/:id_level/:lesson_name/study' element={<StudyGrammarMember />} />
+            <Route path='/homeMember/managerLearnedWords' element={<ManagerLearnedWords />} />
           </Route>
         </Routes>
       </Router>

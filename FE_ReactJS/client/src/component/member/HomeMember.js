@@ -4,15 +4,32 @@ import { connect } from 'react-redux';
 import { logOutUser } from '../react-redux/actions/logOutAction';
 import { isAuthUser } from '../react-redux/actions/authAction';
 import { Link, Navigate } from 'react-router-dom';
+import NoReview from '../review/NoReview';
+import ContentReview from '../review/ContentReview';
+import { showCountReview } from '../react-redux/actions/reviewAction';
 
 class HomeMember extends Component {
     componentDidMount() {
         this.props.isAuthUser();
+        if (this.props.review.countReviewData === null) {
+            this.props.showCountReview();
+        }
     }
 
     logOutButton = () => {
         this.props.logOutUser();
         window.location.href = '/login'
+    }
+
+    showReview = () => {
+        if(this.props.review.countReviewData !== null){
+            console.log(typeof(this.props.review.countReviewData[0].count));
+            if(this.props.review.countReviewData[0].count === '0'){
+                return <NoReview />
+            }else{
+                return <ContentReview />
+            }
+        }
     }
 
     render() {
@@ -24,7 +41,7 @@ class HomeMember extends Component {
         return (
             <main>
                 <MenuMember fullname={user.fullname} logout={this.logOutButton} />
-                <Link className="managelearned">
+                <Link to="/homeMember/managerLearnedWords" className="managelearned">
                         <img
                             src="/assets/image/managerStudy.svg"
                             className="img-fluid rounded-top"
@@ -32,25 +49,7 @@ class HomeMember extends Component {
                         />
                         <h3>Quản lý từ đã học</h3>
                 </Link>
-                <div className="content">
-                    <div className="vocabulary">
-                        <h3>
-                            Hiện tại chưa có từ vựng để <br />
-                            ôn tập
-                        </h3>
-                        <button type="button" className="btn btn-primary">
-                            Từ vựng
-                        </button>
-                    </div>
-                    <div className="grammar">
-                        <h3>
-                            Hiện tại chưa có ngữ pháp để <br /> ôn tập
-                        </h3>
-                        <button type="button" className="btn btn-primary">
-                            Ngữ pháp
-                        </button>
-                    </div>
-                </div>
+                {this.showReview()}
             </main>
         );
     }
@@ -58,11 +57,13 @@ class HomeMember extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         auth: state.auth,
-        logOut: state.logOut
+        logOut: state.logOut,
+        review: state.review
     }
 }
 const mapDispatchToProps = {
     isAuthUser,
-    logOutUser
+    logOutUser,
+    showCountReview
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomeMember);
