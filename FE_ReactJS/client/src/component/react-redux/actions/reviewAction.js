@@ -56,10 +56,10 @@ export const showCountGrammar = () => {
         }
     }
 }
-export const learnedWords = () => {
+export const learnedWords = (page) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('/review/learnedwords');
+            const response = await axios.get(`/review/learnedwords?page=${page}`);
             dispatch(learnedWordsSuccess(response.data));
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);

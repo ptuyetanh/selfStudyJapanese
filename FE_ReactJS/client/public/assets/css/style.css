@@ -19,7 +19,7 @@
     color: rgb(251, 0, 60);
 }
 
-.managerLearnedWords .navigation nav ul.pagination li.page-item a.page-link {
+.managerLearnedWords .navigation nav ul.pagination li.page-item .page-link {
     font-size: 19px;
 }
 

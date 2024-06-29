@@ -5,33 +5,33 @@ class Navigation extends Component {
         return (
             <div className="navigation container">
                 <nav aria-label="Page navigation example">
-                    {/* <ul className="pagination">
+                    <ul className="pagination">
                         <li className="page-item">
-                            <a className="page-link" href="#">
+                            <button className="page-link">
                                 Previous
-                            </a>
+                            </button>
                         </li>
                         <li className="page-item">
-                            <a className="page-link" href="#">
+                            <button className="page-link" >
                                 1
-                            </a>
+                            </button>
                         </li>
                         <li className="page-item">
-                            <a className="page-link" href="#">
+                            <button className="page-link" >
                                 2
-                            </a>
+                            </button>
                         </li>
                         <li className="page-item">
-                            <a className="page-link" href="#">
+                            <button className="page-link" >
                                 3
-                            </a>
+                            </button>
                         </li>
                         <li className="page-item">
-                            <a className="page-link" href="#">
+                            <button className="page-link" >
                                 Next
-                            </a>
+                            </button>
                         </li>
-                    </ul> */}
+                    </ul>
                 </nav>
             </div>
         );

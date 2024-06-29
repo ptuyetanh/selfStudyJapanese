@@ -9,16 +9,14 @@ class Search extends Component {
             searchData: ''
         }
     }
-    
+
     isChange = (event) => {
         this.setState({
             searchData: event.target.value
         });
         this.props.searchWords(this.state.searchData)
     }
-    clickSearchWord = () => {
-        this.props.searchWords(this.state.searchData)
-    }
+
     render() {
         return (
             <div className="search container">
@@ -27,14 +25,14 @@ class Search extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            name="search"
-                            id=""
                             aria-describedby="helpId"
                             placeholder="Tìm kiếm"
                             onChange={(event) => this.isChange(event)}
+                            onCompositionStart={this.compositionStart}
+                            onCompositionEnd={this.compositionEnd}
                         />
-                        <button className="btn btn-primary" onClick={() => {this.clickSearchWord()}}>
-                            <i className="fa-solid fa-magnifying-glass"/>
+                        <button className="btn btn-primary" onClick={() => this.props.searchWords(this.state.searchData)}>
+                            <i className="fa-solid fa-magnifying-glass" />
                         </button>
                     </div>
                 </div>
@@ -50,4 +48,4 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     searchWords
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
