@@ -328,27 +328,27 @@ div#userEdit {
     align-items: flex-start;
 }
 
-html,body,main,.container-fluid,.row, .menuAll {
+/* html, body, div#root,div#admin, main, .container-fluid, .row, .menuAll {
     height: 100%;
     overflow-y: hidden;
-}
+} */
 
 .menuAll {
     padding: 0;
     background-color: #fab1b12e;
 }
 /* end navbar  */
-nav.navbar .dropdown-menu.show {
+nav.navbar.adminmenu .dropdown-menu.show {
     font-size: 19px;
 }
 
-nav.navbar h3 {
+nav.navbar.adminmenu h3 {
     color: white;
     font-size: 20px;
     margin-top: 6px;
 }
 
-nav.navbar i.fa-solid.fa-user {
+nav.navbar.adminmenu i.fa-solid.fa-user {
     font-size: 32px;
     padding: 8px;
     background-color: white;
@@ -357,7 +357,7 @@ nav.navbar i.fa-solid.fa-user {
     color: #e79da4;
 }
 
-nav.navbar a#dropdownId {
+nav.navbar.adminmenu a#dropdownId {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -365,18 +365,18 @@ nav.navbar a#dropdownId {
     font-size: 22px;
 }
 
-nav.navbar .navbar-brand {
+nav.navbar.adminmenu .navbar-brand {
     width: 160px;
 }
 
-nav.navbar i.fa-solid.fa-bars {
+nav.navbar.adminmenu i.fa-solid.fa-bars {
     font-size: 40px;
     color: white;
     background-color: #ffffff61;
     padding: 24px;
 }
 
-nav.navbar {
+nav.navbar.adminmenu {
     background-color: #4A5699;
     padding: 0;
 }

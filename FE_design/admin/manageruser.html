@@ -74,7 +74,7 @@
                         <div class="searchAndActiveMember">
                             <div class="search btn-group">
                                 <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
-                                    placeholder="" />
+                                    placeholder="Tìm kiếm" />
                                 <button type="button" class="btn btn-primary">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
@@ -89,33 +89,116 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Column 1</th>
-                                            <th scope="col">Column 2</th>
-                                            <th scope="col">Column 3</th>
+                                            <th class="col-xl-1" scope="col">STT</th>
+                                            <th class="col-xl-3" scope="col">Họ và tên</th>
+                                            <th class="col-xl-4" scope="col">Email</th>
+                                            <th class="col-xl-1" scope="col">Vai trò</th>
+                                            <th class="col-xl-3" scope="col">Hoạt động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="">
-                                            <td scope="row">R1C1</td>
-                                            <td>R1C2</td>
-                                            <td>R1C3</td>
-                                        </tr>
-                                        <tr class="">
-                                            <td scope="row">Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
+                                            <td scope="row">1</td>
+                                            <td>Phạm Tuyết Anh</td>
+                                            <td>phamtuyetanh2@gmail.com</td>
+                                            <td>
+                                                <p class="roleAdmin">Admin</p>
+                                                <!-- <p class="roleUser">User</p>
+                                                <p class="roleMember">Member</p> -->
+                                            </td>
+                                            <td class="action">
+                                                <i class="fa-solid fa-user-pen" data-bs-toggle="modal"
+                                                    data-bs-target="#userEdit"></i>
+                                                <i class="fa-solid fa-user-xmark"></i>
+                                                <i class="fa-solid fa-circle-info" data-bs-toggle="modal"
+                                                data-bs-target="#userInfo"></i>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
+                        </div>
+                        <!-- end table  -->
+                        <div class="navigation">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                     <!-- end manageruser  -->
                 </div>
             </div>
         </div>
+        <!-- end managerUser  -->
+        <div class="modal" tabindex="-1" id="userEdit">
+            <div class="modal-dialog  modal-md modal-dialog-centered">
+                <form class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sửa người dùng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-2">
+                            <input type="text" name="" id="" class="form-control" placeholder="Họ và tên"
+                                aria-describedby="helpId" />
+                            <small id="helpId" class="form-text"></small>
+                        </div>
+                        <div class="mb-2">
+                            <input type="email" class="form-control" name="" id="" aria-describedby="helpId"
+                                placeholder="Email" />
+                            <small id="helpId" class="form-text"></small>
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" name="" id="" class="form-control" placeholder="Số điện thoại"
+                                aria-describedby="helpId" />
+                            <small id="helpId" class="form-text"></small>
+                        </div>
+                        <div class="mb-2">
+                            <input type="date" class="form-control" name="" id="" aria-describedby="helpId"
+                                placeholder="" />
+                            <small id="helpId" class="form-text"></small>
+                        </div>
+                        <div class="mb-2 pass">
+                            <input type="password" class="form-control" name="" id="input_pass"
+                                aria-describedby="helpId" placeholder="Mật khẩu" />
+                            <i class="fa-solid fa-eye"></i>
+                            <i class="fa-solid fa-eye-slash hidden"></i>
+                            <small id="helpId" class="form-text"></small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Sửa</button>
+                    </div>
+                </form>
+            </div>
         </div>
+         <!--end model UserEdit  -->
+        <div class="modal" tabindex="-1" id="userInfo">
+            <div class="modal-dialog  modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Thông tin chi tiết</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Họ và tên: Phạm Tuyết Anh</li>
+                            <li>Số điện thoại: 0338456453</li>
+                            <li>Ngày sinh: 04/11/2001</li>
+                            <li>Ngày bắt đầu: 01/07/2024</li>
+                            <li>Ngày hết hạn: 04/07/2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!--end model UserEdit  -->
     </main>
     <footer>
         <!-- place footer here -->
@@ -128,6 +211,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+        <script src="./assets/js/admin.js"></script>
 </body>
 
 </html>

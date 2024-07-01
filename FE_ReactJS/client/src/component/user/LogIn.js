@@ -106,6 +106,8 @@ class LogIn extends Component {
             return (<Navigate to="/home" />);
         }else if (isauth && user.role_id === "2") {
             return (<Navigate to="/homeMember"/>)
+        }else if (isauth && user.role_id === "3") {
+            return (<Navigate to="/dashboard"/>)
         }
         return (
             <main>
