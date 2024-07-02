@@ -3,6 +3,11 @@
     margin:0;
 }
 
+#userEdit select.form-select.form-select-lg {
+    border-radius: 26px;
+    padding: 10px 22px;
+}
+
 .activeMember {
     position: absolute;
     right: 0;

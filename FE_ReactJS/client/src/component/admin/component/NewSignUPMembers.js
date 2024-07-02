@@ -4,8 +4,8 @@ class NewSignUPMembers extends Component {
     render() {
         return (
                 <li>
-                    <p className="name">Phạm Tuyết Anh</p>
-                    <p className="dateSignup">19/03/2024</p>
+                    <p className="name">{this.props.name}</p>
+                    <p className="dateSignup">{this.props.timesignup}</p>
                 </li>
         );
     }

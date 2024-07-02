@@ -11,11 +11,11 @@ class MenuAdmin extends Component {
                     alt=""
                 />
                 <div className="borders" />
-                <NavLink name="" id="" className="btn btn-primary" href="#" role="button">
+                <NavLink to ="/dashboard"className="btn btn-primary">
                     <i className="fa-solid fa-house" />
                     <h3>Dashboard</h3>
                 </NavLink>
-                <NavLink name="" id="" className="btn btn-primary" href="#" role="button">
+                <NavLink to = "/manageruser"  className="btn btn-primary">
                     <i className="fa-solid fa-users" />
                     <h3>Người dùng</h3>
                 </NavLink>

@@ -1,7 +1,6 @@
 html,
 body,
-div#root,
-div.admin
+div#root
 {
     height: 100%;
 }

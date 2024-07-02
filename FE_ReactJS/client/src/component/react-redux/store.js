@@ -10,6 +10,7 @@ import lessonReducer from "./reducers/lessonReducer";
 import studyReducer from "./reducers/studyReducer";
 import signUpMemberReducer from "./reducers/signUpMemberReducer";
 import reviewReducer from "./reducers/reviewReducer";
+import adminReducer from "./reducers/adminReducer";
 
 const allReducer = combineReducers({
     signUp: signUpReducer,
@@ -21,7 +22,8 @@ const allReducer = combineReducers({
     lesson:lessonReducer,
     study:studyReducer,
     signUpMember:signUpMemberReducer,
-    review:reviewReducer
+    review:reviewReducer,
+    admin:adminReducer
  })
 var store = createStore(allReducer,applyMiddleware(thunk));
 export default store;

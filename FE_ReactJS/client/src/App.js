@@ -43,6 +43,7 @@ import GrammarLessonContentM from './component/member/GrammarLessonContentM';
 import StudyGrammarMember from './component/member/StudyGrammarMember';
 import ManagerLearnedWords from './component/member/ManagerLearnedWords';
 import Dashboard from './component/admin/Dashboard';
+import ManagerUser from './component/admin/ManagerUser';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -97,6 +98,7 @@ class App extends Component {
             <Route path='/homeMember/managerLearnedWords' element={<ManagerLearnedWords />} />
             {/* admin */}
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/manageruser' element={<ManagerUser />} />
           </Route>
         </Routes>
       </Router>
