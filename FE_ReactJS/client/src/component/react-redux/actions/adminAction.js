@@ -128,10 +128,10 @@ const managerUserSuccess = (data) => ({
     type: 'MANAGER_USER',
     managerUserAction: data
 })
-export const managerUserShow = () => {
+export const managerUserShow = (page,search) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('/admin/manageruser');
+            const response = await axios.get(`/admin/manageruser?page=${page}&search=${search}`);
             dispatch(managerUserSuccess(response.data));
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);

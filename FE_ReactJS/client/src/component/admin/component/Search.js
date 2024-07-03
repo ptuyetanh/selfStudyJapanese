@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Search extends Component {
+    
     render() {
         return (
             <div className="search btn-group">
@@ -11,8 +12,9 @@ class Search extends Component {
                     id=""
                     aria-describedby="helpId"
                     placeholder="Tìm kiếm"
+                    onChange={this.props.isChange}
                 />
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary" onClick={this.props.clickSearch}>
                     <i className="fa-solid fa-magnifying-glass" />
                 </button>
             </div>

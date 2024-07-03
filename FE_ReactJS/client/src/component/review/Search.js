@@ -28,8 +28,6 @@ class Search extends Component {
                             aria-describedby="helpId"
                             placeholder="Tìm kiếm"
                             onChange={(event) => this.isChange(event)}
-                            onCompositionStart={this.compositionStart}
-                            onCompositionEnd={this.compositionEnd}
                         />
                         <button className="btn btn-primary" onClick={() => this.props.searchWords(this.state.searchData)}>
                             <i className="fa-solid fa-magnifying-glass" />

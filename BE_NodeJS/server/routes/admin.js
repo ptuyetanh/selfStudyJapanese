@@ -83,7 +83,11 @@ router.get('/newsignupmember', function (req, res, next) {
 });
 //manageruser
 router.get('/manageruser', function (req, res, next) {
-    pool.query('SELECT * FROM users ORDER BY user_id ASC limit 5', (error, response) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5 ;
+    const offset = (page - 1) * limit;
+    const search = req.query.search || '';
+    pool.query('SELECT * FROM users INNER JOIN roles ON users.role_id = roles.role_id where users.fullname ILIKE $1 OR users.email ILIKE $1 OR roles.role_name LIKE $1 ORDER BY users.user_id ASC limit $2 offset $3',[`%${search}%`,limit,offset], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

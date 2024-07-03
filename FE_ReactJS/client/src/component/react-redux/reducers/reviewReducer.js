@@ -19,8 +19,6 @@ const reviewReducer = (state = InitialState, action) => {
             return { ...state, learnedWordsData: action.learnedWordsAction }
         case SEARCH_WORDS:
             return { ...state, searchWordsData: action.searchWordsAction }
-        // case SET_PAGE:
-        //     return { ...state, setPageData: action.setPageAction }
         default:
             return state
     }

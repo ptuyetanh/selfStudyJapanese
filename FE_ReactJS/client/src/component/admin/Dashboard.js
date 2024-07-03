@@ -126,11 +126,11 @@ class Dashboard extends Component {
             return <Navigate to="/login" />
         }
         return (
-            <div className="admin">
+            <div className="admin" style={{ height: "100%" }}>
                 <NavbarAdmin fullname={user.fullname} logout={this.logOutButton} />
-                <main>
-                    <div className="container-fluid">
-                        <div className="row">
+                <main style={{ height: "100%" }}>
+                    <div className="container-fluid" style={{ height: "100%" }}>
+                        <div className="row" style={{ height: "100%" }}>
                             <div className="col-xs-6 col-sm-3 col-md-3 col-xl-3 menuAll">
                                 <MenuAdmin />
                             </div>

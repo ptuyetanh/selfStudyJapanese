@@ -141,10 +141,12 @@ div#userEdit {}
 
 .tableManagerUser td {
     text-align: center;
+    font-size: 22px;
 }
 
 .tableManagerUser th {
     text-align: center;
+    font-size: 23px;
 }
 
 .tableManagerUser p.roleAdmin {
@@ -186,9 +188,9 @@ div#userEdit {}
 
 .managerUser .searchAndActiveMember .activeMember .btn.btn-primary {
     padding: 10px 26px;
-    font-size: 16px;
+    font-size: 21px;
     background-color: #FB003C;
-    border: navajowhite;
+    border: none;
     border-radius: 25px;
     font-weight: 600;
 }
@@ -206,7 +208,7 @@ div#userEdit {}
 }
 
 .managerUser .search.btn-group input.form-control {
-    font-size: 20px;
+    font-size: 24px;
     border-radius: 0;
 }
 
@@ -369,17 +371,6 @@ div#userEdit {}
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-html,
-body,
-div#root,
-.admin,
-main,
-.container-fluid,
-.row {
-    height: 100% !important;
-    overflow-y: hidden;
 }
 
 .menuAll {
