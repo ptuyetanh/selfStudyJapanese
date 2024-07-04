@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class ModelInfoUser extends Component {
     render() {
+        const dateofbirth = this.props.dateofbirth;
+        const dateofbirthVN = moment(dateofbirth).utcOffset(7).format('YYYY-MM-DD')
         return (
             <div className="modal" tabIndex={-1} id="userInfo">
                 <div className="modal-dialog  modal-md modal-dialog-centered">
@@ -17,11 +20,11 @@ class ModelInfoUser extends Component {
                         </div>
                         <div className="modal-body">
                             <ul>
-                                <li>Họ và tên: Phạm Tuyết Anh</li>
-                                <li>Số điện thoại: 0338456453</li>
-                                <li>Ngày sinh: 04/11/2001</li>
-                                <li>Ngày bắt đầu: 01/07/2024</li>
-                                <li>Ngày hết hạn: 04/07/2024</li>
+                                <li>{'Họ và tên: ' + this.props.fullname}</li>
+                                <li>{'Số điện thoại: ' + this.props.phonenumber }</li>
+                                <li>{'Ngày sinh: '+ dateofbirthVN}</li>
+                                <li>{'Ngày bắt đầu member: ' + this.props.start_day}</li>
+                                <li>{'Ngày hết hạn member: ' + this.props.expiration_date}</li>
                             </ul>
                         </div>
                     </div>

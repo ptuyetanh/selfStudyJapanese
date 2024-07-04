@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { searchWords } from '../react-redux/actions/reviewAction';
 
 class Search extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchData: ''
-        }
-    }
-
-    isChange = (event) => {
-        this.setState({
-            searchData: event.target.value
-        });
-        this.props.searchWords(this.state.searchData)
-    }
 
     render() {
         return (
@@ -27,9 +12,9 @@ class Search extends Component {
                             className="form-control"
                             aria-describedby="helpId"
                             placeholder="Tìm kiếm"
-                            onChange={(event) => this.isChange(event)}
+                            onChange={this.props.isChange}
                         />
-                        <button className="btn btn-primary" onClick={() => this.props.searchWords(this.state.searchData)}>
+                        <button className="btn btn-primary" onClick={this.props.clickSearch}>
                             <i className="fa-solid fa-magnifying-glass" />
                         </button>
                     </div>
@@ -38,12 +23,4 @@ class Search extends Component {
         );
     }
 }
-const mapStateToProps = (state, ownProps) => {
-    return {
-        review: state.review
-    }
-}
-const mapDispatchToProps = {
-    searchWords
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default (Search);

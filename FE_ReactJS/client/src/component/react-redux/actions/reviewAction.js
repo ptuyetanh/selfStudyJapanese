@@ -4,7 +4,6 @@ export const COUNT_REVIEW = 'COUNT_REVIEW';
 export const COUNT_VOCAB = 'COUNT_VOCAB';
 export const COUNT_GRAMMAR = 'COUNT_GRAMMAR';
 export const LEARNED_WORDS = 'LEARNED_WORDS';
-export const SEARCH_WORDS = 'SEARCH_WORDS';
 
 const countReviewSuccess = (data) => ({
     type:COUNT_REVIEW,
@@ -22,10 +21,7 @@ const learnedWordsSuccess = (data) => ({
     type:LEARNED_WORDS,
     learnedWordsAction:data
 });
-const searchWordsSuccess = (data) => ({
-    type:SEARCH_WORDS,
-    searchWordsAction:data
-});
+
 export const showCountReview = () => {
     return async (dispatch) => {
         try {
@@ -56,22 +52,13 @@ export const showCountGrammar = () => {
         }
     }
 }
-export const learnedWords = (page) => {
+export const learnedWords = (page,search) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get(`/review/learnedwords?page=${page}`);
+            const response = await axios.get(`/review/learnedwords?page=${page}&search=${search}`);
             dispatch(learnedWordsSuccess(response.data));
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);
-        }
-    }
-}
-export const searchWords = (searchData) => {
-    return (dispatch) => {
-        try {
-            dispatch(searchWordsSuccess(searchData));
-        } catch (error) {
-            console.error("Lỗi khi lấy dữ liệu" + error);
         }
     }
 }

@@ -13,28 +13,29 @@ class ManagerLearnedWords extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPage: 1
+            currentPage: 1,
+            searchWord: ''
         }
-        this.debouncelearnedWords = debounce(this.props.learnedWords,300)
+        this.debouncelearnedWords = debounce(this.props.learnedWords, 300)
     }
 
     componentDidMount() {
         this.props.isAuthUser();
         if (this.props.review.learnedWordsData === null) {
-            this.props.learnedWords(this.state.currentPage);
+            this.props.learnedWords(this.state.currentPage, this.state.searchWord);
         }
     }
 
     componentDidUpdate(prevState) {
-        if (prevState.currentPage !== this.state.currentPage) {
-            this.debouncelearnedWords(this.state.currentPage);
+        if (prevState.currentPage !== this.state.currentPage || prevState.searchWord !== this.state.searchWord) {
+            this.debouncelearnedWords(this.state.currentPage, this.state.searchWord);
         }
     }
 
     clickPrevious = () => {
-       this.setState((prevState) => ({
-          currentPage: Math.max(prevState.currentPage - 1,1)
-       }));
+        this.setState((prevState) => ({
+            currentPage: Math.max(prevState.currentPage - 1, 1)
+        }));
     }
     clickNext = () => {
         this.setState((prevState) => ({
@@ -55,28 +56,27 @@ class ManagerLearnedWords extends Component {
 
     showContentTable = () => {
         if (this.props.review.learnedWordsData !== null) {
-            if (this.props.review.searchWordsData === null) {
-                return this.props.review.learnedWordsData.map((value, key) => {
-                    return (
-                        <RowTableManager STT={key} name={value.name} mean={value.mean} vocab_id={value.vocab_id} grammar_id={value.grammar_id} />
-                    )
-                })
-            } else {
-                const resultSearch = [];
-                this.props.review.learnedWordsData.forEach(value => {
-                    if (value.name.indexOf(this.props.review.searchWordsData) !== -1) {
-                        resultSearch.push(value);
-                    } else if (value.mean.indexOf(this.props.review.searchWordsData) !== -1) {
-                        resultSearch.push(value);
-                    }
-                })
-                return resultSearch.map((value, key) => {
-                    return (
-                        <RowTableManager STT={key} name={value.name} mean={value.mean} vocab_id={value.vocab_id} grammar_id={value.grammar_id} />
-                    )
-                })
-            }
+            return this.props.review.learnedWordsData.map((value, key) => {
+                return (
+                    <RowTableManager STT={key} name={value.name} mean={value.mean} vocab_id={value.vocab_id} grammar_id={value.grammar_id} />
+                )
+            })
         }
+    }
+
+    isChange = (event) => {
+        this.setState({
+            searchWord: event.target.value,
+            currentPage:1
+        });
+    }
+
+    clickSearch = () => {
+        this.setState({
+            currentPage: 1
+        },() => {
+            this.props.learnedWords(this.state.currentPage, this.state.searchWord);
+        });
     }
 
     render() {
@@ -91,7 +91,7 @@ class ManagerLearnedWords extends Component {
                 <div className="content">
                     <div className="managerLearnedWords">
                         <h2 className="tittle">Quản lý từ đã học</h2>
-                        <Search />
+                        <Search isChange = {(event) => {this.isChange(event)}} clickSearch = {this.clickSearch}/>
                         {/* end search  */}
                         <div className="tableManager container">
                             <table className="table">
@@ -119,7 +119,7 @@ class ManagerLearnedWords extends Component {
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination">
                                     <li className="page-item">
-                                        <button className="page-link" onClick={this.clickPrevious} disabled = {this.state.currentPage === 1}>
+                                        <button className="page-link" onClick={this.clickPrevious} disabled={this.state.currentPage === 1}>
                                             Previous
                                         </button>
                                     </li>

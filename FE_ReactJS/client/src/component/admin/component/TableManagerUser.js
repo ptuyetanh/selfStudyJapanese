@@ -30,12 +30,14 @@ class TableManagerUser extends Component {
                         className="fa-solid fa-user-pen"
                         data-bs-toggle="modal"
                         data-bs-target="#userEdit"
+                        onClick={this.props.clickIconEdit}
                     />
-                    <i className="fa-solid fa-user-xmark" />
+                    <i className="fa-solid fa-user-xmark" onClick={this.props.clickIconDelete}/>
                     <i
                         className="fa-solid fa-circle-info"
                         data-bs-toggle="modal"
                         data-bs-target="#userInfo"
+                        onClick={this.props.clickIconInfo}
                     />
                 </td>
             </tr>

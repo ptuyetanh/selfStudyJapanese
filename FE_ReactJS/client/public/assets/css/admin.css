@@ -112,6 +112,14 @@ div#userEdit input.form-control {
     border-radius: 31px;
 }
 
+div#userEdit input#input_pass {
+    padding-right: 52px;
+}
+
+div#userEdit h5.modal-title {
+    font-size: 28px;
+}
+
 div#userEdit .modal-dialog {}
 
 div#userEdit {}
@@ -238,8 +246,8 @@ div#userEdit {}
 /* end index */
 
 .newSignUPMembers li p.name {
-    margin-right: 118px;
     font-size: 20px;
+    width: 250px;
 }
 
 .newSignUPMembers li {
@@ -344,10 +352,18 @@ div#userEdit {}
     color: #00000099;
 }
 
+.menuAll .menu .btn.btn-primary.active h3 {
+    color: #0d6efd;
+}
+
 .menuAll .menu i.fa-solid {
     font-size: 28px;
     margin-right: 24px;
     color: #000000a8;
+}
+
+.menuAll .menu .btn.btn-primary.active i.fa-solid {
+    color: rgb(13, 110, 253);
 }
 
 .menuAll .menu a.btn.btn-primary {

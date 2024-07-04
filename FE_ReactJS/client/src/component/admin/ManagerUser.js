@@ -9,8 +9,10 @@ import Search from './component/Search';
 import TableManagerUser from './component/TableManagerUser';
 import ModelEditUser from './component/ModelEditUser';
 import ModelInfoUser from './component/ModelInfoUser';
-import { managerUserShow } from '../react-redux/actions/adminAction';
+import { deleteUser, editUser, managerUserShow } from '../react-redux/actions/adminAction';
 import debounce from 'lodash.debounce';
+import AlertSuccess from '../alerts/AlertSuccess';
+import AlertDanger from '../alerts/AlertDanger';
 
 class ManagerUser extends Component {
 
@@ -18,7 +20,21 @@ class ManagerUser extends Component {
         super(props);
         this.state = {
             currentPage: 1,
-            searchUser:''
+            searchUser: '',
+            fullname: '',
+            email: '',
+            phonenumber: '',
+            dateofbirth: '',
+            password: '',
+            role_id: '',
+            error_fullname: '',
+            error_email: '',
+            error_phonenumber: '',
+            error_dateofbirth: '',
+            error_password: '',
+            user_id: null,
+            start_day:'',
+            expiration_date:''
         }
         this.debounceManagerUser = debounce(this.props.managerUserShow, 300)
     }
@@ -26,7 +42,7 @@ class ManagerUser extends Component {
     componentDidMount() {
         this.props.isAuthUser();
         if (this.props.admin.managerUserData === null) {
-            this.props.managerUserShow(this.state.currentPage,this.state.searchUser);
+            this.props.managerUserShow(this.state.currentPage, this.state.searchUser);
         }
     }
 
@@ -37,7 +53,7 @@ class ManagerUser extends Component {
             menu.classList.toggle('hiddenMenu');
         }
         if (prevState.currentPage !== this.state.currentPage || prevState.searchUser !== this.state.searchUser) {
-            this.debounceManagerUser(this.state.currentPage,this.state.searchUser);
+            this.debounceManagerUser(this.state.currentPage, this.state.searchUser);
         }
     }
 
@@ -46,14 +62,15 @@ class ManagerUser extends Component {
         window.location.href = '/login'
     }
 
+    //show user
     managerUser = () => {
         if (this.props.admin.managerUserData !== null) {
             return this.props.admin.managerUserData.map((value, key) => {
-                return <TableManagerUser stt={key} fullname={value.fullname} email={value.email} role_name={value.role_name} />
+                return <TableManagerUser stt={key} fullname={value.fullname} email={value.email} role_name={value.role_name} clickIconEdit={() => this.clickIconEdit(value)} clickIconInfo={() => this.clickIconInfo(value)} clickIconDelete = {() => this.clickIconDelete(value.user_id)}/>
             })
         }
     }
-
+    //pagination
     clickPrevious = () => {
         this.setState((prevState) => ({
             currentPage: Math.max(prevState.currentPage - 1, 1)
@@ -70,19 +87,146 @@ class ManagerUser extends Component {
             currentPage: page
         });
     }
-
+    // search 
     isChange = (event) => {
         this.setState({
             searchUser: event.target.value,
-            currentPage:1
+            currentPage: 1
         });
     }
 
     clickSearch = () => {
         this.setState({
             currentPage: 1
-        },() => {
-            this.props.managerUserShow(this.state.currentPage,this.state.searchUser);
+        }, () => {
+            this.props.managerUserShow(this.state.currentPage, this.state.searchUser);
+        });
+    }
+
+    //edit user
+
+    isChangeEdit = (event) => {
+        var name = event.target.name;
+        var value = event.target.value;
+        this.setState({
+            [name]: value
+        });
+        //Kiểm tra fullname
+        if (name === 'fullname') {
+            if (value.trim() === '') {
+                this.setState({
+                    error_fullname: 'Vui lòng nhập nội dung'
+                });
+            } else {
+                this.setState({
+                    error_fullname: ''
+                });
+            }
+        }
+        //kiểm tra email
+        if (name === 'email') {
+            const regExEmail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (value.trim() === '') {
+                this.setState({
+                    error_email: 'Vui lòng nhập nội dung'
+                });
+            } else if (!regExEmail.test(value)) {
+                this.setState({
+                    error_email: 'Email có dạng anything@gmail.com'
+                });
+            } else {
+                this.setState({
+                    error_email: ''
+                });
+            }
+        }
+        //kiểm tra sđt
+        if (name === 'phonenumber') {
+            const regExPNumber = /^(03|05|07|08|09)[0-9]{8}$/;
+            if (value.trim() === '') {
+                this.setState({
+                    error_phonenumber: 'Vui lòng nhập nội dung'
+                });
+            } else if (!regExPNumber.test(value)) {
+                this.setState({
+                    error_phonenumber: 'Sai định dạng số điện thoại Việt Nam'
+                });
+            } else {
+                this.setState({
+                    error_phonenumber: ''
+                });
+            }
+        }
+        //kiểm tra ngày sinh
+        if (name === 'dateofbirth') {
+            if (value.trim() === '') {
+                this.setState({
+                    error_dateofbirth: 'Vui lòng nhập nội dung'
+                });
+            } else {
+                this.setState({
+                    error_dateofbirth: ''
+                });
+            }
+        }
+        //kiểm tra mật khẩu
+        if (name === 'password') {
+            const regExPass = /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Z][a-zA-Z\d@$!%*?&]{7,}$/
+            if (value.trim() === '') {
+                this.setState({
+                    error_password: 'Vui lòng nhập nội dung'
+                });
+            } else if (!regExPass.test(value)) {
+                this.setState({
+                    error_password: 'Mật khẩu phải chứa ít nhất 8 ký tự bao gồm 1 chữ cái hoa viết đầu,1 chữ cái thường,1 số và 1 ký tự đặc biệt'
+                });
+            } else {
+                this.setState({
+                    error_password: ''
+                });
+            }
+        }
+    }
+
+    clickIconEdit = (user) => {
+        this.setState({
+            fullname: user.fullname,
+            email: user.email,
+            phonenumber: user.phonenumber,
+            dateofbirth: user.dateofbirth,
+            password: user.password,
+            role_id: user.role_id,
+            user_id: user.user_id
+        });
+    }
+    clickEditUser = () => {
+        const { fullname, email, phonenumber, dateofbirth, password, role_id, user_id } = this.state;
+        const user = { fullname, email, phonenumber, dateofbirth, password, role_id };
+        if (user_id) {
+            this.props.editUser(user_id, user);
+            this.setState({
+                fullname: '',
+                email: '',
+                phonenumber: '',
+                dateofbirth: '',
+                password: '',
+                role_id: '',
+                user_id: null
+            });
+        }
+    }
+
+    clickIconDelete = (user_id) => {
+        this.props.deleteUser(user_id);
+    }
+
+    clickIconInfo =(user) => {
+        this.setState({
+            fullname: user.fullname,
+            phonenumber: user.phonenumber,
+            dateofbirth: user.dateofbirth,
+            start_day: user.start_day,
+            expiration_date:user.expiration_date
         });
     }
 
@@ -95,6 +239,8 @@ class ManagerUser extends Component {
         return (
             <div className="admin" style={{ height: "100%", overflowY: "hidden" }}>
                 <NavbarAdmin fullname={user.fullname} logout={this.logOutButton} />
+                <AlertSuccess alertType='success' alertContent = 'Thành công'/>
+                <AlertDanger alertType='danger' alertContent = 'Email hoặc số điện thoại đã tồn tại'/>
                 <main style={{ height: "100%", overflowY: "hidden" }}>
                     <div className="container-fluid" style={{ height: "100%", overflowY: "hidden" }}>
                         <div className="row" style={{ height: "100%", overflowY: "hidden" }}>
@@ -106,7 +252,7 @@ class ManagerUser extends Component {
                                 <div className="managerUser">
                                     <h2 className="tittle">Quản lý người dùng</h2>
                                     <div className="searchAndActiveMember">
-                                        <Search searchUser = {this.state.searchUser} isChange = {(event) => {this.isChange(event)}} clickSearch = {this.clickSearch}/>
+                                        <Search searchUser={this.state.searchUser} isChange={(event) => { this.isChange(event) }} clickSearch={this.clickSearch} />
                                         {/* end search */}
                                         <div className="activeMember">
                                             <Link name="" id="" className="btn btn-primary">
@@ -179,8 +325,9 @@ class ManagerUser extends Component {
                                     {/* end navigation */}
                                 </div>
                                 {/* end manageruser  */}
-                                <ModelEditUser />
-                                <ModelInfoUser />
+                                <ModelEditUser onChange={(event) => this.isChangeEdit(event)} error_fullname={this.state.error_fullname} error_email={this.state.error_email} error_phonenumber={this.state.error_phonenumber} error_dateofbirth={this.state.error_dateofbirth} error_password={this.state.error_password} user_id={this.state.user_id} fullname={this.state.fullname} email={this.state.email} phonenumber={this.state.phonenumber} dateofbirth={this.state.dateofbirth} password={this.state.password} role_id={this.state.role_id} clickEditUser={this.clickEditUser}/>
+                                <ModelInfoUser fullname={this.state.fullname} phonenumber={this.state.phonenumber} dateofbirth={this.state.dateofbirth}
+                                start_day= {this.state.start_day} expiration_date = {this.state.expiration_date}/>
                             </div>
                         </div>
                     </div>
@@ -199,6 +346,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     isAuthUser,
     logOutUser,
-    managerUserShow
+    managerUserShow,
+    editUser,
+    deleteUser,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ManagerUser);

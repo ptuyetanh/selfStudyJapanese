@@ -1,4 +1,5 @@
 import axios from "axios";
+import { alertDOnSuccess, alertSOnSuccess } from "./alertAction";
 //COUNT
 export const COUNT_USER = 'COUNT_USER';
 export const COUNT_MEMBER = 'COUNT_MEMBER';
@@ -133,6 +134,41 @@ export const managerUserShow = (page,search) => {
         try {
             const response = await axios.get(`/admin/manageruser?page=${page}&search=${search}`);
             dispatch(managerUserSuccess(response.data));
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+// edit User 
+export const EDIT_USER = 'EDIT_USER';
+const editUserSuccess = (data) => ({
+    type: 'EDIT_USER',
+    editUserAction: data
+})
+export const editUser = (user_id,user) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.put(`/admin/manageruser/${user_id}`,user);
+            dispatch(editUserSuccess(response.data));
+            dispatch(alertSOnSuccess())
+        } catch (error) {
+            dispatch(alertDOnSuccess())
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+// delete User 
+export const DELETE_USER = 'DELETE_USER';
+const deleteUserSuccess = (data) => ({
+    type: 'DELETE_USER',
+    deleteUserAction: data
+})
+export const deleteUser = (user_id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`/admin/manageruser/${user_id}`);
+            dispatch(deleteUserSuccess(response.data.user_id));
+            dispatch(alertSOnSuccess())
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);
         }

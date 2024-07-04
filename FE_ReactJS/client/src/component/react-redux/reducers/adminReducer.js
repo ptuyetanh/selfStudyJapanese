@@ -1,4 +1,4 @@
-import { COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, MANAGER_USER, NEW_SIGNUP_MEMBER, NEW_USER } from "../actions/adminAction"
+import { COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_USER, EDIT_USER, MANAGER_USER, NEW_SIGNUP_MEMBER, NEW_USER } from "../actions/adminAction"
 
 const InitialState = {
     countUserData: null,
@@ -32,6 +32,10 @@ const  adminReducer= (state = InitialState, action) => {
             return {...state, newSignUpMemberData: action.newSignUpMemberAction}
         case MANAGER_USER:
             return {...state, managerUserData: action.managerUserAction}
+        case EDIT_USER:
+            return {...state, managerUserData: state.managerUserData.map(value => value.user_id === action.editUserAction.user_id ? action.editUserAction : value)}
+        case DELETE_USER:
+            return {...state, managerUserData: state.managerUserData.filter(value => value.user_id === action.deleteUserAction)}
         default:
             return state
     }
