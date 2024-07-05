@@ -98,8 +98,8 @@ class SignUpMember extends Component {
             <main>
                 <MenuHome fullname={user.fullname} logout={this.logOutButton} />
                 <div className="content">
-                    <AlertSuccess alertType = "success" alertContent = "Đăng ký thành công và dữ liệu đã được lưu lại và vui lòng chờ nhân viên xử lý"/>
-                    <AlertDanger alertType = "danger" alertContent = "Người dùng đã gửi đăng ký thành viên, Vui lòng chờ nhân viên xử lý"/>
+                    <AlertSuccess alertContent = "Đăng ký thành công và dữ liệu đã được lưu lại và vui lòng chờ nhân viên xử lý"/>
+                    <AlertDanger alertContent = "Người dùng đã gửi đăng ký thành viên, Vui lòng chờ nhân viên xử lý"/>
                     <form className="form_signup_member">
                         <div className="col-8">
                             <h3>Đăng kí tài khoản</h3>

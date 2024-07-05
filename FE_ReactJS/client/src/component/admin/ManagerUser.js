@@ -13,6 +13,7 @@ import { deleteUser, editUser, managerUserShow } from '../react-redux/actions/ad
 import debounce from 'lodash.debounce';
 import AlertSuccess from '../alerts/AlertSuccess';
 import AlertDanger from '../alerts/AlertDanger';
+import AlertSuccess2 from '../alerts/AlertSuccess2';
 
 class ManagerUser extends Component {
 
@@ -239,8 +240,9 @@ class ManagerUser extends Component {
         return (
             <div className="admin" style={{ height: "100%", overflowY: "hidden" }}>
                 <NavbarAdmin fullname={user.fullname} logout={this.logOutButton} />
-                <AlertSuccess alertType='success' alertContent = 'Thành công'/>
-                <AlertDanger alertType='danger' alertContent = 'Email hoặc số điện thoại đã tồn tại'/>
+                <AlertSuccess  alertContent = 'Sửa Thành công'/>
+                <AlertDanger alertContent = 'Email hoặc số điện thoại đã tồn tại'/>
+                <AlertSuccess2 alertContent = 'Xóa Thành công'/>
                 <main style={{ height: "100%", overflowY: "hidden" }}>
                     <div className="container-fluid" style={{ height: "100%", overflowY: "hidden" }}>
                         <div className="row" style={{ height: "100%", overflowY: "hidden" }}>
@@ -255,7 +257,7 @@ class ManagerUser extends Component {
                                         <Search searchUser={this.state.searchUser} isChange={(event) => { this.isChange(event) }} clickSearch={this.clickSearch} />
                                         {/* end search */}
                                         <div className="activeMember">
-                                            <Link name="" id="" className="btn btn-primary">
+                                            <Link to={'/manageruser/activeMembers'} name="" id="" className="btn btn-primary">
                                                 Kích hoạt thành viên
                                             </Link>
                                         </div>

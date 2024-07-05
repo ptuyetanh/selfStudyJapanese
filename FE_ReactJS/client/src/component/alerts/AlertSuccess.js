@@ -14,7 +14,7 @@ class AlertSuccess extends Component {
         }
         return (
             <AlertContainer>
-                <Alert type={this.props.alertType} onDismiss={() => this.clickDismiss()} timeout={9000}>{this.props.alertContent}</Alert>
+                <Alert type='success' onDismiss={() => this.clickDismiss()} timeout={9000}>{this.props.alertContent}</Alert>
             </AlertContainer>
         );
     }

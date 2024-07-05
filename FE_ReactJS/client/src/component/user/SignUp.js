@@ -162,8 +162,8 @@ class SignUp extends Component {
             <main>
                 <MenuIndex/>
                 <div className="content">
-                    <AlertSuccess alertType='success' alertContent = 'Đăng ký thành công'/>
-                    <AlertDanger alertType='danger' alertContent = 'Email hoặc số điện thoại đã tồn tại'/>
+                    <AlertSuccess alertContent = 'Đăng ký thành công'/>
+                    <AlertDanger alertContent = 'Email hoặc số điện thoại đã tồn tại'/>
                     <form className="form_sign-up">
                         <div className="col-8">
                             <h3>Đăng kí tài khoản</h3>

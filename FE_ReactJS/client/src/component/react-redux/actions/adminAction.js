@@ -1,5 +1,5 @@
 import axios from "axios";
-import { alertDOnSuccess, alertSOnSuccess } from "./alertAction";
+import { alertDOnSuccess, alertOnSuccess2, alertSOnSuccess } from "./alertAction";
 //COUNT
 export const COUNT_USER = 'COUNT_USER';
 export const COUNT_MEMBER = 'COUNT_MEMBER';
@@ -168,7 +168,57 @@ export const deleteUser = (user_id) => {
         try {
             const response = await axios.delete(`/admin/manageruser/${user_id}`);
             dispatch(deleteUserSuccess(response.data.user_id));
+            dispatch(alertOnSuccess2())
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+//active member
+export const ACTIVE_MEMBER = 'ACTIVE_MEMBER';
+const activeMemberSuccess = (data) => ({
+    type: 'ACTIVE_MEMBER',
+    activeMemberAction: data
+})
+export const activeMemberShow = (page) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`/admin/activemember?page=${page}`);
+            dispatch(activeMemberSuccess(response.data));
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+//saveActiveMember
+export const SAVE_ACTIVE_MEMBER = 'SAVE_ACTIVE_MEMBER';
+const saveActiveMemberSuccess = (data) => ({
+    type: 'SAVE_ACTIVE_MEMBER',
+    saveActiveMemberAction: data
+})
+export const saveActiveMember = (user_id,user) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.put(`/admin/saveactivemember/${user_id}`,user);
+            dispatch(saveActiveMemberSuccess(response.data));
             dispatch(alertSOnSuccess())
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+//refuse active member
+export const REFUSE_ACTIVE_MEMBER = 'REFUSE_ACTIVE_MEMBER';
+const refuseActiveMemberSuccess = (data) => ({
+    type: 'REFUSE_ACTIVE_MEMBER',
+    refuseActiveMemberAction: data
+})
+export const refuseActiveMember = (signupmember_id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`/admin/refuseactivemember/${signupmember_id}`);
+            dispatch(refuseActiveMemberSuccess(response.data.signupmember_id));
+            dispatch(alertOnSuccess2())
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);
         }

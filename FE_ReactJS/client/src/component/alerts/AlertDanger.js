@@ -13,7 +13,7 @@ class AlertDanger extends Component {
         };
         return (
             <AlertContainer>
-                <Alert type={this.props.alertType} onDismiss={() => this.clickDismiss()} timeout={9000}>{this.props.alertContent}</Alert>
+                <Alert type='danger' onDismiss={() => this.clickDismiss()} timeout={9000}>{this.props.alertContent}</Alert>
             </AlertContainer>
         );
     }

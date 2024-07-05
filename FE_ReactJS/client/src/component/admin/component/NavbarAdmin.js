@@ -9,7 +9,7 @@ class NavbarAdmin extends Component {
                 <div className="container">
                     <Link className="navbar-brand">
                         <img
-                            src="./assets/image/logo.svg"
+                            src="/assets/image/logo.svg"
                             className="img-fluid rounded-top"
                             alt=""
                         />

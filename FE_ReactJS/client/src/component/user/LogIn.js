@@ -113,7 +113,7 @@ class LogIn extends Component {
             <main>
                 <MenuIndex />
                 <div className="content">
-                    <AlertDanger alertType='danger' alertContent='Đăng nhập không thành công do email  không tồn tại hoặc sai mật khẩu' />
+                    <AlertDanger alertContent='Đăng nhập không thành công do email  không tồn tại hoặc sai mật khẩu' />
                     <form className="form_logIn">
                         <div className="col-8">
                             <h3>Đăng nhập vào Yuki</h3>

@@ -6,7 +6,7 @@ class MenuAdmin extends Component {
         return (
             <div className="menu">
                 <img
-                    src="./assets/image/Logo_name.svg"
+                    src="/assets/image/Logo_name.svg"
                     className="img-fluid rounded-top"
                     alt=""
                 />

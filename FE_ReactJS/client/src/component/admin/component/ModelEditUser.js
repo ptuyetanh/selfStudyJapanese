@@ -30,6 +30,22 @@ class ModelEditUser extends Component {
         }
     }
 
+    showButtonDisableOrNODisable = () => {
+        if (this.props.fullname === '' || this.props.email === '' || this.props.phonenumber === '' || this.props.password === '' || this.props.dateofbirth === '') {
+            return (
+                <button type="button" className="btn btn-primary" disabled>
+                    Sửa
+                </button>
+            );
+        } else {
+            return (
+                <button type="button" className="btn btn-primary" onClick={this.props.clickEditUser}>
+                    Sửa
+                </button>
+            )
+        }
+    }
+
     render() {
         const dateofbirth = this.props.dateofbirth;
         const dateofbirthVN = moment(dateofbirth).utcOffset(7).format('YYYY-MM-DD')
@@ -37,7 +53,7 @@ class ModelEditUser extends Component {
             <div className="modal" tabIndex={-1} id="userEdit">
                 <div className="modal-dialog  modal-md modal-dialog-centered">
                     {
-                        this.props.user_id && (
+                        this.props.user_id &&  (
                             <form className="modal-content">
                                 <div className="modal-header">
                                     <h5 className="modal-title">Sửa người dùng</h5>
@@ -111,9 +127,10 @@ class ModelEditUser extends Component {
                                             aria-describedby="helpId"
                                             placeholder="Mật khẩu"
                                             onChange={this.props.onChange}
+                                            readOnly
                                         />
-                                        <i className="fa-solid fa-eye" onClick={() => this.clickIconEye()}/>
-                                        <i className="fa-solid fa-eye-slash hidden" onClick={() => this.clickIconEyeSlash()}/>
+                                        <i className="fa-solid fa-eye" onClick={() => this.clickIconEye()} />
+                                        <i className="fa-solid fa-eye-slash hidden" onClick={() => this.clickIconEyeSlash()} />
                                         <small id="helpId" className="form-text">{this.props.error_password}</small>
                                     </div>
                                     <div className="mb-3">
@@ -126,9 +143,7 @@ class ModelEditUser extends Component {
                                     </div>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary" onClick={this.props.clickEditUser}>
-                                        Sửa
-                                    </button>
+                                    {this.showButtonDisableOrNODisable()}
                                 </div>
                             </form>
                         )

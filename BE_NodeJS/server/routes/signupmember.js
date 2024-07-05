@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
 });
 router.post('/', upload.single('paymentphoto'), function (req, res, next) {
   const { user_id, timestudy } = req.body;
-  const paymentphoto = req.file.path;
+  const paymentphoto = req.file.filename;
   const timesignup = new Date();
   pool.query('SELECT * FROM signupmembers where user_id = $1', [user_id], (error, response) => {
     if (error) {

@@ -1,7 +1,7 @@
 var express = require('express');
 const pool = require('../config/ConnectDB');
 var router = express.Router();
-const bcrypt = require('bcrypt');
+const cron = require('node-cron');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -100,8 +100,7 @@ router.get('/manageruser', function (req, res, next) {
 router.put('/manageruser/:user_id', function (req, res, next) {
     const { user_id } = req.params;
     const { fullname, email, phonenumber, dateofbirth, password, role_id } = req.body;
-    var hash_pass = bcrypt.hashSync(password, 10);
-    pool.query('UPDATE users SET fullname = $1, email = $2, phonenumber = $3, dateofbirth = $4, password = $5, role_id = $6 WHERE user_id = $7', [fullname, email, phonenumber, dateofbirth, hash_pass, role_id, user_id], (error, response) => {
+    pool.query('UPDATE users SET fullname = $1, email = $2, phonenumber = $3, dateofbirth = $4, password = $5, role_id = $6 WHERE user_id = $7', [fullname, email, phonenumber, dateofbirth, password, role_id, user_id], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
             return res.status(400).json({ message: 'số điện thoại và email đã tồn tại' });
@@ -111,9 +110,62 @@ router.put('/manageruser/:user_id', function (req, res, next) {
     })
 });
 //delete user
-router.delete('/manageruser/:user_id',function(req, res) {
-    const {user_id} = req.params;
-    pool.query('DELETE FROM users WHERE user_id = $1',[user_id],(error, response) => {
+router.delete('/manageruser/:user_id', function (req, res) {
+    const { user_id } = req.params;
+    pool.query('DELETE FROM users WHERE user_id = $1', [user_id], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows[0]);
+        }
+    })
+})
+//active member
+router.get('/activemember', function (req, res, next) {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 4;
+    const offset = (page - 1) * limit;
+    pool.query('SELECT * FROM signupmembers, users where users.user_id = signupmembers.user_id ORDER BY signupmember_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
+//saveactivemember
+router.put('/saveactivemember/:user_id', function (req, res, next) {
+    const { user_id } = req.params;
+    const { start_day, expiration_date, role_id,signupmember_id} = req.body;
+    pool.query('UPDATE users SET start_day = $1, expiration_date = $2,role_id = $3 WHERE user_id = $4', [start_day, expiration_date, role_id, user_id], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows[0]);
+            pool.query('DELETE FROM signupmembers WHERE signupmember_id = $1', [signupmember_id], (errors, responses) => {
+                if (errors) {
+                    console.log('Truy vấn lỗi' + error);
+                } else {
+                    res.send(responses.rows[0]);
+                }
+            })
+        }
+    })
+});
+//Cron job activemember
+cron.schedule('0 0 * * *', function () {
+    pool.query(`UPDATE users SET role_id = '1' WHERE expiration_date < NOW()` , (error) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            console.log("Role_id đã tự động cập nhập về 1");
+        }
+    })
+});
+// refuse activemember
+router.delete('/refuseactivemember/:signupmember_id', function (req, res) {
+    const { signupmember_id } = req.params;
+    pool.query('DELETE FROM signupmembers WHERE signupmember_id = $1', [signupmember_id], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
