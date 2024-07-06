@@ -19,7 +19,7 @@ class MenuAdmin extends Component {
                     <i className="fa-solid fa-users" />
                     <h3>Người dùng</h3>
                 </NavLink>
-                <NavLink to = "/course" name="" id="" className="btn btn-primary" role="button">
+                <NavLink to = "/managercourse" name="" id="" className="btn btn-primary">
                     <i className="fa-solid fa-book-open-reader" />
                     <h3>Khóa học</h3>
                 </NavLink>

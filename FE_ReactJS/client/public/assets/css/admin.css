@@ -3,7 +3,65 @@
     margin: 0;
 }
 
-/* end managerUser, activeMembers*/
+.modal-footer {
+    justify-content: center;
+}
+
+.backAndAddCoures .addCourse p {
+    margin: 0 0px 0px 14px;
+}
+
+.backAndAddCoures .addCourse button.btn.btn-primary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 9px 30px;
+    font-size: 23px;
+    background-color: #fb003c;
+    border: none;
+    border-radius: 31px;
+}
+
+.backAndAddCoures .addCourse {
+    position: absolute;
+    right: 0;
+}
+
+.backAndAddCoures a {
+    font-size: 41px;
+    color: black;
+}
+
+a.filecsv {
+    font-size: 29px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* end managerUser, activeMembers managerCourse*/
+
+.managerCourse .courseAll a:hover {
+    transform: rotate(1.2);
+}
+
+.managerCourse .courseAll a {
+    padding: 42px 44px;
+    text-decoration: none;
+    background-color: #0d6efd;
+    color: white;
+    margin: 19px 20px 18px 26px;
+    font-size: 37px;
+    width: 293px;
+    text-align: center;
+    border-radius: 32px;
+    transition: 0.5s;
+}
+
+.managerCourse .courseAll {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .tableActiveMember td img.img-fluid.rounded-top {
     width: 67px;
@@ -47,8 +105,7 @@
 }
 
 #userEdit select.form-select.form-select-lg,
-#activeMember select.form-select.form-select-lg
-{
+#activeMember select.form-select.form-select-lg {
     border-radius: 26px;
     padding: 10px 22px;
 }
@@ -77,19 +134,22 @@ div#userEdit i.fa-solid.fa-eye-slash {
 }
 
 div#userEdit .modal-body,
-div#activeMember .modal-body
+div#activeMember .modal-body,
+div#addCourse .modal-body
 {
     background-color: #DCC7C7;
 }
 
 div#userEdit .btn.btn-primary,
-div#activeMember .btn.btn-primary
+div#activeMember .btn.btn-primary,
+div#addCourse .btn.btn-primary
 {
-    padding: 7px 20px;
+    padding: 7px 39px;
     font-size: 20px;
     border-radius: 25px;
     font-weight: 400;
     margin: 0;
+    background-color: rgb(13, 110, 253);
 }
 
 div#userEdit i.fa-solid.fa-eye-slash.hidden {
@@ -112,7 +172,9 @@ div#userEdit i.fa-solid.fa-eye.hidden_eye {
 }
 
 div#userEdit .modal-dialog small#helpId,
-div#activeMember .modal-dialog small#helpId {
+div#activeMember .modal-dialog small#helpId,
+div#addCourse .modal-dialog small#helpId
+{
     color: red;
     margin-left: 20px;
 }
@@ -137,7 +199,9 @@ div#userEdit .mb-4.pass {
 }
 
 div#userEdit input.form-control,
-div#activeMember input.form-control {
+div#activeMember input.form-control,
+div#addCourse input.form-control
+{
     font-size: 22px;
     padding: 10px 20px;
     border-radius: 31px;
@@ -148,7 +212,9 @@ div#userEdit input#input_pass {
 }
 
 div#userEdit h5.modal-title,
-div#activeMember h5.modal-title {
+div#activeMember h5.modal-title,
+div#addCourse h5.modal-title
+{
     font-size: 28px;
 }
 
@@ -157,12 +223,14 @@ div#userEdit .modal-dialog {}
 div#userEdit {}
 
 .managerUser .navigation nav ul.pagination li.page-item a.page-link,
-.activeMembers .navigation nav ul.pagination li.page-item a.page-link {
+.activeMembers .navigation nav ul.pagination li.page-item a.page-link,
+.managerCourse .navigation nav ul.pagination li.page-item a.page-link {
     font-size: 19px;
 }
 
 .managerUser .navigation nav ul.pagination,
-.activeMembers .navigation nav ul.pagination {
+.activeMembers .navigation nav ul.pagination,
+.managerCourse .navigation nav ul.pagination {
     display: flex;
     justify-content: flex-end;
     --bs-pagination-bg: #ffc0cb00;
@@ -170,27 +238,31 @@ div#userEdit {}
     --bs-pagination-border-color: #00000040;
 }
 
-.tableManagerUser i.fa-solid {
+.tableManagerUser i.fa-solid,
+.tableManagerCourse i.fa-solid {
     font-size: 29px;
-    margin: 2px 28px 0px 5px;
+    margin: 2px 16px 0px 5px;
 }
 
-.tableManagerUser td.action {
+.tableManagerUser td.action,
+.tableManagerCourse td.action {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .tableManagerUser td,
-.tableActiveMember td {
+.tableActiveMember td,
+.tableManagerCourse td {
     text-align: center;
     font-size: 22px;
 }
 
 .tableManagerUser th,
-.tableActiveMember th {
+.tableActiveMember th,
+.tableManagerCourse th {
     text-align: center;
-    font-size: 23px;
+    font-size: 25px;
 }
 
 .tableManagerUser p.roleAdmin {
@@ -227,7 +299,8 @@ div#userEdit {}
 }
 
 .tableManagerUser,
-.tableActiveMember {
+.tableActiveMember,
+.tableManagerCourse {
     margin-top: 18px;
 }
 
@@ -262,22 +335,25 @@ div#userEdit {}
     /* margin-right: 593px; */
 }
 
-.managerUser .searchAndActiveMember {
+.managerUser .searchAndActiveMember,
+.managerCourse .backAndAddCoures {
     display: flex;
     flex-direction: row;
-    margin: 22px 0;
+    margin: 18px 0;
     position: relative;
 }
 
 .managerUser h2.tittle,
-.activeMembers h2.tittle {
+.activeMembers h2.tittle,
+.managerCourse h2.tittle {
     padding: 33px 0;
     border-bottom: 1px solid #00000057;
     font-weight: 700;
 }
 
 .managerUser,
-.activeMembers {
+.activeMembers,
+.managerCourse {
     display: flex;
     flex-direction: column;
 }
