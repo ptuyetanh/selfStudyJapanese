@@ -42,7 +42,7 @@ a.filecsv {
 /* end managerUser, activeMembers managerCourse*/
 
 .managerCourse .courseAll a:hover {
-    transform: rotate(1.2);
+    transform: scale(1.2);
 }
 
 .managerCourse .courseAll a {
@@ -258,6 +258,14 @@ div#userEdit {}
     font-size: 22px;
 }
 
+td.lesson_name_alphabet {
+    color: #f32456;
+}
+
+td.type_alphabet {
+    color: rgb(13, 110, 253);
+}
+
 .tableManagerUser th,
 .tableActiveMember th,
 .tableManagerCourse th {
@@ -301,7 +309,7 @@ div#userEdit {}
 .tableManagerUser,
 .tableActiveMember,
 .tableManagerCourse {
-    margin-top: 18px;
+    margin-top: 8px;
 }
 
 .managerUser .searchAndActiveMember .activeMember .btn.btn-primary {
@@ -339,8 +347,8 @@ div#userEdit {}
 .managerCourse .backAndAddCoures {
     display: flex;
     flex-direction: row;
-    margin: 18px 0;
     position: relative;
+    margin-top: 12px;
 }
 
 .managerUser h2.tittle,

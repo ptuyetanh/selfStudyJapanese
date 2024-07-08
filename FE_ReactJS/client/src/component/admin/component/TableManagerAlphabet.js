@@ -4,25 +4,20 @@ class TableManagerAlphabet extends Component {
     render() {
         return (
             <tr>
-                <td>1</td>
-                <td>あ</td>
-                <td>a</td>
+                <td>{this.props.stt}</td>
+                <td>{this.props.name}</td>
+                <td>{this.props.pronunciation}</td>
                 <td>
-                    あめ(雨) mưa
+                    {this.props.example}
                 </td>
-                <td>あ.mp3</td>
-                <td>1 Gojuuon</td>
-                <td>
-                    hiragana
+                <td>{this.props.sound}</td>
+                <td className="type_alphabet">{this.props.type}</td>
+                <td className="lesson_name_alphabet">
+                    {this.props.lesson_name}
                 </td>
                 <td className="action">
-                    {/* <i
-                        className="fa-solid fa-user-pen"
-                        data-bs-toggle="modal"
-                        data-bs-target="#userEdit"
-                        onClick={this.props.clickIconEdit}
-                    /> */}
-                    <i className="fa-solid fa-user-xmark" onClick={this.props.clickIconDelete}/>
+                    <i className="fa-solid fa-delete-left" onClick={this.props.
+                    clickIconDelete}></i>
                 </td>
             </tr>
         );

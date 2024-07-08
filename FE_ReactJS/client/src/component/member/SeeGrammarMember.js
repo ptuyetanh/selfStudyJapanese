@@ -25,7 +25,7 @@ class SeeGrammarMember extends Component {
         if (this.props.level.seeLevel !== null) {
             return this.props.level.seeLevel.map((value) => {
                 return (
-                    <Level key={`grammar-${value.level_id}`} see='/seeGrammarMember/' content={value.name} levelID={value.level_id}/>
+                    <Level key={`grammar-${value.level_id}`} see='/seeGrammarMember/' content={value.level_name} levelID={value.level_id}/>
                 )
             })
         }

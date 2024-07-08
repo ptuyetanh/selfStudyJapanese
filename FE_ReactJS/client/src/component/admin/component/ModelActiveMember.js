@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ModelActiveMember extends Component {
 
     showButtonDisableOrNoDisable = () => {
-        if (this.props.start_day === null || this.props.expiration_date === null) {
+        if (this.props.start_day === null || this.props.expiration_date === null || this.props.error_start_day !== '' || this.props.error_start_day !== '') {
             return (
                 <button type="button" className="btn btn-primary" disabled>
                     Lưu

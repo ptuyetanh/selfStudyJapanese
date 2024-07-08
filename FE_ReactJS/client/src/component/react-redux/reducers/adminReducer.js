@@ -1,4 +1,4 @@
-import { ACTIVE_MEMBER, COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_USER, EDIT_USER, MANAGER_USER, NEW_SIGNUP_MEMBER, NEW_USER, REFUSE_ACTIVE_MEMBER, SAVE_ACTIVE_MEMBER } from "../actions/adminAction"
+import { ACTIVE_MEMBER, ADD_COURSE_ALPHABET, COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_ALPHABET, DELETE_USER, EDIT_USER, MANAGER_ALPHABET, MANAGER_USER, NEW_SIGNUP_MEMBER, NEW_USER, REFUSE_ACTIVE_MEMBER, SAVE_ACTIVE_MEMBER } from "../actions/adminAction"
 
 const InitialState = {
     countUserData: null,
@@ -10,7 +10,9 @@ const InitialState = {
     newUserData: null,
     newSignUpMemberData: null,
     managerUserData: null,
-    activeMemberData: null
+    activeMemberData: null,
+    managerAlphabetData: null,
+    addCourseAlphabetData: null
 }
 const adminReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -42,6 +44,12 @@ const adminReducer = (state = InitialState, action) => {
             return { ...state, activeMemberData: state.activeMemberData.map(value => value.user_id === action.saveActiveMemberAction.user_id ? action.saveActiveMemberAction : value) }
         case REFUSE_ACTIVE_MEMBER:
             return { ...state, managerUserData: state.managerUserData.filter(value => value.signupmember_id === action.deleteUserAction) }
+        case MANAGER_ALPHABET:
+            return { ...state, managerAlphabetData: action.managerAlphabetAction }
+        case ADD_COURSE_ALPHABET:
+            return { ...state, addCourseAlphabetData: action.addCourseAlphabetAction }
+        case DELETE_ALPHABET:
+            return { ...state, managerAlphabetData: state.managerAlphabetData.filter(value => value.alphabet_id === action.deleteAlphabetAction) }
         default:
             return state
     }

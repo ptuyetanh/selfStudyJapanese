@@ -22,14 +22,14 @@ class SeeAphabetPrivate extends Component {
     alphabetFree = () => {
         if (this.props.lesson.alphabetLessonData !== null) {
             const alphabetLessonFree = this.props.lesson.alphabetLessonData[0]
-            return <AlphabetFree link = {'/seeAlphabetUser/'+ alphabetLessonFree.name + '/' + alphabetLessonFree.lesson_id} lesson={alphabetLessonFree.name}/>
+            return <AlphabetFree link = {'/seeAlphabetUser/'+ alphabetLessonFree.lesson_name + '/' + alphabetLessonFree.lesson_id} lesson={alphabetLessonFree.lesson_name}/>
         }
     }
     alphabetLook = () => {
         if (this.props.lesson.alphabetLessonData !== null) {
             const alphabetLessonLook = this.props.lesson.alphabetLessonData.slice(1);
             return alphabetLessonLook.map(value => {
-                return <AlphabetLook key={value.lesson_id} lesson={value.name} example={value.example} />
+                return <AlphabetLook key={value.lesson_id} lesson={value.lesson_name} example={value.lesson_example} />
             });
         }
     }

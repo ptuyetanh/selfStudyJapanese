@@ -19,7 +19,7 @@ class TableManagerUser extends Component {
     render() {
         return (
             <tr>
-                <td>{this.props.stt + 1}</td>
+                <td>{this.props.stt}</td>
                 <td>{this.props.fullname}</td>
                 <td>{this.props.email}</td>
                 <td>

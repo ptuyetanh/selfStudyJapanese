@@ -24,7 +24,7 @@ class SeeAlphabetMember extends Component {
     alphabetMember = () => {
         if (this.props.lesson.alphabetLessonData !== null) {
             return this.props.lesson.alphabetLessonData.map(value => {
-                return <AlphabetMember key={value.lesson_id} lesson={value.name} example={value.example} linkto = {'/seeAlphabetMember/' + value.name +'/'+ value.lesson_id}/>
+                return <AlphabetMember key={value.lesson_id} lesson={value.lesson_name} example={value.lesson_example} linkto = {'/seeAlphabetMember/' + value.lesson_name +'/'+ value.lesson_id}/>
             });
         }
     }

@@ -67,7 +67,7 @@ class ManagerUser extends Component {
     managerUser = () => {
         if (this.props.admin.managerUserData !== null) {
             return this.props.admin.managerUserData.map((value, key) => {
-                return <TableManagerUser stt={key} fullname={value.fullname} email={value.email} role_name={value.role_name} clickIconEdit={() => this.clickIconEdit(value)} clickIconInfo={() => this.clickIconInfo(value)} clickIconDelete = {() => this.clickIconDelete(value.user_id)}/>
+                return <TableManagerUser stt={value.user_id} fullname={value.fullname} email={value.email} role_name={value.role_name} clickIconEdit={() => this.clickIconEdit(value)} clickIconInfo={() => this.clickIconInfo(value)} clickIconDelete = {() => this.clickIconDelete(value.user_id)}/>
             })
         }
     }

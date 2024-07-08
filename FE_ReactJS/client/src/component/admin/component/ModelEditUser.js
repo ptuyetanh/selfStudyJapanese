@@ -31,7 +31,7 @@ class ModelEditUser extends Component {
     }
 
     showButtonDisableOrNODisable = () => {
-        if (this.props.fullname === '' || this.props.email === '' || this.props.phonenumber === '' || this.props.password === '' || this.props.dateofbirth === '') {
+        if (this.props.fullname === '' || this.props.email === '' || this.props.phonenumber === '' || this.props.dateofbirth === '' || this.props.error_fullname !== '' || this.props.error_email !== '' || this.props.error_phonenumber !== '' || this.props.error_dateofbirth !== '') {
             return (
                 <button type="button" className="btn btn-primary" disabled>
                     Sửa

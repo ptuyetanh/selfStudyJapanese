@@ -224,3 +224,56 @@ export const refuseActiveMember = (signupmember_id) => {
         }
     }
 }
+// managerAlphabet
+export const MANAGER_ALPHABET = 'MANAGER_ALPHABET';
+const managerAlphabetSuccess = (data) => ({
+    type: 'MANAGER_ALPHABET',
+    managerAlphabetAction: data
+})
+export const managerAlphabetShow = (page) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`/admin/manageralphabet?page=${page}`);
+            dispatch(managerAlphabetSuccess(response.data));
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+// addCourseAlphabet
+export const ADD_COURSE_ALPHABET = 'ADD_COURSE_ALPHABET';
+const addCourseAlphabetSuccess = (data) => ({
+    type: ADD_COURSE_ALPHABET,
+    addCourseAlphabetAction:data
+})
+export const addCourseAlphabet = (formData) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('/admin/addcoursealphabet',formData,{
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+            });
+            dispatch(addCourseAlphabetSuccess(response.data));
+        } catch (error) {
+            console.log("Lỗi" + error);
+        }
+    }
+}
+//deleteAlphabet
+export const DELETE_ALPHABET = 'DELETE_ALPHABET';
+const deleteAlphabetSuccess = (data) => ({
+    type: 'DELETE_ALPHABET',
+    deleteAlphabetAction: data
+})
+export const deleteAlphabet = (alphabet_id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`/admin/deletealphabet/${alphabet_id}`);
+            dispatch(deleteAlphabetSuccess(response.data.alphabet_id));
+            dispatch(alertOnSuccess2())
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}

@@ -24,7 +24,7 @@ class SeeVocabMember extends Component {
         if (this.props.level.seeLevel !== null) {
             return this.props.level.seeLevel.map((value,key) => {
                 return (
-                    <Level key={`vocab-${key}`} see = '/seeVocabMember/' content={value.name} levelID={value.level_id}/>
+                    <Level key={`vocab-${key}`} see = '/seeVocabMember/' content={value.level_name} levelID={value.level_id}/>
                 )
             })
         }
