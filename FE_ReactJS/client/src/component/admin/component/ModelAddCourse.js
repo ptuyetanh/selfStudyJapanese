@@ -6,13 +6,13 @@ class ModelAddCourse extends Component {
         if (this.props.file_csv === '' || this.props.error_file_csv !== '') {
             return (
                 <button type="button" className="btn btn-primary" disabled>
-                    Sửa
+                    Lưu
                 </button>
             )
         } else {
             return (
-                <button type="button" className="btn btn-primary" onClick={this.props.clickSaveAlphabet}>
-                    Sửa
+                <button type="button" className="btn btn-primary" onClick={this.props.clickSave}>
+                    Lưu
                 </button>
             )
         }

@@ -46,7 +46,7 @@ class ManagerCourse extends Component {
                                     <h2 className="tittle">Quản lý khóa học</h2>
                                     <div className="courseAll">
                                         <Link to = '/managercourse/managerAlphabet'>Bảng chữ cái</Link>
-                                        <Link >Từ vựng</Link>
+                                        <Link to = '/managercourse/managerVocab'>Từ vựng</Link>
                                         <Link >Ngữ pháp</Link>
                                         <Link >Giao tiếp</Link>
                                     </div>

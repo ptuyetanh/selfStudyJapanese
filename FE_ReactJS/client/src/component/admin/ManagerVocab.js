@@ -5,31 +5,36 @@ import { logOutUser } from '../react-redux/actions/logOutAction';
 import { Navigate, Link } from 'react-router-dom';
 import NavbarAdmin from './component/NavbarAdmin';
 import MenuAdmin from './component/MenuAdmin';
-import TableManagerAlphabet from './component/TableManagerAlphabet';
+import TableManagerVocab from './component/TableManagerVocab';
 import ModelAddCourse from './component/ModelAddCourse';
-import { addCourseAlphabet, deleteAlphabet, managerAlphabetShow } from '../react-redux/actions/adminAction';
+import { addCourseVocab, deleteVocab, managerVocabShow } from '../react-redux/actions/adminAction';
 import debounce from 'lodash.debounce';
 import AlertSuccess from '../alerts/AlertSuccess';
 import { alertSOnSuccess } from '../react-redux/actions/alertAction';
 import AlertSuccess2 from '../alerts/AlertSuccess2';
+import ModelInfoVocab from './component/ModelInfoVocab';
 
-class ManagerAlphabet extends Component {
-
+class ManagerVocab extends Component {
     constructor(props) {
         super(props);
         this.state = {
             currentPage: 1,
             file_csv: '',
-            error_file_csv: ''
+            error_file_csv: '',
+            name:'',
+            sound:'',
+            sino_vietnamese_sound:'',
+            pronunciation:'',
+            example_mean:''
         }
-        this.debounceManagerAlphabet = debounce(this.props.managerAlphabetShow, 300)
+        this.debounceManagerVocab = debounce(this.props.managerVocabShow, 300)
     }
     
 
     componentDidMount() {
         this.props.isAuthUser();
-        if(this.props.admin.managerAlphabetData === null){
-            this.props.managerAlphabetShow(this.state.currentPage)
+        if(this.props.admin.managerVocabData === null){
+            this.props.managerVocabShow(this.state.currentPage)
         }
     }
 
@@ -40,7 +45,7 @@ class ManagerAlphabet extends Component {
             menu.classList.toggle('hiddenMenu');
         }
         if (prevState.currentPage !== this.state.currentPage) {
-            this.debounceManagerAlphabet(this.state.currentPage);
+            this.debounceManagerVocab(this.state.currentPage);
         }
     }
 
@@ -49,11 +54,11 @@ class ManagerAlphabet extends Component {
         window.location.href = '/login'
     }
 
-    tableManagerAlphabet = () => {
-        if (this.props.admin.managerAlphabetData !== null) {
-            return this.props.admin.managerAlphabetData.map(value => {
+    tableManagerVocab = () => {
+        if (this.props.admin.managerVocabData !== null) {
+            return this.props.admin.managerVocabData.map(value => {
                 return (
-                    <TableManagerAlphabet key={value.alphabet_id} stt = {value.alphabet_id} name = {value.name} pronunciation = {value.pronunciation} example = {value.example} sound = {value.sound} type = {value.type} lesson_name = {value.lesson_name} clickIconDelete = {() => this.clickIconDelete(value.alphabet_id)}/>
+                    <TableManagerVocab key={value.vocab_id} stt = {value.vocab_id} name = {value.name} mean = {value.mean} example = {value.example} lesson_name = {value.lesson_name} level_name = {value.level_name} clickIconDelete = {() => this.clickIconDelete(value.vocab_id)} clickIconInfo = {() => this.clickIconInfo(value)}/>
                 )
             })
         }
@@ -99,19 +104,27 @@ class ManagerAlphabet extends Component {
         }
     }
 
-    clickSaveAlphabet = () => {
+    clickSaveVocab = () => {
         const formData = new FormData();
         formData.append('file_csv', this.state.file_csv);
         console.log(formData);
-        this.props.addCourseAlphabet(formData);
+        this.props.addCourseVocab(formData);
         this.props.alertSOnSuccess();
     }
 
-    clickIconDelete = (alphabet_id) => {
-        // console.log("Đã click" + alphabet_id);
-        this.props.deleteAlphabet(alphabet_id)
+    clickIconDelete = (vocab_id) => {
+        this.props.deleteVocab(vocab_id)
     }
 
+    clickIconInfo = (vocab) => {
+        this.setState({
+            name:vocab.name,
+            sound:vocab.sound,
+            sino_vietnamese_sound:vocab.sino_vietnamese_sound,
+            pronunciation:vocab.pronunciation,
+            example_mean:vocab.example_mean
+        });
+    }
     render() {
         const { user } = this.props.auth;
         const { isNavigateLogOut } = this.props.logOut;
@@ -148,7 +161,7 @@ class ManagerAlphabet extends Component {
                                                 <i className="fa-solid fa-circle-plus"></i>
                                                 <p>Thêm</p>
                                             </button>
-                                            <ModelAddCourse tittle = "Thêm bảng chữ cái" fileExcel = {'https://docs.google.com/spreadsheets/d/1K7i7y6k0G5-es9ycYguIgueMPF-4BHMe/edit?usp=sharing&ouid=108413886499755650261&rtpof=true&sd=true'} onChange = {(event) => this.isChange(event)} error_file_csv = {this.state.error_file_csv} file_csv = {this.state.file_csv} clickSave = {this.clickSaveAlphabet}/>
+                                            <ModelAddCourse tittle = "Thêm từ vựng" fileExcel = {'https://docs.google.com/spreadsheets/d/1-0uYp0UzdoZVztacHizRNOCZBcFum0np/edit?gid=490403579#gid=490403579'} onChange = {(event) => this.isChange(event)} error_file_csv = {this.state.error_file_csv} file_csv = {this.state.file_csv} clickSave = {this.clickSaveVocab}/>
                                         </div>
                                         {/* end addCourse  */}
                                     </div>
@@ -165,27 +178,27 @@ class ManagerAlphabet extends Component {
                                                             Tên
                                                         </th>
                                                         <th className="col-xl-2" scope="col">
-                                                            Cách đọc
+                                                            Ý nghĩa
                                                         </th>
-                                                        <th className="col-xl-2" scope="col">
+                                                        <th className="col-xl-3" scope="col">
                                                             Ví dụ
                                                         </th>
-                                                        <th className="col-xl-2" scope="col">
+                                                        {/* <th className="col-xl-2" scope="col">
                                                             Âm thanh
-                                                        </th>
+                                                        </th> */}
                                                         <th className="col-xl-2" scope="col">
-                                                            Loại
-                                                        </th>
-                                                        <th className="col-xl-1" scope="col">
                                                             Bài học
                                                         </th>
+                                                        <th className="col-xl-1" scope="col">
+                                                            Cấp độ
+                                                        </th>
                                                         <th className="col-xl-2" scope="col">
-
+                                                            Hành động
                                                         </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {this.tableManagerAlphabet()}
+                                                    {this.tableManagerVocab()}
                                                     
                                                 </tbody>
                                             </table>
@@ -226,6 +239,7 @@ class ManagerAlphabet extends Component {
                                     {/* end navigation */}
                                 </div>
                                 {/* end managerCourse */}
+                                <ModelInfoVocab name = {this.state.name} sound = {this.state.sound} sino_vietnamese_sound = {this.state.sino_vietnamese_sound} pronunciation = {this.state.pronunciation} example_mean = {this.state.example_mean}/>
                             </div>
                         </div>
                     </div>
@@ -244,9 +258,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     isAuthUser,
     logOutUser,
-    managerAlphabetShow,
-    addCourseAlphabet,
+    managerVocabShow,
+    addCourseVocab,
     alertSOnSuccess,
-    deleteAlphabet
+    deleteVocab
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ManagerAlphabet);
+export default connect(mapStateToProps, mapDispatchToProps)(ManagerVocab);

@@ -1,4 +1,4 @@
-import { ACTIVE_MEMBER, ADD_COURSE_ALPHABET, COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_ALPHABET, DELETE_USER, EDIT_USER, MANAGER_ALPHABET, MANAGER_USER, NEW_SIGNUP_MEMBER, NEW_USER, REFUSE_ACTIVE_MEMBER, SAVE_ACTIVE_MEMBER } from "../actions/adminAction"
+import { ACTIVE_MEMBER, ADD_COURSE_ALPHABET, ADD_COURSE_VOCAB, COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_ALPHABET, DELETE_USER, DELETE_VOCAB, EDIT_USER, MANAGER_ALPHABET, MANAGER_USER, MANAGER_VOCAB, NEW_SIGNUP_MEMBER, NEW_USER, REFUSE_ACTIVE_MEMBER, SAVE_ACTIVE_MEMBER } from "../actions/adminAction"
 
 const InitialState = {
     countUserData: null,
@@ -12,7 +12,9 @@ const InitialState = {
     managerUserData: null,
     activeMemberData: null,
     managerAlphabetData: null,
-    addCourseAlphabetData: null
+    addCourseAlphabetData: null,
+    managerVocabData: null,
+    addCourseVocabData: null
 }
 const adminReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -50,6 +52,12 @@ const adminReducer = (state = InitialState, action) => {
             return { ...state, addCourseAlphabetData: action.addCourseAlphabetAction }
         case DELETE_ALPHABET:
             return { ...state, managerAlphabetData: state.managerAlphabetData.filter(value => value.alphabet_id === action.deleteAlphabetAction) }
+        case MANAGER_VOCAB:
+            return { ...state, managerVocabData: action.managerVocabAction }
+        case ADD_COURSE_VOCAB:
+            return { ...state, addCourseVocabData: action.addCourseVocabAction }
+        case DELETE_VOCAB:
+            return { ...state, managerVocabData: state.managerVocabData.filter(value => value.vocab_id === action.deleteVocabAction) }
         default:
             return state
     }

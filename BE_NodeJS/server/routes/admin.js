@@ -252,5 +252,60 @@ router.delete('/deletealphabet/:alphabet_id', function (req, res) {
         }
     })
 })
-
+//manager vocab
+router.get('/managervocab', function (req, res, next) {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+    const offset = (page - 1) * limit;
+    pool.query('SELECT * FROM vocabularies,levels where vocabularies.level_id = levels.level_id ORDER BY vocab_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
+//addCourseVocab
+router.post('/addcoursevocab', upload.single('file_csv'), function (req, res, next) {
+    const fileCsvPath = req.file.path;
+    const results = [];
+    fs.createReadStream(fileCsvPath)
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', async () => {
+            console.log(results);
+            fs.unlinkSync(fileCsvPath)
+            for (const row of results) {
+                const name = row['name'];
+                const mean = row['mean'];
+                const example = row['example'];
+                const sino_vietnamese_sound = row['sino_vietnamese_sound'];
+                const pronunciation = row['pronunciation']
+                const example_mean = row['example_mean']
+                const lesson_name = row['lesson_name']
+                const level_id = row['level_id']
+                const sound = row['sound']; // D:\\ĐATN_TuyetAnh\\database\\alphabetHiragana\\あ.mp3'
+                const sound_name = path.basename(sound,path.extname(sound));//あ
+                const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
+                try {
+                    const localPath = await copyMp3(sound, sound_filename);
+                    await pool.query('INSERT INTO vocabularies (name,mean,example,sino_vietnamese_sound,sound,pronunciation,example_mean,lesson_name,level_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [name,mean,example,sino_vietnamese_sound,sound_filename,pronunciation,example_mean,lesson_name,level_id]);
+                    res.send(response.rows)
+                } catch (err) {
+                    console.error('Error saving to database', err);
+                }
+            }
+        });
+});
+//deleteVocab
+router.delete('/deletevocab/:vocab_id', function (req, res) {
+    const { vocab_id } = req.params;
+    pool.query('DELETE FROM vocabularies WHERE vocab_id = $1', [vocab_id], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows[0]);
+        }
+    })
+})
 module.exports = router;

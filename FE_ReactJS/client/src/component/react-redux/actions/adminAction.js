@@ -277,3 +277,56 @@ export const deleteAlphabet = (alphabet_id) => {
         }
     }
 }
+// managerVocab
+export const MANAGER_VOCAB = 'MANAGER_VOCAB';
+const managerVocabSuccess = (data) => ({
+    type: 'MANAGER_VOCAB',
+    managerVocabAction: data
+})
+export const managerVocabShow = (page) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`/admin/managervocab?page=${page}`);
+            dispatch(managerVocabSuccess(response.data));
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+// addCourseVocab
+export const ADD_COURSE_VOCAB = 'ADD_COURSE_VOCAB';
+const addCourseVocabSuccess = (data) => ({
+    type: ADD_COURSE_VOCAB,
+    addCourseVocabAction:data
+})
+export const addCourseVocab = (formData) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('/admin/addcoursevocab',formData,{
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+            });
+            dispatch(addCourseVocabSuccess(response.data));
+        } catch (error) {
+            console.log("Lỗi" + error);
+        }
+    }
+}
+//deleteVocab
+export const DELETE_VOCAB = 'DELETE_VOCAB';
+const deleteVocabSuccess = (data) => ({
+    type: 'DELETE_VOCAB',
+    deleteVocabAction: data
+})
+export const deleteVocab = (vocab_id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`/admin/deletevocab/${vocab_id}`);
+            dispatch(deleteVocabSuccess(response.data.vocab_id));
+            dispatch(alertOnSuccess2())
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}

@@ -98,7 +98,9 @@ a.filecsv {
     border-color: initial;
 }
 
-#userInfo li {
+#userInfo li,
+#vocabInfo li
+{
     list-style: decimal;
     font-size: 20px;
     padding: 12px 10px;
@@ -256,6 +258,14 @@ div#userEdit {}
 .tableManagerCourse td {
     text-align: center;
     font-size: 22px;
+}
+
+td.levelcoures {
+    color: rgb(251, 0, 60);
+}
+
+td.lessoncourse {
+    color: #0d6efd;
 }
 
 td.lesson_name_alphabet {
