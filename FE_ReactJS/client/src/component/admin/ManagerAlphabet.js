@@ -132,7 +132,7 @@ class ManagerAlphabet extends Component {
                             {/* end menuAll  */}
                             <div className="col">
                                 <div className="managerCourse">
-                                    <h2 className="tittle">Quản lý khóa học</h2>
+                                    <h2 className="tittle">Quản lý bảng chữ cái</h2>
                                     <div className="backAndAddCoures">
                                         <Link to='/managercourse'>
                                             <i className="fa-solid fa-arrow-left-long"></i>

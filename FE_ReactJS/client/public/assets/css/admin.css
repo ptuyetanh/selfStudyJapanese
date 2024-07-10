@@ -99,7 +99,8 @@ a.filecsv {
 }
 
 #userInfo li,
-#vocabInfo li
+#vocabInfo li,
+#grammarInfo li
 {
     list-style: decimal;
     font-size: 20px;

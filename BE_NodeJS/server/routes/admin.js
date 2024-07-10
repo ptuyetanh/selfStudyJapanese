@@ -204,14 +204,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 const copyMp3 = (sourcePath, filename) => {
     return new Promise((resolve, reject) => {
-      const destinationPath = path.join(__dirname, '../public/sound', filename);
-      console.log(destinationPath + sourcePath);
-      fs.copyFile(sourcePath, destinationPath, (err) => {
-        if (err) reject(err);
-        else resolve(destinationPath);
-      });
+        const destinationPath = path.join(__dirname, '../public/sound', filename);
+        console.log(destinationPath + sourcePath);
+        fs.copyFile(sourcePath, destinationPath, (err) => {
+            if (err) reject(err);
+            else resolve(destinationPath);
+        });
     });
-  };
+};
 router.post('/addcoursealphabet', upload.single('file_csv'), function (req, res, next) {
     const fileCsvPath = req.file.path;
     // console.log(fileCsvPath);
@@ -229,11 +229,11 @@ router.post('/addcoursealphabet', upload.single('file_csv'), function (req, res,
                 const type = row['type'];
                 const lesson_id = row['lesson_id']
                 const sound = row['sound']; // D:\\ĐATN_TuyetAnh\\database\\alphabetHiragana\\あ.mp3'
-                const sound_name = path.basename(sound,path.extname(sound));//あ
+                const sound_name = path.basename(sound, path.extname(sound));//あ
                 const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
                 try {
                     const localPath = await copyMp3(sound, sound_filename);
-                    await pool.query('INSERT INTO alphabets (name,pronunciation,example,sound,type,lesson_id) VALUES ($1, $2, $3, $4, $5, $6)', [name,pronunciation,example,sound_filename,type,lesson_id]);
+                    await pool.query('INSERT INTO alphabets (name,pronunciation,example,sound,type,lesson_id) VALUES ($1, $2, $3, $4, $5, $6)', [name, pronunciation, example, sound_filename, type, lesson_id]);
                     res.send(response.rows)
                 } catch (err) {
                     console.error('Error saving to database', err);
@@ -285,11 +285,11 @@ router.post('/addcoursevocab', upload.single('file_csv'), function (req, res, ne
                 const lesson_name = row['lesson_name']
                 const level_id = row['level_id']
                 const sound = row['sound']; // D:\\ĐATN_TuyetAnh\\database\\alphabetHiragana\\あ.mp3'
-                const sound_name = path.basename(sound,path.extname(sound));//あ
+                const sound_name = path.basename(sound, path.extname(sound));//あ
                 const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
                 try {
                     const localPath = await copyMp3(sound, sound_filename);
-                    await pool.query('INSERT INTO vocabularies (name,mean,example,sino_vietnamese_sound,sound,pronunciation,example_mean,lesson_name,level_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [name,mean,example,sino_vietnamese_sound,sound_filename,pronunciation,example_mean,lesson_name,level_id]);
+                    await pool.query('INSERT INTO vocabularies (name,mean,example,sino_vietnamese_sound,sound,pronunciation,example_mean,lesson_name,level_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [name, mean, example, sino_vietnamese_sound, sound_filename, pronunciation, example_mean, lesson_name, level_id]);
                     res.send(response.rows)
                 } catch (err) {
                     console.error('Error saving to database', err);
@@ -301,6 +301,61 @@ router.post('/addcoursevocab', upload.single('file_csv'), function (req, res, ne
 router.delete('/deletevocab/:vocab_id', function (req, res) {
     const { vocab_id } = req.params;
     pool.query('DELETE FROM vocabularies WHERE vocab_id = $1', [vocab_id], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows[0]);
+        }
+    })
+})
+//manager grammar
+router.get('/managergrammar', function (req, res, next) {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+    const offset = (page - 1) * limit;
+    pool.query('SELECT * FROM grammars,levels where grammars.level_id = levels.level_id ORDER BY grammar_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
+//addCourseGrammar
+router.post('/addcoursegrammar', upload.single('file_csv'), function (req, res, next) {
+    const fileCsvPath = req.file.path;
+    const results = [];
+    fs.createReadStream(fileCsvPath)
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', async () => {
+            console.log(results);
+            fs.unlinkSync(fileCsvPath)
+            for (const row of results) {
+                const name = row['name'];
+                const mean = row['mean'];
+                const example = row['example'];
+                const mean_example = row['mean_example'];
+                const explain = row['explain']
+                const lesson_name = row['lesson_name']
+                const level_id = row['level_id']
+                const sound = row['sound']; // D:\\ĐATN_TuyetAnh\\database\\alphabetHiragana\\あ.mp3'
+                const sound_name = path.basename(sound, path.extname(sound));//あ
+                const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
+                try {
+                    const localPath = await copyMp3(sound, sound_filename);
+                    await pool.query('INSERT INTO grammars (name,mean,example,mean_example,sound,explain,lesson_name,level_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [name, mean, example, mean_example, sound_filename, explain, lesson_name, level_id]);
+                    res.send(response.rows)
+                } catch (err) {
+                    console.error('Error saving to database', err);
+                }
+            }
+        });
+});
+//deleteGrammar
+router.delete('/deletegrammar/:grammar_id', function (req, res) {
+    const { grammar_id } = req.params;
+    pool.query('DELETE FROM grammars WHERE grammar_id = $1', [grammar_id], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

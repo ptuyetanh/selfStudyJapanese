@@ -330,3 +330,56 @@ export const deleteVocab = (vocab_id) => {
         }
     }
 }
+// managerGrammar
+export const MANAGER_GRAMMAR = 'MANAGER_GRAMMAR';
+const managerGrammarSuccess = (data) => ({
+    type: 'MANAGER_GRAMMAR',
+    managerGrammarAction: data
+})
+export const managerGrammarShow = (page) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`/admin/managergrammar?page=${page}`);
+            dispatch(managerGrammarSuccess(response.data));
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+// addCourseGrammar
+export const ADD_COURSE_GRAMMAR = 'ADD_COURSE_GRAMMAR';
+const addCourseGrammarSuccess = (data) => ({
+    type: ADD_COURSE_GRAMMAR,
+    addCourseGrammarAction:data
+})
+export const addCourseGrammar = (formData) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('/admin/addcoursegrammar',formData,{
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+            });
+            dispatch(addCourseGrammarSuccess(response.data));
+        } catch (error) {
+            console.log("Lỗi" + error);
+        }
+    }
+}
+//deleteGrammar
+export const DELETE_GRAMMAR = 'DELETE_GRAMMAR';
+const deleteGrammarSuccess = (data) => ({
+    type: 'DELETE_GRAMMAR',
+    deleteGrammarAction: data
+})
+export const deleteGrammar = (grammar_id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`/admin/deletegrammar/${grammar_id}`);
+            dispatch(deleteGrammarSuccess(response.data.grammar_id));
+            dispatch(alertOnSuccess2())
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}

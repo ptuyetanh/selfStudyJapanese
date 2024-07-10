@@ -5,16 +5,16 @@ import { logOutUser } from '../react-redux/actions/logOutAction';
 import { Navigate, Link } from 'react-router-dom';
 import NavbarAdmin from './component/NavbarAdmin';
 import MenuAdmin from './component/MenuAdmin';
-import TableManagerVocab from './component/TableManagerVocab';
+import TableManagerGrammar from './component/TableManagerGrammar';
 import ModelAddCourse from './component/ModelAddCourse';
-import { addCourseVocab, deleteVocab, managerVocabShow } from '../react-redux/actions/adminAction';
+import { addCourseGrammar, deleteGrammar, managerGrammarShow } from '../react-redux/actions/adminAction';
 import debounce from 'lodash.debounce';
 import AlertSuccess from '../alerts/AlertSuccess';
 import { alertSOnSuccess } from '../react-redux/actions/alertAction';
 import AlertSuccess2 from '../alerts/AlertSuccess2';
-import ModelInfoVocab from './component/ModelInfoVocab';
+import ModelInfoGrammar from './component/ModelInfoGrammar';
 
-class ManagerVocab extends Component {
+class ManagerGrammar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,18 +23,17 @@ class ManagerVocab extends Component {
             error_file_csv: '',
             name:'',
             sound:'',
-            sino_vietnamese_sound:'',
-            pronunciation:'',
-            example_mean:''
+            mean_example:'',
+            explain:'',
         }
-        this.debounceManagerVocab = debounce(this.props.managerVocabShow, 300)
+        this.debounceManagerGrammar = debounce(this.props.managerGrammarShow, 300)
     }
     
 
     componentDidMount() {
         this.props.isAuthUser();
-        if(this.props.admin.managerVocabData === null){
-            this.props.managerVocabShow(this.state.currentPage)
+        if(this.props.admin.managerGrammarData === null){
+            this.props.managerGrammarShow(this.state.currentPage)
         }
     }
 
@@ -45,7 +44,7 @@ class ManagerVocab extends Component {
             menu.classList.toggle('hiddenMenu');
         }
         if (prevState.currentPage !== this.state.currentPage) {
-            this.debounceManagerVocab(this.state.currentPage);
+            this.debounceManagerGrammar(this.state.currentPage);
         }
     }
 
@@ -54,11 +53,11 @@ class ManagerVocab extends Component {
         window.location.href = '/login'
     }
 
-    tableManagerVocab = () => {
-        if (this.props.admin.managerVocabData !== null) {
-            return this.props.admin.managerVocabData.map(value => {
+    tableManagerGrammar = () => {
+        if (this.props.admin.managerGrammarData !== null) {
+            return this.props.admin.managerGrammarData.map(value => {
                 return (
-                    <TableManagerVocab key={value.vocab_id} stt = {value.vocab_id} name = {value.name} mean = {value.mean} example = {value.example} lesson_name = {value.lesson_name} level_name = {value.level_name} clickIconDelete = {() => this.clickIconDelete(value.vocab_id)} clickIconInfo = {() => this.clickIconInfo(value)}/>
+                    <TableManagerGrammar key={value.grammar_id} stt = {value.grammar_id} name = {value.name} mean = {value.mean} example = {value.example} lesson_name = {value.lesson_name} level_name = {value.level_name} clickIconDelete = {() => this.clickIconDelete(value.grammar_id)} clickIconInfo = {() => this.clickIconInfo(value)}/>
                 )
             })
         }
@@ -104,25 +103,24 @@ class ManagerVocab extends Component {
         }
     }
 
-    clickSaveVocab = () => {
+    clickSaveGrammar = () => {
         const formData = new FormData();
         formData.append('file_csv', this.state.file_csv);
         console.log(formData);
-        this.props.addCourseVocab(formData);
+        this.props.addCourseGrammar(formData);
         this.props.alertSOnSuccess();
     }
 
-    clickIconDelete = (vocab_id) => {
-        this.props.deleteVocab(vocab_id)
+    clickIconDelete = (grammar_id) => {
+        this.props.deleteGrammar(grammar_id)
     }
 
-    clickIconInfo = (vocab) => {
+    clickIconInfo = (grammar) => {
         this.setState({
-            name:vocab.name,
-            sound:vocab.sound,
-            sino_vietnamese_sound:vocab.sino_vietnamese_sound,
-            pronunciation:vocab.pronunciation,
-            example_mean:vocab.example_mean
+            name:grammar.name,
+            sound:grammar.sound,
+            mean_example:grammar.mean_example,
+            explain:grammar.explain,
         });
     }
     render() {
@@ -145,7 +143,7 @@ class ManagerVocab extends Component {
                             {/* end menuAll  */}
                             <div className="col">
                                 <div className="managerCourse">
-                                    <h2 className="tittle">Quản lý từ vựng</h2>
+                                    <h2 className="tittle">Quản lý ngữ pháp</h2>
                                     <div className="backAndAddCoures">
                                         <Link to='/managercourse'>
                                             <i className="fa-solid fa-arrow-left-long"></i>
@@ -161,7 +159,7 @@ class ManagerVocab extends Component {
                                                 <i className="fa-solid fa-circle-plus"></i>
                                                 <p>Thêm</p>
                                             </button>
-                                            <ModelAddCourse tittle = "Thêm từ vựng" fileExcel = {'https://docs.google.com/spreadsheets/d/1-0uYp0UzdoZVztacHizRNOCZBcFum0np/edit?gid=490403579#gid=490403579'} onChange = {(event) => this.isChange(event)} error_file_csv = {this.state.error_file_csv} file_csv = {this.state.file_csv} clickSave = {this.clickSaveVocab}/>
+                                            <ModelAddCourse tittle = "Thêm ngữ pháp" fileExcel = {'https://docs.google.com/spreadsheets/d/1Y0SlrorQR2SD4bThOq-9ChoeCXIxsooW/edit?usp=sharing&ouid=108413886499755650261&rtpof=true&sd=true'} onChange = {(event) => this.isChange(event)} error_file_csv = {this.state.error_file_csv} file_csv = {this.state.file_csv} clickSave = {this.clickSaveGrammar}/>
                                         </div>
                                         {/* end addCourse  */}
                                     </div>
@@ -183,9 +181,6 @@ class ManagerVocab extends Component {
                                                         <th className="col-xl-3" scope="col">
                                                             Ví dụ
                                                         </th>
-                                                        {/* <th className="col-xl-2" scope="col">
-                                                            Âm thanh
-                                                        </th> */}
                                                         <th className="col-xl-2" scope="col">
                                                             Bài học
                                                         </th>
@@ -198,8 +193,7 @@ class ManagerVocab extends Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {this.tableManagerVocab()}
-                                                    
+                                                    {this.tableManagerGrammar()}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -239,7 +233,7 @@ class ManagerVocab extends Component {
                                     {/* end navigation */}
                                 </div>
                                 {/* end managerCourse */}
-                                <ModelInfoVocab name = {this.state.name} sound = {this.state.sound} sino_vietnamese_sound = {this.state.sino_vietnamese_sound} pronunciation = {this.state.pronunciation} example_mean = {this.state.example_mean}/>
+                                <ModelInfoGrammar name = {this.state.name} sound = {this.state.sound} mean_example = {this.state.mean_example} explain = {this.state.explain}/>
                             </div>
                         </div>
                     </div>
@@ -258,9 +252,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     isAuthUser,
     logOutUser,
-    managerVocabShow,
-    addCourseVocab,
+    managerGrammarShow,
+    addCourseGrammar,
     alertSOnSuccess,
-    deleteVocab
+    deleteGrammar
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ManagerVocab);
+export default connect(mapStateToProps, mapDispatchToProps)(ManagerGrammar);

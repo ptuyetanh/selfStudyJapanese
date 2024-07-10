@@ -11,7 +11,7 @@ class ModelAddCourse extends Component {
             )
         } else {
             return (
-                <button type="button" className="btn btn-primary" onClick={this.props.clickSave}>
+                <button type="reset" className="btn btn-primary" onClick={this.props.clickSave}>
                     Lưu
                 </button>
             )
