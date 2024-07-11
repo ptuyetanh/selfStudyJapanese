@@ -383,3 +383,56 @@ export const deleteGrammar = (grammar_id) => {
         }
     }
 }
+// managerCommunication
+export const MANAGER_COMMUNICATION = 'MANAGER_COMMUNICATION';
+const managerCommunicationSuccess = (data) => ({
+    type: 'MANAGER_COMMUNICATION',
+    managerCommunicationAction: data
+})
+export const managerCommunicationShow = (page) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.get(`/admin/managercommunication?page=${page}`);
+            dispatch(managerCommunicationSuccess(response.data));
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}
+// addCourseCommunication
+export const ADD_COURSE_COMMMUNICATION = 'ADD_COURSE_COMMMUNICATION';
+const addCourseCommunicationSuccess = (data) => ({
+    type: ADD_COURSE_COMMMUNICATION,
+    addCourseCommunicationAction:data
+})
+export const addCourseCommunication = (formData) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('/admin/addcoursecommunication',formData,{
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+            });
+            dispatch(addCourseCommunicationSuccess(response.data));
+        } catch (error) {
+            console.log("Lỗi" + error);
+        }
+    }
+}
+//deleteCommunication
+export const DELETE_COMMUNICATION = 'DELETE_COMMUNICATION';
+const deleteCommunicationSuccess = (data) => ({
+    type: 'DELETE_COMMUNICATION',
+    deleteGrammarAction: data
+})
+export const deleteCommunication = (communication_id) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete(`/admin/deletecommunication/${communication_id}`);
+            dispatch(deleteCommunicationSuccess(response.data.communication_id));
+            dispatch(alertOnSuccess2())
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu"+ error);
+        }
+    }
+}

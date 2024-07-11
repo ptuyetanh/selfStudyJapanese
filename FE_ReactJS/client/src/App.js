@@ -49,6 +49,7 @@ import ManagerCourse from './component/admin/ManagerCourse';
 import ManagerAlphabet from './component/admin/ManagerAlphabet';
 import ManagerVocab from './component/admin/ManagerVocab';
 import ManagerGrammar from './component/admin/ManagerGrammar';
+import ManagerCommunication from './component/admin/ManagerCommunication';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -109,6 +110,7 @@ class App extends Component {
             <Route path='/managercourse/managerAlphabet' element={<ManagerAlphabet />} />
             <Route path='/managercourse/managerVocab' element={<ManagerVocab />} />
             <Route path='/managercourse/managerGrammar' element={<ManagerGrammar />} />
+            <Route path='/managercourse/managerCommunication' element={<ManagerCommunication />} />
           </Route>
         </Routes>
       </Router>

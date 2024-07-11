@@ -100,9 +100,10 @@ a.filecsv {
 
 #userInfo li,
 #vocabInfo li,
-#grammarInfo li
+#grammarInfo li,
+#communicationInfo li
 {
-    list-style: decimal;
+    list-style: none;
     font-size: 20px;
     padding: 12px 10px;
 }

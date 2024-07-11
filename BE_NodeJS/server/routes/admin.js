@@ -363,4 +363,64 @@ router.delete('/deletegrammar/:grammar_id', function (req, res) {
         }
     })
 })
+//manager communication
+router.get('/managercommunication', function (req, res, next) {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+    const offset = (page - 1) * limit;
+    pool.query('SELECT * FROM communications ORDER BY communication_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows);
+        }
+    })
+});
+//addCourseCommunication
+router.post('/addcoursecommunication', upload.single('file_csv'), function (req, res, next) {
+    const fileCsvPath = req.file.path;
+    const results = [];
+    fs.createReadStream(fileCsvPath)
+        .pipe(csv())
+        .on('data', (data) => results.push(data))
+        .on('end', async () => {
+            console.log(results);
+            fs.unlinkSync(fileCsvPath)
+            for (const row of results) {
+                const lesson_name = row['lesson_name'];
+                const one_a = row['one_a'];
+                const one_b = row['one_b'];
+                const two_a = row['two_a'];
+                const two_b = row['two_b'];
+                const three_a = row['three_a'];
+                const three_b = row['three_b'];
+                const four_a = row['four_a'];
+                const four_b = row['four_b'];
+                const five_a = row['five_a'];
+                const five_b = row['five_b'];
+                const mean_shadowing = row['mean_shadowing'];
+                const sound = row['sound_shadowing']; // D:\\ĐATN_TuyetAnh\\database\\alphabetHiragana\\あ.mp3'
+                const sound_name = path.basename(sound, path.extname(sound));//あ
+                const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
+                try {
+                    const localPath = await copyMp3(sound, sound_filename);
+                    await pool.query('INSERT INTO communications (lesson_name,one_a,one_b,two_a,two_b,three_a,three_b,four_a,four_b,five_a,five_b,mean_shadowing,sound_shadowing) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)', [lesson_name,one_a,one_b,two_a,two_b,three_a,three_b,four_a,four_b,five_a,five_b,mean_shadowing,sound_filename]);
+                    res.send(response.rows)
+                } catch (err) {
+                    console.error('Error saving to database', err);
+                }
+            }
+        });
+});
+//deleteCommunication
+router.delete('/deletecommunication/:communication_id', function (req, res) {
+    const { communication_id } = req.params;
+    pool.query('DELETE FROM communications WHERE communication_id = $1', [communication_id], (error, response) => {
+        if (error) {
+            console.log('Truy vấn lỗi' + error);
+        } else {
+            res.send(response.rows[0]);
+        }
+    })
+})
 module.exports = router;

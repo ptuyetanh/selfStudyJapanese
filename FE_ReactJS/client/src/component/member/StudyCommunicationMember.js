@@ -23,7 +23,7 @@ class StudyCommunicationMember extends Component {
     showChatBot = () => {
         const { params } = this.props;
         if (this.props.study.communicationData !== null) {
-            const findChatbot = this.props.study.communicationData.find(value => value.communication_id = params.id_lesson);
+            const findChatbot = this.props.study.communicationData.find(value => value.communication_id === params.id_lesson);
             return (
                 <ChatBots id={findChatbot.communication_id} sound_shadowing={findChatbot.sound_shadowing} one_a={findChatbot.one_a} one_b={findChatbot.one_b} two_a={findChatbot.two_a} two_b={findChatbot.two_b} three_a={findChatbot.three_a} three_b={findChatbot.three_b} four_a={findChatbot.four_a} four_b={findChatbot.four_b} five_a={findChatbot.five_a} five_b={findChatbot.five_b} mean_shadowing={findChatbot.mean_shadowing} />
             )

@@ -1,4 +1,4 @@
-import { ACTIVE_MEMBER, ADD_COURSE_ALPHABET, ADD_COURSE_GRAMMAR, ADD_COURSE_VOCAB, COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_ALPHABET, DELETE_GRAMMAR, DELETE_USER, DELETE_VOCAB, EDIT_USER, MANAGER_ALPHABET, MANAGER_GRAMMAR, MANAGER_USER, MANAGER_VOCAB, NEW_SIGNUP_MEMBER, NEW_USER, REFUSE_ACTIVE_MEMBER, SAVE_ACTIVE_MEMBER } from "../actions/adminAction"
+import { ACTIVE_MEMBER, ADD_COURSE_ALPHABET, ADD_COURSE_COMMMUNICATION, ADD_COURSE_GRAMMAR, ADD_COURSE_VOCAB, COUNT_ALPHABET, COUNT_COMMUNICATION, COUNT_GRAMMAR, COUNT_MEMBER, COUNT_USER, COUNT_VOCAB, DELETE_ALPHABET, DELETE_COMMUNICATION, DELETE_GRAMMAR, DELETE_USER, DELETE_VOCAB, EDIT_USER, MANAGER_ALPHABET, MANAGER_COMMUNICATION, MANAGER_GRAMMAR, MANAGER_USER, MANAGER_VOCAB, NEW_SIGNUP_MEMBER, NEW_USER, REFUSE_ACTIVE_MEMBER, SAVE_ACTIVE_MEMBER } from "../actions/adminAction"
 
 const InitialState = {
     countUserData: null,
@@ -16,7 +16,9 @@ const InitialState = {
     managerVocabData: null,
     addCourseVocabData: null,
     managerGrammarData: null,
-    addCourseGrammarData: null
+    addCourseGrammarData: null,
+    managerCommunicationData: null,
+    addCourseCommunicationData: null
 }
 const adminReducer = (state = InitialState, action) => {
     switch (action.type) {
@@ -71,6 +73,13 @@ const adminReducer = (state = InitialState, action) => {
             return { ...state, addCourseGrammarData: action.addCourseGrammarAction }
         case DELETE_GRAMMAR:
             return { ...state, managerGrammarData: state.managerGrammarData.filter(value => value.grammar_id === action.deleteGrammarAction) }
+        //communication
+        case MANAGER_COMMUNICATION:
+            return { ...state, managerCommunicationData: action.managerCommunicationAction }
+        case ADD_COURSE_COMMMUNICATION:
+            return { ...state, addCourseCommunicationData: action.addCourseCommunicationAction }
+        case DELETE_COMMUNICATION:
+            return { ...state, managerCommunicationData: state.managerCommunicationData.filter(value => value.communication_id === action.deleteCommunicationAction) }
         default:
             return state
     }
