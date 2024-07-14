@@ -19,8 +19,8 @@ class ContentReview extends Component {
                 <div className="vocabulary vocabReview">
                     <div className="reviewVocab">
                         <Link className="random">
-                            <h3>Ôn tập từ vựng</h3>
-                            <h2>NGẪU NHIÊN</h2>
+                            <h3>Cách ôn tập từ vựng</h3>
+                            <h2>1 tiếng/Ôn tập lại</h2>
                         </Link>
                         <Link className="countVocab">
                             <h3>Ôn tập từ vựng</h3>
@@ -28,9 +28,9 @@ class ContentReview extends Component {
                             <h1 className="count">{showCountVocab}</h1>
                         </Link>
                     </div>
-                    <button type="button" className="btn btn-primary">
+                    <Link to = '/homeMember/reviewVocab' type="button" className="btn btn-primary">
                         Từ vựng
-                    </button>
+                    </Link>
                 </div>
             )
         }
@@ -42,8 +42,8 @@ class ContentReview extends Component {
                 <div className="grammar grammarReview">
                     <div className="reviewGrammar">
                         <Link className="random">
-                            <h3>Ôn tập ngữ pháp</h3>
-                            <h2>NGẪU NHIÊN</h2>
+                            <h3>Cách ôn tập ngữ pháp</h3>
+                            <h2>1 tiếng/Ôn tập lại</h2>
                         </Link>
                         <Link className="countGrammar">
                             <h3>Ôn tập ngữ pháp</h3>
@@ -51,9 +51,9 @@ class ContentReview extends Component {
                             <h1 className="count">{showCountGrammar}</h1>
                         </Link>
                     </div>
-                    <button type="button" className="btn btn-primary">
+                    <Link to = {'/homeMember/reviewGrammar'} type="button" className="btn btn-primary">
                         Ngữ pháp
-                    </button>
+                    </Link>
                 </div>
             )
         }

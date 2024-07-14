@@ -23,7 +23,6 @@ class HomeMember extends Component {
 
     showReview = () => {
         if(this.props.review.countReviewData !== null){
-            console.log(typeof(this.props.review.countReviewData[0].count));
             if(this.props.review.countReviewData[0].count === '0'){
                 return <NoReview />
             }else{

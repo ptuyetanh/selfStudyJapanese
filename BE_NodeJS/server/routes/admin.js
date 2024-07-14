@@ -165,6 +165,8 @@ cron.schedule('0 0 * * *', function () {
             console.log("Role_id đã tự động cập nhập về 1");
         }
     })
+},{
+    timezone: 'Asia/Ho_Chi_Minh'
 });
 // refuse activemember
 router.delete('/refuseactivemember/:signupmember_id', function (req, res) {

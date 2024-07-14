@@ -50,6 +50,8 @@ import ManagerAlphabet from './component/admin/ManagerAlphabet';
 import ManagerVocab from './component/admin/ManagerVocab';
 import ManagerGrammar from './component/admin/ManagerGrammar';
 import ManagerCommunication from './component/admin/ManagerCommunication';
+import ReviewVocab from './component/member/ReviewVocab';
+import ReviewGrammar from './component/member/ReviewGrammar';
 class App extends Component {
   componentDidMount() {
     this.props.isAuthUser()
@@ -102,6 +104,8 @@ class App extends Component {
             <Route path='/seeGrammarMember/:level/:id_level/:lesson_name' element={<GrammarLessonContentM />} />
             <Route path='/seeGrammarMember/:level/:id_level/:lesson_name/study' element={<StudyGrammarMember />} />
             <Route path='/homeMember/managerLearnedWords' element={<ManagerLearnedWords />} />
+            <Route path='/homeMember/reviewVocab' element={<ReviewVocab />} />
+            <Route path='/homeMember/reviewGrammar' element={<ReviewGrammar />} />
             {/* admin */}
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/manageruser' element={<ManagerUser />} />

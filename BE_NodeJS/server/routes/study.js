@@ -43,7 +43,8 @@ router.get('/vocabulary', function (req, res, next) {
 });
 router.post('/savevocab', function (req, res, next) {
     var { studyVocab } = req.body;
-    console.log(studyVocab);
+    const review_last = new Date();
+    const review_next = new Date();
     for (let vocab of studyVocab) {
         const { vocab_id, name, mean, user_id } = vocab;
         pool.query('SELECT * FROM reviews where vocab_id = $1', [vocab_id], (error, response) => {
@@ -54,7 +55,7 @@ router.post('/savevocab', function (req, res, next) {
                     console.log("Từ vựng đã tồn tại");
                 } else {
                     try {
-                        pool.query('insert into reviews(vocab_id,name,mean,user_id) values($1,$2,$3,$4)', [vocab_id, name, mean, user_id])
+                        pool.query('insert into reviews(vocab_id,name,mean,user_id,review_last,review_next) values($1,$2,$3,$4,$5,$6)', [vocab_id, name, mean, user_id,review_last,review_next])
                         return res.status(200).send('Nhận dữ liệu' + vocab_id + name + mean + user_id)
                     } catch (error) {
                         console.log(error);
@@ -76,6 +77,8 @@ router.get('/grammar', function (req, res, next) {
 });
 router.post('/savegrammar', function (req, res, next) {
     var { studyGrammar } = req.body;
+    const review_last = new Date();
+    const review_next = new Date();
     console.log(studyGrammar);
     for (let grammar of studyGrammar) {
         const { grammar_id, name, mean, user_id } = grammar;
@@ -87,7 +90,7 @@ router.post('/savegrammar', function (req, res, next) {
                     console.log("Ngữ pháp đã tồn tại");
                 } else {
                     try {
-                        pool.query('insert into reviews(grammar_id,name,mean,user_id) values($1,$2,$3,$4)', [grammar_id, name, mean, user_id])
+                        pool.query('insert into reviews(grammar_id,name,mean,user_id,review_last,review_next) values($1,$2,$3,$4,$5,$6)', [grammar_id, name, mean, user_id,review_last,review_next])
                         return res.status(200).send('Nhận dữ liệu' + grammar_id + name + mean + user_id)
                     } catch (error) {
                         console.log(error);

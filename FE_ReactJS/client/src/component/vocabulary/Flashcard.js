@@ -41,7 +41,7 @@ class Flashcard extends Component {
         return (
             <div className="flashCards">
                 <div className="sound_flash_cards">
-                    <audio className="audios">
+                    <audio className="audios" autoPlay>
                         <source src={'/sound/' + this.props.sound} type="audio/mpeg" />
                     </audio>
                     <i className="fa-solid fa-volume-high" onClick={() => this.clickIconSound()} />
