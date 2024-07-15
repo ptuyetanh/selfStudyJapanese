@@ -6,13 +6,13 @@ import { isAuthUser } from '../react-redux/actions/authAction';
 import { Link, Navigate } from 'react-router-dom';
 import NoReview from '../review/NoReview';
 import ContentReview from '../review/ContentReview';
-import { showCountReview } from '../react-redux/actions/reviewAction';
+import { showReview } from '../react-redux/actions/reviewAction';
 
 class HomeMember extends Component {
     componentDidMount() {
         this.props.isAuthUser();
-        if (this.props.review.countReviewData === null) {
-            this.props.showCountReview();
+        if (this.props.review.reviewData === null) {
+            this.props.showReview();
         }
     }
 
@@ -21,13 +21,18 @@ class HomeMember extends Component {
         window.location.href = '/login'
     }
 
-    showReview = () => {
-        if(this.props.review.countReviewData !== null){
-            if(this.props.review.countReviewData[0].count === '0'){
-                return <NoReview />
+    showReview = (user_id) => {
+        if(this.props.review.reviewData !== null){
+            console.log(this.props.review.reviewData);
+            const findUserReview = this.props.review.reviewData.filter(value => value.user_id === user_id)
+            console.log(findUserReview);
+            if (findUserReview.length > 0) {
+                return <ContentReview user_id = {findUserReview[0].user_id} countvocab = {findUserReview[0].countvocab} countgrammar = {findUserReview[0].countgrammar}/>
             }else{
-                return <ContentReview />
+                return <NoReview />
             }
+        }else {
+            return <NoReview />
         }
     }
 
@@ -37,6 +42,7 @@ class HomeMember extends Component {
         if (isNavigateLogOut) {
             return <Navigate to="/login" />
         }
+        console.log(user.user_id);
         return (
             <main>
                 <MenuMember fullname={user.fullname} logout={this.logOutButton} />
@@ -48,7 +54,7 @@ class HomeMember extends Component {
                         />
                         <h3>Quản lý từ đã học</h3>
                 </Link>
-                {this.showReview()}
+                {this.showReview(user.user_id)}
             </main>
         );
     }
@@ -63,6 +69,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     isAuthUser,
     logOutUser,
-    showCountReview
+    showReview
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomeMember);

@@ -155,7 +155,7 @@ class ManagerCommunication extends Component {
                             {/* end menuAll  */}
                             <div className="col">
                                 <div className="managerCourse">
-                                    <h2 className="tittle">Quản lý ngữ pháp</h2>
+                                    <h2 className="tittle">Quản lý giao tiếp</h2>
                                     <div className="backAndAddCoures">
                                         <Link to='/managercourse'>
                                             <i className="fa-solid fa-arrow-left-long"></i>

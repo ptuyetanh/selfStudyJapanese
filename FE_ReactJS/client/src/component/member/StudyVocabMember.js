@@ -61,7 +61,7 @@ class StudyVocabMember extends Component {
     howToLearn = (user_id) => {
         const {params} = this.props;
         if (this.props.study.vocabularyData !== null) {
-            const vocabStudy = this.props.study.vocabularyData.filter(value => value.lesson_name === params.lesson_name);
+            const vocabStudy = this.props.study.vocabularyData.filter(value => value.lesson_name === params.lesson_name && value.level_id === params.id_level);
             const {numberHowtolearnNow ,numberVocabStudyNow} = this.state;
             if (numberVocabStudyNow >= vocabStudy.length) {
                 return (<StudySuccess vocabStudy = {vocabStudy} user_id = {user_id} linkto = '/homeMember'/>)

@@ -5,25 +5,7 @@ const cron = require('node-cron');
 const moment = require('moment-timezone');
 
 router.get('/', function(req, res, next) {
-    pool.query('SELECT COUNT(*) FROM reviews', (error, response) => {
-        if (error) {
-            console.log('Truy vấn lỗi' + error);
-        } else {
-            res.send(response.rows);
-        }
-    })
-});
-router.get('/countvocab', function(req, res, next) {
-    pool.query('SELECT COUNT(vocab_id) FROM reviews where review_next <= NOW()', (error, response) => {
-        if (error) {
-            console.log('Truy vấn lỗi' + error);
-        } else {
-            res.send(response.rows);
-        }
-    })
-});
-router.get('/countgrammar', function(req, res, next) {
-    pool.query('SELECT COUNT(grammar_id) FROM reviews where review_next <= NOW()', (error, response) => {
+    pool.query('SELECT user_id,COUNT(vocab_id) as countvocab,COUNT(grammar_id) as countgrammar FROM reviews where review_next <= NOW() GROUP BY user_id', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

@@ -11,7 +11,7 @@ class ReviewSuccessG extends Component {
     render() {
         return (
             <div className='studySuccessG'>
-                <h1 className="h2">HỌC THÀNH CÔNG</h1>
+                <h1 className="h2">ÔN TẬP THÀNH CÔNG</h1>
                 <div className="container">
                     <ul className="list">
                         {this.props.grammarReview.map(value =>

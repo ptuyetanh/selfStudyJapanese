@@ -1,52 +1,22 @@
 import axios from "axios";
 
-export const COUNT_REVIEW = 'COUNT_REVIEW';
-export const COUNT_VOCAB = 'COUNT_VOCAB';
-export const COUNT_GRAMMAR = 'COUNT_GRAMMAR';
+export const REVIEW = 'REVIEW';
 export const LEARNED_WORDS = 'LEARNED_WORDS';
 
-const countReviewSuccess = (data) => ({
-    type:COUNT_REVIEW,
-    countReviewAction:data
-});
-const countVocabSuccess = (data) => ({
-    type:COUNT_VOCAB,
-    countVocabAction:data
-});
-const countGrammarSuccess = (data) => ({
-    type:COUNT_GRAMMAR,
-    countGrammarAction:data
+const reviewSuccess = (data) => ({
+    type:REVIEW,
+    reviewAction:data
 });
 const learnedWordsSuccess = (data) => ({
     type:LEARNED_WORDS,
     learnedWordsAction:data
 });
 
-export const showCountReview = () => {
+export const showReview = () => {
     return async (dispatch) => {
         try {
             const response = await axios.get('/review');
-            dispatch(countReviewSuccess(response.data));
-        } catch (error) {
-            console.error("Lỗi khi lấy dữ liệu"+ error);
-        }
-    }
-}
-export const showCountVocab = () => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.get('/review/countvocab');
-            dispatch(countVocabSuccess(response.data));
-        } catch (error) {
-            console.error("Lỗi khi lấy dữ liệu"+ error);
-        }
-    }
-}
-export const showCountGrammar = () => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.get('/review/countgrammar');
-            dispatch(countGrammarSuccess(response.data));
+            dispatch(reviewSuccess(response.data));
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);
         }

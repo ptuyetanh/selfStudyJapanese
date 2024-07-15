@@ -68,7 +68,7 @@ class StudyGrammarUser extends Component {
             const {numberHowtolearnNow, numberGrammarStudyNow} = this.state;
             if (numberGrammarStudyNow >= grammarStudy.length) {
                 return (
-                    <StudySuccessG grammarStudy= {grammarStudy} user_id={user_id} linkto = {'/seeGrammarMember/' + params.level +'/'+ params.id_level}/>
+                    <StudySuccessG grammarStudy= {grammarStudy} user_id={user_id} linkto = {'/seeGrammarUser/' + params.level +'/'+ params.id_level}/>
                 )
             }
             const studyGrammarNow = grammarStudy[numberGrammarStudyNow];
