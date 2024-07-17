@@ -39,7 +39,7 @@ router.get('/alphabet', function (req, res, next) {
     })
 });
 router.get('/alphabet/lessonContent', function (req, res, next) {
-    pool.query('SELECT alphabetlessons.lesson_id, alphabets.type FROM alphabetlessons,alphabets where alphabetlessons.lesson_id = alphabets.lesson_id GROUP BY alphabetlessons.lesson_id, alphabets.type', (error, response) => {
+    pool.query('SELECT alphabetlessons.lesson_id, alphabets.type FROM alphabetlessons,alphabets where alphabetlessons.lesson_id = alphabets.lesson_id GROUP BY alphabetlessons.lesson_id, alphabets.type ORDER BY alphabets.type ASC', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

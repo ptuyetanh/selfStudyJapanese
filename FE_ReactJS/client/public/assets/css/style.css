@@ -867,7 +867,7 @@ i.fa-solid.fa-volume-high.scale {
 }
 
 .flashcards_alphabet h1.name {
-    font-size: 115px;
+    font-size: 88px;
     font-weight: 600;
 }
 
@@ -898,10 +898,12 @@ h2.tittle_alphabet {
 }
 
 .btn.btn-primary.button_alphabet {
-    padding: 4px 31px;
+    padding: 4px 18px;
     margin: 0px 7px 7px 0px;
     background-color: rgb(243, 36, 86);
     border: none;
+    width: 97px;
+    height: 83px;
 }
 
 .studyAlphabet a.btn.btn-primary.arrowBack {

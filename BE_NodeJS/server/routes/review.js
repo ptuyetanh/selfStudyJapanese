@@ -35,14 +35,15 @@ function calculateReviewNext(){
 }
 //Cron job reviewVocabGrammar
 cron.schedule('0 0 * * *', function () {
-    pool.query('SELECT * FROM reviews Where review_next <= NOW', (error, response) => {
+    pool.query('SELECT * FROM reviews Where review_next <= NOW()', (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
-            res.send(response.rows);
+            // res.send(response.rows);
             const vocabOrGrammar = response.rows;
             for(let word of vocabOrGrammar) {
-                pool.query(`UPDATE reviews SET review_last=$1, review_next=$2 WHERE review_id = $3`,[new Date(),calculateReviewNext(),word.review_id], (error) => {
+                const {review_id} = word;
+                pool.query(`UPDATE reviews SET review_last=$1, review_next=$2 WHERE review_id = $3`,[new Date(),calculateReviewNext(),review_id], (error) => {
                     if (error) {
                         console.log('Truy vấn lỗi' + error);
                     } else {
