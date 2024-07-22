@@ -56,8 +56,8 @@ class ReviewGrammar extends Component {
 
     howToLearn = (user_id) => {
         if (this.props.review.reviewGrammarData !== null) {
-            const grammarReview = this.props.review.reviewGrammarData;
-            console.log(this.props.review.reviewGrammarData);
+            const grammarReview = this.props.review.reviewGrammarData.filter(value => value.user_id === user_id);
+            console.log(grammarReview);
             const { numberHowtolearnNow, numberGrammarReviewNow } = this.state;
             if (numberGrammarReviewNow >= grammarReview.length) {
                 return (

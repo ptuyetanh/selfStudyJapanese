@@ -52,7 +52,7 @@ class ReviewVocab extends Component {
     }
     howToLearn = (user_id) => {
         if (this.props.review.reviewVocabData !== null) {
-            const vocabReview = this.props.review.reviewVocabData;
+            const vocabReview = this.props.review.reviewVocabData.filter(value => value.user_id === user_id);
             console.log(vocabReview);
             const {numberHowtolearnNow, numberVocabReviewNow} = this.state;
             if (numberVocabReviewNow >= vocabReview.length) {

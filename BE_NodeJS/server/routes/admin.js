@@ -342,11 +342,11 @@ router.post('/addcoursegrammar', upload.single('file_csv'), function (req, res, 
                 const lesson_name = row['lesson_name']
                 const level_id = row['level_id']
                 const sound = row['sound']; // D:\\ĐATN_TuyetAnh\\database\\alphabetHiragana\\あ.mp3'
-                const sound_name = path.basename(sound, path.extname(sound));//あ
-                const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
+                // const sound_name = path.basename(sound, path.extname(sound));//あ
+                // const sound_filename = sound_name + path.extname(sound); // 'あ.mp3'
                 try {
-                    const localPath = await copyMp3(sound, sound_filename);
-                    await pool.query('INSERT INTO grammars (name,mean,example,mean_example,sound,explain,lesson_name,level_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [name, mean, example, mean_example, sound_filename, explain, lesson_name, level_id]);
+                    // const localPath = await copyMp3(sound, sound_filename);
+                    await pool.query('INSERT INTO grammars (name,mean,example,mean_example,sound,explain,lesson_name,level_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [name, mean, example, mean_example, sound, explain, lesson_name, level_id]);
                     res.send(response.rows)
                 } catch (err) {
                     console.error('Error saving to database', err);

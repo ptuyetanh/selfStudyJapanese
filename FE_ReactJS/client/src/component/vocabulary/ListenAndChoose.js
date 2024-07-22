@@ -82,7 +82,7 @@ class ListenAndChoose extends Component {
             <div className="listenAndChoose">
                 <h2>Hãy nghe và chọn đáp án</h2>
                 <div className="sound_listen">
-                    <audio className="audios" autoplay>
+                    <audio className="audios" autoPlay>
                         <source src={"/sound/" + this.props.sound} type="audio/mpeg" />
                     </audio>
                     <i className="fa-solid fa-volume-high" onClick={() => this.clickIconSound()} />

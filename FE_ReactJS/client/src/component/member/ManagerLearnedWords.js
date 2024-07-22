@@ -54,9 +54,11 @@ class ManagerLearnedWords extends Component {
         window.location.href = '/login'
     }
 
-    showContentTable = () => {
+    showContentTable = (user_id) => {
         if (this.props.review.learnedWordsData !== null) {
-            return this.props.review.learnedWordsData.map((value, key) => {
+            const findlearnedWords = this.props.review.learnedWordsData.filter(value => value.user_id === user_id);
+            console.log(findlearnedWords);
+            return findlearnedWords.map((value, key) => {
                 return (
                     <RowTableManager STT={key} name={value.name} mean={value.mean} vocab_id={value.vocab_id} grammar_id={value.grammar_id} />
                 )
@@ -111,7 +113,7 @@ class ManagerLearnedWords extends Component {
                                         </th>
                                     </tr>
                                 </thead>
-                                {this.showContentTable()}
+                                {this.showContentTable(user.user_id)}
                             </table>
                         </div>
                         {/* end table */}

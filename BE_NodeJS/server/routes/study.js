@@ -47,7 +47,8 @@ router.post('/savevocab', function (req, res, next) {
     const review_next = new Date();
     for (let vocab of studyVocab) {
         const { vocab_id, name, mean, user_id } = vocab;
-        pool.query('SELECT * FROM reviews where vocab_id = $1', [vocab_id], (error, response) => {
+        pool.query('ALTER TABLE reviews DROP CONSTRAINT IF EXISTS reviews_vocab_id_key');
+        pool.query('SELECT * FROM reviews where vocab_id = $1 and user_id= $2', [vocab_id,user_id], (error, response) => {
             if (error) {
                 console.log('Truy vấn lỗi' + error);
             } else {
@@ -82,7 +83,8 @@ router.post('/savegrammar', function (req, res, next) {
     console.log(studyGrammar);
     for (let grammar of studyGrammar) {
         const { grammar_id, name, mean, user_id } = grammar;
-        pool.query('SELECT * FROM reviews where grammar_id = $1', [grammar_id], (error, response) => {
+        pool.query('ALTER TABLE reviews DROP CONSTRAINT IF EXISTS reviews_grammar_id_key');
+        pool.query('SELECT * FROM reviews where grammar_id = $1 and user_id = $2', [grammar_id,user_id], (error, response) => {
             if (error) {
                 console.log('Truy vấn lỗi' + error);
             } else {
