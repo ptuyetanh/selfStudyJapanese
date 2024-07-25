@@ -163,11 +163,11 @@ const deleteUserSuccess = (data) => ({
     type: 'DELETE_USER',
     deleteUserAction: data
 })
-export const deleteUser = (user_id) => {
+export const deleteUser = (user_id,role_id) => {
     return async (dispatch) => {
         try {
-            const response = await axios.delete(`/admin/manageruser/${user_id}`);
-            dispatch(deleteUserSuccess(response.data.user_id));
+            const response = await axios.delete(`/admin/manageruser/${user_id}/${role_id}`);
+            dispatch(deleteUserSuccess(response.data));
             dispatch(alertOnSuccess2())
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);

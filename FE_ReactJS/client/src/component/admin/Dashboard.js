@@ -9,6 +9,7 @@ import ContentCount from './component/ContentCount';
 import NewUser from './component/NewUser';
 import NewSignUPMembers from './component/NewSignUPMembers';
 import { countAlphabetShow, countCommunicationShow, countGrammarShow, countMemberShow, countUserShow, countVocabShow, newSignUpMemberShow, newUserShow } from '../react-redux/actions/adminAction';
+import moment from 'moment';
 
 class Dashboard extends Component {
     componentDidMount() {
@@ -111,9 +112,10 @@ class Dashboard extends Component {
     }
     showNewSignUpMember = () => {
         if (this.props.admin.newSignUpMemberData !== null) {
+            console.log(this.props.admin.newSignUpMemberData);
             return this.props.admin.newSignUpMemberData.map(value => {
                 return (
-                    <NewSignUPMembers key={`admin + ${value.signupmember_id}`} name={value.fullname} timesignup = {value.timesignup}/>
+                    <NewSignUPMembers key={`admin + ${value.signupmember_id}`} name={value.fullname} timesignup = {moment(value.timesignup).utcOffset(7).format('YYYY-MM-DD HH:mm')}/>
                 )
             })
         }

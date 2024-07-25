@@ -12,9 +12,11 @@ class ManagerLearnedWords extends Component {
 
     constructor(props) {
         super(props);
+        const { user } = this.props.auth;
         this.state = {
             currentPage: 1,
-            searchWord: ''
+            searchWord: '',
+            user_id: user.user_id
         }
         this.debouncelearnedWords = debounce(this.props.learnedWords, 300)
     }
@@ -22,13 +24,13 @@ class ManagerLearnedWords extends Component {
     componentDidMount() {
         this.props.isAuthUser();
         if (this.props.review.learnedWordsData === null) {
-            this.props.learnedWords(this.state.currentPage, this.state.searchWord);
+            this.props.learnedWords(this.state.currentPage, this.state.searchWord,this.state.user_id);
         }
     }
 
     componentDidUpdate(prevState) {
         if (prevState.currentPage !== this.state.currentPage || prevState.searchWord !== this.state.searchWord) {
-            this.debouncelearnedWords(this.state.currentPage, this.state.searchWord);
+            this.debouncelearnedWords(this.state.currentPage, this.state.searchWord, this.state.user_id);
         }
     }
 
@@ -54,9 +56,10 @@ class ManagerLearnedWords extends Component {
         window.location.href = '/login'
     }
 
-    showContentTable = (user_id) => {
+    showContentTable = () => {
         if (this.props.review.learnedWordsData !== null) {
-            const findlearnedWords = this.props.review.learnedWordsData.filter(value => value.user_id === user_id);
+            console.log(this.props.review.learnedWordsData);
+            const findlearnedWords = this.props.review.learnedWordsData;
             console.log(findlearnedWords);
             return findlearnedWords.map((value, key) => {
                 return (
@@ -77,7 +80,7 @@ class ManagerLearnedWords extends Component {
         this.setState({
             currentPage: 1
         },() => {
-            this.props.learnedWords(this.state.currentPage, this.state.searchWord);
+            this.props.learnedWords(this.state.currentPage, this.state.searchWord,this.state.user_id);
         });
     }
 
@@ -113,7 +116,7 @@ class ManagerLearnedWords extends Component {
                                         </th>
                                     </tr>
                                 </thead>
-                                {this.showContentTable(user.user_id)}
+                                {this.showContentTable()}
                             </table>
                         </div>
                         {/* end table */}

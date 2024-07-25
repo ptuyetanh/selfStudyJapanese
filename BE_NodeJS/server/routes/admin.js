@@ -114,15 +114,20 @@ router.put('/manageruser/:user_id', function (req, res, next) {
     })
 });
 //delete user
-router.delete('/manageruser/:user_id', function (req, res) {
-    const { user_id } = req.params;
-    pool.query('DELETE FROM users WHERE user_id = $1', [user_id], (error, response) => {
-        if (error) {
-            console.log('Truy vấn lỗi' + error);
-        } else {
-            res.send(response.rows[0]);
-        }
-    })
+router.delete('/manageruser/:user_id/:role_id', function (req, res) {
+    const { user_id,role_id } = req.params;
+    console.log(role_id);
+    if (role_id === '1' || role_id === '2') {
+        return (pool.query('DELETE FROM users WHERE user_id = $1 and role_id = $2', [user_id,role_id], (error, response) => {
+            if (error) {
+                console.log('Truy vấn lỗi' + error);
+            } else {
+                res.send(response.rows[0]);
+            }
+        }))
+    }else{
+        console.log("Không xóa admin");
+    }
 })
 //active member
 router.get('/activemember', function (req, res, next) {
@@ -184,7 +189,7 @@ router.get('/manageralphabet', function (req, res, next) {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 5;
     const offset = (page - 1) * limit;
-    pool.query('SELECT * FROM alphabetlessons,alphabets where alphabetlessons.lesson_id = alphabets.lesson_id ORDER BY alphabet_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+    pool.query('SELECT * FROM alphabetlessons,alphabets where alphabetlessons.lesson_id = alphabets.lesson_id ORDER BY alphabet_id DESC limit $1 offset $2', [limit, offset], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
@@ -259,7 +264,7 @@ router.get('/managervocab', function (req, res, next) {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 5;
     const offset = (page - 1) * limit;
-    pool.query('SELECT * FROM vocabularies,levels where vocabularies.level_id = levels.level_id ORDER BY vocab_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+    pool.query('SELECT * FROM vocabularies,levels where vocabularies.level_id = levels.level_id ORDER BY vocab_id DESC limit $1 offset $2', [limit, offset], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
@@ -315,7 +320,7 @@ router.get('/managergrammar', function (req, res, next) {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 5;
     const offset = (page - 1) * limit;
-    pool.query('SELECT * FROM grammars,levels where grammars.level_id = levels.level_id ORDER BY grammar_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+    pool.query('SELECT * FROM grammars,levels where grammars.level_id = levels.level_id ORDER BY grammar_id DESC limit $1 offset $2', [limit, offset], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
@@ -370,7 +375,7 @@ router.get('/managercommunication', function (req, res, next) {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 5;
     const offset = (page - 1) * limit;
-    pool.query('SELECT * FROM communications ORDER BY communication_id ASC limit $1 offset $2', [limit, offset], (error, response) => {
+    pool.query('SELECT * FROM communications ORDER BY communication_id DESC limit $1 offset $2', [limit, offset], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {

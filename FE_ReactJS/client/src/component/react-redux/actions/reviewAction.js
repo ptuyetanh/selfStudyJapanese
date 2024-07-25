@@ -22,10 +22,10 @@ export const showReview = () => {
         }
     }
 }
-export const learnedWords = (page,search) => {
+export const learnedWords = (page,search,user_id) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get(`/review/learnedwords?page=${page}&search=${search}`);
+            const response = await axios.get(`/review/learnedwords?page=${page}&search=${search}&user_id=${user_id}`);
             dispatch(learnedWordsSuccess(response.data));
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu"+ error);

@@ -18,7 +18,8 @@ router.get('/learnedwords', function(req, res, next) {
     const limit = parseInt(req.query.limit) || 5 ;
     const offset = (page - 1) * limit;
     const search = req.query.search || '';
-    pool.query('SELECT * FROM reviews where name ILIKE $1 OR mean ILIKE $1 ORDER BY review_id ASC limit $2 offset $3',[`%${search}%`,limit,offset], (error, response) => {
+    const user_id = req.query.user_id;
+    pool.query('SELECT * FROM reviews where (user_id = $1) AND (name ILIKE $2 OR mean ILIKE $2) ORDER BY review_id ASC limit $3 offset $4',[user_id,`%${search}%`,limit,offset], (error, response) => {
         if (error) {
             console.log('Truy vấn lỗi' + error);
         } else {
